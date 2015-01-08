@@ -4,6 +4,10 @@ body {
   color: #333;
   background-color: #F6F6F6 !important; }
 
+#container {
+  margin: 0 auto;
+  max-width: 960px; }
+
 .item {
   width: 160px;
   height: 160px;

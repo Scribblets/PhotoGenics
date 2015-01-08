@@ -7,6 +7,11 @@ body {
   background-color: $body-bg !important;
 }
 
+#container {
+	margin: 0 auto;
+	max-width: 960px;
+}
+
 .item {
   width: 160px;
   height: 160px;
