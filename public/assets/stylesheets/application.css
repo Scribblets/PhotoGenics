@@ -1,0 +1,49 @@
+@import url(bootstrap.css);
+body {
+  font: 100% Helvetica, sans-serif;
+  color: #333;
+  background-color: #F6F6F6 !important; }
+
+.item {
+  width: 160px;
+  height: 160px;
+  margin: 10px;
+  float: left;
+  position: relative;
+  background: #00b3ee; }
+
+.item.w2 {
+  width: 340px; }
+
+.item.w3 {
+  width: 520px; }
+
+.item.w4 {
+  width: 700px; }
+
+.item.h2 {
+  height: 340px; }
+
+.thumb-text {
+  position: absolute;
+  bottom: 15px;
+  left: 0px;
+  width: 160px;
+  background: rgba(0, 0, 0, 0.75);
+  color: #FFF;
+  padding: 10px;
+  font-size: 10px; }
+
+.thumb-text p {
+  margin: 0; }
+
+.printTitle {
+  font-weight: bold; }
+
+.printPrice {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 18px; }
+
+/*# sourceMappingURL=application.css.map */
