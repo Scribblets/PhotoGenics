@@ -178,6 +178,33 @@ a:hover {
 	color: #222;
 }
 
+
+.qty-form {
+	width: 100px;
+}
+
+.qty-td {
+	position: relative;
+}
+
+.btn-delete-item {
+	position: absolute;
+	right: 75px;
+	top: 8px;
+}
+
+.total {
+	float: right;
+}
+
+.button-group {
+	float: right;
+}
+
+.input-qty {
+	height: 33px;
+}
+
 /* ==========================================================================
    Buttons
    ========================================================================== */

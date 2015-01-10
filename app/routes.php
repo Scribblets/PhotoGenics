@@ -21,11 +21,6 @@ Route::get('/', function()
 	return View::make('home')->with($data);
 });
 
-/* | TEMPORARY | */
-Route::get('/details', function() {
-	return View::make('home');
-});
-
 Route::get('/details/{item_id}', function($item_id) {	
 	// Fetch item data by $item_id...
 	// Fetch up to four RANDOM related images from artist...
@@ -63,6 +58,12 @@ Route::get('/details/{item_id}', function($item_id) {
 	];
 	
 	return View::make('details')->with($data);
+});
+
+Route::get('/checkout', function() {
+	$data['cartCount'] = 0;
+	$data['title'] = "PhotoGenics - Checkout";
+	return View::make('checkout', $data);
 });
 
 Route::get('/data/{url_var}', function($url_var)
