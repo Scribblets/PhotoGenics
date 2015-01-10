@@ -5,7 +5,10 @@ body {
 .clear {
   clear: both; }
 
-#container {
+/* ==========================================================================
+   Home Page
+   ========================================================================== */
+#container, .wrapper {
   margin: 0 auto;
   clear: both;
   margin-top: 106px; }
@@ -46,23 +49,6 @@ a:hover {
   position: relative;
   background: #00b3ee; }
 
-/*
-.item.w2 {
-  width: 340px;
-}
-
-.item.w3 {
-  width: 520px;
-}
-
-.item.w4 {
-  width: 700px;
-}
-
-.item.h2 {
-  height: 340px;
-}
-*/
 .thumb-text {
   position: absolute;
   bottom: 15px;
@@ -84,6 +70,34 @@ a:hover {
   right: 10px;
   top: 10px;
   font-size: 18px; }
+
+/* ==========================================================================
+   Details Page
+   ========================================================================== */
+.wrapper {
+  max-width: 960px; }
+
+.product_image {
+  max-width: 340px;
+  max-height: 340px;
+  float: left;
+  margin-right: 25px; }
+
+.more {
+  clear: both; }
+
+.product_details {
+  position: relative; }
+
+.btn-addtocart {
+  position: absolute;
+  top: 0;
+  right: 0; }
+
+.info_label {
+  display: inline-block;
+  min-width: 125px;
+  font-weight: bold; }
 
 /* ==========================================================================
    Header
@@ -130,12 +144,27 @@ a:hover {
 .brand {
   color: #222; }
 
+.brand:hover {
+  color: #222; }
+
 /* ==========================================================================
    Buttons
    ========================================================================== */
 .btn-primary {
   background-color: #259de9;
   border-color: #1787CF; }
+
+.btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+  background-color: #1787CF;
+  border-color: #1787CF; }
+
+.btn-success {
+  background-color: #EF206E;
+  border-color: #dd135d; }
+
+.btn-success:hover, .btn-success:active, .btn-success:visited {
+  background-color: #dd135d;
+  border-color: #dd135d; }
 
 /* ==========================================================================
    Typography
@@ -151,6 +180,14 @@ h1 {
 
 a {
   text-decoration: none !important; }
+
+h3 {
+  font-family: "OldSansBlack", sans-serif;
+  text-transform: uppercase; }
+
+.wrapper p {
+  font-family: "FreightTextBook", serif;
+  font-size: 18px; }
 
 /* ==========================================================================
    Font Imports

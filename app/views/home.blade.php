@@ -21,7 +21,7 @@
 				<p class="printPrice">$9.99</p>
 			</div>
 		</div>
-		<div class="item w2">
+		<div class="item">
 			<img src="http://placekitten.com/g/340/160" />
 			<div class="thumb-text">
 				<p class="printTitle">Print Title</p>
@@ -37,7 +37,7 @@
 				<p class="printPrice">$9.99</p>
 			</div>
 		</div>
-		<div class="item w2">
+		<div class="item">
 			<img src="http://placekitten.com/g/340/160" />
 			<div class="thumb-text">
 				<p class="printTitle">Print Title</p>
@@ -45,7 +45,7 @@
 				<p class="printPrice">$9.99</p>
 			</div>
 		</div>
-		<div class="item h2">
+		<div class="item">
 			<img src="http://placekitten.com/g/160/340" />
 			<div class="thumb-text">
 				<p class="printTitle">Print Title</p>
@@ -61,7 +61,7 @@
 				<p class="printPrice">$9.99</p>
 			</div>
 		</div>
-		<div class="item h2">
+		<div class="item">
 			<img src="http://placekitten.com/g/160/340" />
 			<div class="thumb-text">
 				<p class="printTitle">Print Title</p>
@@ -69,7 +69,7 @@
 				<p class="printPrice">$9.99</p>
 			</div>
 		</div>
-		<div class="item w2 h2">
+		<div class="item">
 			<img src="http://placekitten.com/g/340/340" />
 			<div class="thumb-text">
 				<p class="printTitle">Print Title</p>
@@ -93,7 +93,7 @@
 				<p class="printPrice">$9.99</p>
 			</div>
 		</div>
-		<div class="item h2">
+		<div class="item">
 			<img src="http://placekitten.com/g/160/340" />
 			<div class="thumb-text">
 				<p class="printTitle">Print Title</p>
@@ -117,7 +117,7 @@
 				<p class="printPrice">$9.99</p>
 			</div>
 		</div>
-		<div class="item w2">
+		<div class="item">
 			<img src="http://placekitten.com/g/340/160" />
 			<div class="thumb-text">
 				<p class="printTitle">Print Title</p>
@@ -133,7 +133,7 @@
 				<p class="printPrice">$9.99</p>
 			</div>
 		</div>
-		<div class="item w4 h2">
+		<div class="item">
 			<img src="http://placekitten.com/g/700/340" />
 			<div class="thumb-text">
 				<p class="printTitle">Print Title</p>
@@ -149,7 +149,7 @@
 				<p class="printPrice">$9.99</p>
 			</div>
 		</div>
-		<div class="item h2">
+		<div class="item">
 			<img src="http://placekitten.com/g/160/340" />
 			<div class="thumb-text">
 				<p class="printTitle">Print Title</p>

@@ -8,7 +8,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="brand" href="#"><h1>Photo<span class="logo-color"><i class="fa fa-camera-retro"></i>Genics</span></h1></a>
+				<a class="brand" href="/"><h1>Photo<span class="logo-color"><i class="fa fa-camera-retro"></i>Genics</span></h1></a>
 			</div>
 			
 			<div class="navbar-collapse collapse">
