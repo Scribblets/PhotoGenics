@@ -1303,8 +1303,6 @@ return array(
     'Symfony\\Component\\HttpKernel\\Exception\\AccessDeniedHttpException' => $vendorDir . '/symfony/http-kernel/Symfony/Component/HttpKernel/Exception/AccessDeniedHttpException.php',
     'Symfony\\Component\\HttpKernel\\Exception\\BadRequestHttpException' => $vendorDir . '/symfony/http-kernel/Symfony/Component/HttpKernel/Exception/BadRequestHttpException.php',
     'Symfony\\Component\\HttpKernel\\Exception\\ConflictHttpException' => $vendorDir . '/symfony/http-kernel/Symfony/Component/HttpKernel/Exception/ConflictHttpException.php',
-    'Symfony\\Component\\HttpKernel\\Exception\\FatalErrorException' => $vendorDir . '/symfony/http-kernel/Symfony/Component/HttpKernel/Exception/FatalErrorException.php',
-    'Symfony\\Component\\HttpKernel\\Exception\\FlattenException' => $vendorDir . '/symfony/http-kernel/Symfony/Component/HttpKernel/Exception/FlattenException.php',
     'Symfony\\Component\\HttpKernel\\Exception\\GoneHttpException' => $vendorDir . '/symfony/http-kernel/Symfony/Component/HttpKernel/Exception/GoneHttpException.php',
     'Symfony\\Component\\HttpKernel\\Exception\\HttpException' => $vendorDir . '/symfony/http-kernel/Symfony/Component/HttpKernel/Exception/HttpException.php',
     'Symfony\\Component\\HttpKernel\\Exception\\HttpExceptionInterface' => $vendorDir . '/symfony/http-kernel/Symfony/Component/HttpKernel/Exception/HttpExceptionInterface.php',

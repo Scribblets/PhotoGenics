@@ -30,15 +30,7 @@
 									<td>Kitty</td>
 									<td>Jebus Krist</td>
 									<td class="qty-td">
-										<form class="qty-form">
-											<div class="input-group">
-												<input type="number" max="10" min="1" value="1" class="form-control input-qty" placeholder="Qty." />
-												<span class="input-group-btn">
-													<button class="btn btn-primary" type="button"><i class="fa fa-check"></i></button>
-												</span>
-											</div>
-										</form>
-										
+										<input type="number" max="10" min="1" value="1" class="form-control input-qty" placeholder="Qty." />
 										<button class="btn btn-danger btn-delete-item" type="button"><i class="fa fa-times"></i></button>
 									</td>
 									<td>$9.99</td>
@@ -50,15 +42,7 @@
 									<td>Kitty</td>
 									<td>Jebus Krist</td>
 									<td class="qty-td">
-										<form class="qty-form">
-											<div class="input-group">
-												<input type="number" max="10" min="1" value="1" class="form-control input-qty" placeholder="Qty." />
-												<span class="input-group-btn">
-													<button class="btn btn-primary" type="button"><i class="fa fa-check"></i></button>
-												</span>
-											</div>
-										</form>
-										
+										<input type="number" max="10" min="1" value="1" class="form-control input-qty" placeholder="Qty." />
 										<button class="btn btn-danger btn-delete-item" type="button"><i class="fa fa-times"></i></button>
 									</td>
 									<td>$9.99</td>
@@ -82,12 +66,90 @@
 				</div>
 				
 				<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-					<div class="panel-body">
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-						<div class="button-group">
-							<button type="button" class="btn btn-default prev-next">Edit Cart</button>
-							<button id="placeOrder" type="button" class="btn btn-success" disabled="true">Place Order</button>
-						</div>
+					<div class="panel-body">						
+						<form id="checkout-form">
+							
+							<div class="alert alert-danger" role="alert"><b>Oops!</b> There was an error processing your order! Please try again.</div>
+							
+							<!-- Shipping Information -->
+							<div class="shipping-information">
+								<p><b>Shipping Information</b></p>
+								
+								<div>
+									<div class="form-group fname">
+										<label for="firstname">First Name:</label>
+										<input type="text" class="form-control" id="firstname" placeholder="First Name" val="">
+									</div>
+									
+									<div class="form-group fname">
+										<label for="lastname">Last Name:</label>
+										<input type="text" class="form-control" id="lastname" placeholder="Last Name" val="">
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<label for="email">Email:</label>
+									<input type="email" class="form-control" id="email" placeholder="Email" val="">
+								</div>
+								
+								<div class="form-group">
+									<label for="address">Address:</label>
+									<input type="text" class="form-control" id="address" placeholder="Address" val="">
+								</div>
+								
+								<div class="form-group">
+									<div class="form-group city">
+										<label for="city">City:</label>
+										<input type="text" class="form-control" id="city" placeholder="City" val="">
+									</div>
+									
+									<div class="form-group state">
+										<label for="state">State:</label>
+										<input type="text" class="form-control" id="state" placeholder="XX" maxlength="2" val="">
+									</div>
+									
+									<div class="form-group zip">
+										<label for="zip">Zip Code:</label>
+										<input type="text" class="form-control" id="zip" placeholder="XXXXX" maxlength="5" val="">
+									</div>
+								</div>
+							</div>
+							
+							
+							
+							<!-- Credit Card Information -->
+							<div class="credit-card-information">
+								<p><b>Credit Card Information</b></p>
+								
+								<div class="form-group">
+									<label for="cc-number">Card Number:</label>
+									<input type="text" class="form-control" id="cc-number" placeholder="Credit Card Number" maxlength="16" val="">
+								</div>
+								
+								<div class="form-group">
+									<div class="form-group cc-exp-date">
+										<label for="cc-exp-month" class="cc-exp-date-label">Expiration Date:</label>
+										<input type="text" class="form-control" id="cc-exp-month" placeholder="MM" maxlength="2" val=""> / 
+										<input type="text" class="form-control" id="cc-exp-year" placeholder="YYYY" maxlength="4" val="">
+									</div>
+									
+									<div class="form-group cc-code">
+										<label for="cc-code">CSC:</label>
+										<input type="text" class="form-control" id="cc-code" placeholder="123" maxlength="3" val="">
+									</div>
+									<div class="clear"></div>
+								</div>
+								
+								<div class="form-group cc-total">
+									<p>*A total of <b>$19.98</b> will be charged to your credit card.</p>
+								</div>
+								
+								<div class="button-group">
+									<button type="button" class="btn btn-default prev-next">Edit Cart</button>
+									<button id="placeOrder" type="button" class="btn btn-success" disabled="true">Place Order</button>
+								</div>
+							</div>
+						</form>						
 					</div>
 				</div>
 			</div>
@@ -99,8 +161,27 @@
 				
 				<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
 					<div class="panel-body">
-						<h3>Thank you!</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+						<div id="confirmation">
+							<div class="alert alert-success" role="alert"><b>Success!</b> Your order number is <b>#591392</b>.</div>
+							<h3>Thank You!</h3>
+							<p>Thank you for your order. The details are below:</p> 
+							<p><b>Order ID:</b> <code>#591392</code></p>
+							<p><b>Date:</b> 01/10/2015</p>
+							<p><b>Total:</b> $19.98</p>
+							<p><b>Items:</b></p>
+							<ul>
+								<li>Item #214121 - Kitty Print by Jebus Krist Qty. 1 - $9.99</li>
+								<li>Item #612510 - Cats Print by Jebus Krist Qty. 1 - $9.99</li>
+							</ul>
+							
+							<p><b>Billing Information:</b></p>
+							<ul>
+								<li>Name - Lindsay Roberts</li>
+								<li>Email - lrroberts0122@gmail.com</li>
+								<li>Address - 5584 Century 21 Blvd. #121, Orlando, FL 32807</li>
+								<li>Card - Ending in <code>x1001</code></li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</div>

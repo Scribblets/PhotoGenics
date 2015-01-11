@@ -40,19 +40,19 @@ Route::get('/details/{item_id}', function($item_id) {
 		'related' => [
 			[
 				'link' => '/details/12345',
-				'source' => 'http://placekitten.com/g/235/235'
+				'source' => 'http://placekitten.com/g/225/225'
 			],
 			[
 				'link' => '/details/12345',
-				'source' => 'http://placekitten.com/g/235/235'
+				'source' => 'http://placekitten.com/g/225/225'
 			],
 			[
 				'link' => '/details/12345',
-				'source' => 'http://placekitten.com/g/235/235'
+				'source' => 'http://placekitten.com/g/225/225'
 			],
 			[
 				'link' => '/details/12345',
-				'source' => 'http://placekitten.com/g/235/235'
+				'source' => 'http://placekitten.com/g/225/225'
 			]
 		]
 	];

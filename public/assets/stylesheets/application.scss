@@ -94,6 +94,7 @@ a:hover {
    ========================================================================== */
 .wrapper {
 	max-width: 960px;
+	padding: 0 20px;
 }
 
 .product_image {
@@ -107,7 +108,7 @@ a:hover {
 	clear: both;
 }
 
-.product_details {
+.print_info {
 	position: relative;
 }
 
@@ -178,19 +179,8 @@ a:hover {
 	color: #222;
 }
 
-
-.qty-form {
-	width: 100px;
-}
-
 .qty-td {
-	position: relative;
-}
-
-.btn-delete-item {
-	position: absolute;
-	right: 75px;
-	top: 8px;
+	max-width: 200px !important;
 }
 
 .total {
@@ -202,7 +192,103 @@ a:hover {
 }
 
 .input-qty {
-	height: 33px;
+	max-width: 55px;
+}
+
+.input-qty, .btn-delete-item {
+	display: inline-block;
+}
+
+#checkout-form, #confirmation {
+	margin: 0 auto;
+	width: 600px;
+}
+
+#checkout-form p, #confirmation p {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 16px;
+}
+
+#cc-number {
+	max-width: 215px;
+}
+
+#cc-exp-month {
+	max-width: 50px;
+}
+
+#cc-exp-year {
+	max-width: 70px;
+}
+
+#cc-exp-month, #cc-exp-year {
+	display: inline-block;
+}
+
+.cc-exp-date-label {
+	display: block;
+}
+
+.cc-exp-date {
+	float: left;
+}
+
+.cc-code {
+	float: left;
+	max-width: 60px;
+	margin-left: 20px;
+}
+
+.credit-card-information {
+	float: left;
+	margin-left: 50px;
+}
+
+.shipping-information {
+	max-width: 450px;
+	float: left;
+}
+
+.city, .state, .zip {
+	display: inline-block;
+}
+
+.city {
+	max-width: 250px;
+}
+
+.state {
+	max-width: 50px;
+}
+
+.zip {
+	max-width: 80px;
+}
+
+#firstname, #lastname {
+	max-width: 154px;
+}
+
+.fname, .lname {
+	display: inline-block;
+}
+
+#checkout-form .alert {
+	text-align: center;
+}
+
+#checkout-form .button-group {
+	margin-top: 15px;
+}
+
+.credit-card-information {
+	max-width: 220px;
+}
+
+.cc-total {
+	clear: both;
+	margin-top: 20px;
+	display: block;
 }
 
 /* ==========================================================================
@@ -221,6 +307,11 @@ a:hover {
 .btn-success {
 	background-color: $action-color;
 	border-color: #dd135d;
+}
+
+.btn-success[disabled] {
+	background-color: #db6d94;
+	border-color: #db6d94;
 }
 
 .btn-success:hover, .btn-success:active, .btn-success:visited {

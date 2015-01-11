@@ -5,7 +5,7 @@
 	
 	<div class="wrapper">
 		<div class="print_info">
-			<h3>PRINT DETAILS</h3>
+			<h3>PRINT DETAILS <button type="button" class="btn btn-success btn-addtocart"><i class="fa fa-shopping-cart"></i> Add to Cart</button></h3>
 			
 			<div class="product_image">
 				<img src="{{ $item['source'] }}" />
@@ -18,8 +18,6 @@
 				<p><span class="info_label">Price:</span> ${{ $item['price'] }}</p>
 				<p><span class="info_label">ID:</span> #{{ $item['id'] }}</p>
 				<p><span class="info_label">Description:</span><br /> {{ $item['description'] }}</p>
-				
-				<button type="button" class="btn btn-success btn-addtocart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
 			</div>
 			<div class="clear"></div>
 		</div>
