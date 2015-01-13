@@ -1,0 +1,11 @@
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(128) COLLATE utf8_unicode_ci NOT NULL,
+  `password` VARCHAR(64) COLLATE utf8_unicode_ci NOT NULL,
+  `remember_token` VARCHAR(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=INNODB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+ 
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` (`id`, `username`, `password`, `remember_token`) VALUES
+  (1, 'admin', '$2y$10$3T5VWug6d3KdLh1.l8J2x.8WMAjZ3tPxACvpUb7XToWQoFgjjEGWi', '');

@@ -1,0 +1,293 @@
+@import url(bootstrap.css);
+body {
+  background-color: #FFF !important; }
+
+.clear {
+  clear: both; }
+
+/* ==========================================================================
+   Home Page
+   ========================================================================== */
+#container, .wrapper {
+  margin: 0 auto;
+  clear: both;
+  margin-top: 106px; }
+
+#categories {
+  position: fixed;
+  z-index: 1;
+  background-color: #222;
+  top: 70px;
+  width: 100%; }
+
+#categories ul {
+  list-style: none;
+  margin: 0;
+  padding: 10px 0px 26px 0px; }
+
+#categories ul li {
+  float: left;
+  margin: 0 10px;
+  font-size: 12px; }
+
+#categories ul li a {
+  color: #FFF;
+  padding: 2px 10px;
+  border-radius: 30px; }
+
+a:hover {
+  text-decoration: none; }
+
+#categories .active, #categories a:hover {
+  background-color: #EF206E; }
+
+.item {
+  width: auto;
+  height: auto;
+  margin: 10px;
+  float: left;
+  position: relative;
+  background: #00b3ee; }
+
+.thumb-text {
+  position: absolute;
+  bottom: 15px;
+  left: 0px;
+  width: 160px;
+  background: rgba(0, 0, 0, 0.75);
+  color: #FFF;
+  padding: 10px;
+  font-size: 10px; }
+
+.thumb-text p {
+  margin: 0; }
+
+.printTitle {
+  font-weight: bold; }
+
+.printPrice {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 18px; }
+
+/* ==========================================================================
+   Details Page
+   ========================================================================== */
+.wrapper {
+  max-width: 960px;
+  padding: 0 20px; }
+
+.product_image {
+  max-width: 340px;
+  max-height: 340px;
+  float: left;
+  margin-right: 25px; }
+
+.more {
+  clear: both; }
+
+.print_info {
+  position: relative; }
+
+.btn-addtocart {
+  position: absolute;
+  top: 0;
+  right: 0; }
+
+.info_label {
+  display: inline-block;
+  min-width: 125px;
+  font-weight: bold; }
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+#header {
+  max-width: 960px;
+  margin: 0 auto; }
+
+/* Navigation */
+#header ul {
+  list-style: none;
+  display: inline-block;
+  float: right;
+  padding-left: 0;
+  margin-right: 0 !important; }
+
+#header ul li {
+  float: left;
+  padding: 5px;
+  font-size: 16px;
+  height: 39px;
+  margin: 20px 0 10px 10px;
+  position: relative; }
+
+#header ul li a {
+  margin-right: 5px;
+  padding-top: 0;
+  color: #EF206E; }
+
+#cartCount {
+  position: absolute;
+  font-size: 10px;
+  background-color: #259de9;
+  border-radius: 50px;
+  border: 1px solid #1787CF;
+  height: 16px;
+  width: 16px;
+  padding: 3px 4px;
+  color: #FFF;
+  font-weight: bolder;
+  top: 0;
+  right: 5px; }
+
+.brand {
+  color: #222; }
+
+.brand:hover {
+  color: #222; }
+
+.qty-td {
+  max-width: 200px !important; }
+
+.total {
+  float: right; }
+
+.button-group {
+  float: right; }
+
+.input-qty {
+  max-width: 55px; }
+
+.input-qty, .btn-delete-item {
+  display: inline-block; }
+
+#checkout-form, #confirmation {
+  margin: 0 auto;
+  width: 600px; }
+
+#checkout-form p, #confirmation p {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 16px; }
+
+#cc-number {
+  max-width: 215px; }
+
+#cc-exp-month {
+  max-width: 50px; }
+
+#cc-exp-year {
+  max-width: 70px; }
+
+#cc-exp-month, #cc-exp-year {
+  display: inline-block; }
+
+.cc-exp-date-label {
+  display: block; }
+
+.cc-exp-date {
+  float: left; }
+
+.cc-code {
+  float: left;
+  max-width: 60px;
+  margin-left: 20px; }
+
+.credit-card-information {
+  float: left;
+  margin-left: 50px; }
+
+.shipping-information {
+  max-width: 450px;
+  float: left; }
+
+.city, .state, .zip {
+  display: inline-block; }
+
+.city {
+  max-width: 250px; }
+
+.state {
+  max-width: 50px; }
+
+.zip {
+  max-width: 80px; }
+
+#firstname, #lastname {
+  max-width: 154px; }
+
+.fname, .lname {
+  display: inline-block; }
+
+#checkout-form .alert {
+  text-align: center; }
+
+#checkout-form .button-group {
+  margin-top: 15px; }
+
+.credit-card-information {
+  max-width: 220px; }
+
+.cc-total {
+  clear: both;
+  margin-top: 20px;
+  display: block; }
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+.btn-primary {
+  background-color: #259de9;
+  border-color: #1787CF; }
+
+.btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+  background-color: #1787CF;
+  border-color: #1787CF; }
+
+.btn-success {
+  background-color: #EF206E;
+  border-color: #dd135d; }
+
+.btn-success[disabled] {
+  background-color: #db6d94;
+  border-color: #db6d94; }
+
+.btn-success:hover, .btn-success:active, .btn-success:visited {
+  background-color: #dd135d;
+  border-color: #dd135d; }
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+h1 {
+  font-family: "OldSansBlack", sans-serif; }
+
+#header h1 {
+  float: left; }
+
+.logo-color {
+  color: #EF206E; }
+
+a {
+  text-decoration: none !important; }
+
+h3 {
+  font-family: "OldSansBlack", sans-serif;
+  text-transform: uppercase; }
+
+.wrapper p {
+  font-family: "FreightTextBook", serif;
+  font-size: 18px; }
+
+/* ==========================================================================
+   Font Imports
+   ========================================================================== */
+@font-face {
+  font-family: "FreightTextBook";
+  src: url("../fonts/FreightTextBook.ttf"); }
+@font-face {
+  font-family: "OldSansBlack";
+  src: url("../fonts/OldSansBlack.ttf"); }
+
+/*# sourceMappingURL=application.css.map */
