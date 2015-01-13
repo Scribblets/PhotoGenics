@@ -77,36 +77,36 @@ Route::get('/data/{url_var}', function($url_var)
 /* Process the login request */ 
 Route::post('login', function()
 {
- 
-    $userdata = array(
-            'username' => Input::get('username'),
-            'password' => Input::get('password')
-        );
+	
+	$userdata = array(
+		'username' => Input::get('username'),
+		'password' => Input::get('password')
+		);
 
     	// Debug for login....
 	echo 'Attempted username: ' .  Input::get('username') . '<br/>';
 	echo 'Attempted password: ' .  Input::get('password') . '<br/>';
- 
-    /* See if the 'Remember Me' is toggled */
-    if(Input::get('persist') == 'on') {
-        $isAuth = Auth::attempt($userdata, true);
-    } else {
-        $isAuth = Auth::attempt($userdata);
-    }
- 
-    /* Is it in yet? */
-    if($isAuth) {
+	
+	/* See if the 'Remember Me' is toggled */
+	if(Input::get('persist') == 'on') {
+		$isAuth = Auth::attempt($userdata, true);
+	} else {
+		$isAuth = Auth::attempt($userdata);
+	}
+	
+	/* Is it in yet? */
+	if($isAuth) {
         // We are in, go to dashboard
         // What are we saving into session, btw?
-        echo 'Great succcess!';
+		echo 'Great succcess!';
         // return Redirect::to('dashboard');
-    } else {
+	} else {
     	// Nope. Have to figure out how to pass the error data back here...
     	// Should we set up an optional argument on the route for the error?
     	// We could just set an error code in session and parse it out from there.
 		echo 'Eternal shame.';
 		// return Redirect::to('/');
-    }
+	}
 });
 
 Route::get('logout', function()
