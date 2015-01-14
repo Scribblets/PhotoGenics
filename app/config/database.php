@@ -52,24 +52,26 @@ return array(
 			'prefix'   => '',
 		),
 
+		/* Might have to switch this out for the WAMP to MAMP stuff, but it should all use default ports. */
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'localhost',
-			'database'  => 'forge',
-			'username'  => 'forge',
-			'password'  => '',
+			'host'      => '127.0.0.1',
+			'database'  => 'photogenics',
+			'username'  => 'root',
+			'password'  => 'root',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
+			'port' 		=> '8889',
 			'prefix'    => '',
 		),
 
 		'pgsql' => array(
 			'driver'   => 'pgsql',
 			'host'     => 'localhost',
-			'database' => 'forge',
-			'username' => 'forge',
+			'database' => '',
+			'username' => '',
 			'password' => '',
-			'charset'  => 'utf8',
+			'charset'  => '',
 			'prefix'   => '',
 			'schema'   => 'public',
 		),
