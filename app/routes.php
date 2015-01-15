@@ -74,26 +74,28 @@ Route::get('/data/{url_var}', function($url_var)
 	return View::make('rawr', $data);
 });
 
+
+
 /* Process the login request */ 
 Route::post('login', function()
 {
-	
+
 	$userdata = array(
 		'username' => Input::get('username'),
 		'password' => Input::get('password')
 		);
 
-    	// Debug for login....
+    // Debug for login....
 	echo 'Attempted username: ' .  Input::get('username') . '<br/>';
 	echo 'Attempted password: ' .  Input::get('password') . '<br/>';
-	
+
 	/* See if the 'Remember Me' is toggled */
 	if(Input::get('persist') == 'on') {
 		$isAuth = Auth::attempt($userdata, true);
 	} else {
 		$isAuth = Auth::attempt($userdata);
 	}
-	
+
 	/* Is it in yet? */
 	if($isAuth) {
         // We are in, go to dashboard
@@ -109,8 +111,35 @@ Route::post('login', function()
 	}
 });
 
+/* logout the user */
 Route::get('logout', function()
 {
 	Auth::logout();
 	return Redirect::to('login');
+});
+
+
+/* register a new user */
+Route::post('register', function(){
+	$userdata = array(
+		'firstname' => Input::get('firstname'),
+		'lastname' 	=> Input::get('lastname'),
+		'username' 	=> Input::get('username'),
+		'email' 	=> Input::get('email'),
+		'password' 	=> Input::get('password'),
+		'ver_password' 	=> Input::get('ver_password')
+		);
+
+	if($userdata['password'] == $userdata['ver_password']){
+		$userdata['password'] = Hash::make($userdata['password']);
+	} else {
+		echo "Dishonor on your family.";
+	}
+
+
+	var_dump($userdata);	
+
+	$newuser = User::create($userdata);
+
+
 });

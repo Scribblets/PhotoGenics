@@ -8,7 +8,7 @@
     	
     @section('style')
         <!-- Bootstrap -->
-		<link href="/assets/stylesheets/application.css" rel="stylesheet">
+        {{HTML::style('/assets/stylesheets/application.css')}}
 		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     @show
     
