@@ -17,6 +17,10 @@
 						<input type="text" class="form-control" id="lastname">
 					</div>
 					<div class="form-group">
+						<label for="username" class="control-label">Username:</label>
+						<input type="text" class="form-control" id="username">
+					</div>
+					<div class="form-group">
 						<label for="email" class="control-label">Email:</label>
 						<input type="email" class="form-control" id="email">
 					</div>
@@ -32,7 +36,7 @@
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-success" id="btn-register">Sign Up!</button>
+				<a href="/dashboard/12345" type="button" class="btn btn-success" id="btn-register">Sign Up!</a>
 			</div>
 		</div>
 	</div>

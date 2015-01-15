@@ -21,10 +21,13 @@ Route::get('/', function()
 	return View::make('home')->with($data);
 });
 
+Route::get('/{user_id}', function($user_id) {
+
+});
+
 Route::get('/details/{item_id}', function($item_id) {	
 	// Fetch item data by $item_id...
 	// Fetch up to four RANDOM related images from artist...
-	
 	$data = [
 		'cartCount' => 0, // cartCount NEEDS to be a session variable. This is for demo purposes, only
 		'title' => "PhotoGenics - Kitty", // Concatenate the Titles
@@ -60,14 +63,14 @@ Route::get('/details/{item_id}', function($item_id) {
 	return View::make('details')->with($data);
 });
 
-Route::get('/checkout', function() {
+Route::get('/store/checkout', function() {
 	$data['cartCount'] = 0;
 	$data['title'] = "PhotoGenics - Checkout";
 	return View::make('checkout', $data);
 });
 
-Route::get('/data/{url_var}', function($url_var)
-{
-	$data["url_var"] = $url_var;
-	return View::make('rawr', $data);
+Route::get('/dashboard/{user_id}', function($user_id) {
+	$data['cartCount'] = 0;
+	$data['title'] = "PhotoGenics - Dashboard";
+	return View::make('dashboard', $data);
 });

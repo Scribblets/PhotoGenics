@@ -9,8 +9,8 @@
 			<div class="modal-body">
 				<form>
 					<div class="form-group">
-						<label for="email" class="control-label">Email:</label>
-						<input type="email" class="form-control" id="email">
+						<label for="username" class="control-label">Username:</label>
+						<input type="text" class="form-control" id="username">
 					</div>
 					
 					<div class="form-group">
@@ -22,7 +22,7 @@
 			
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-primary" id="btn-login">Login</button>
+				<a href="/dashboard/12345" type="button" class="btn btn-primary" id="btn-login">Login</a>
 			</div>
 		</div>
 	</div>

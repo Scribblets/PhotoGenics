@@ -1,4 +1,5 @@
 @import url(bootstrap.css);
+@import url(bootstrap-select.min.css);
 body {
   background-color: #FFF !important; }
 
@@ -101,53 +102,8 @@ a:hover {
   font-weight: bold; }
 
 /* ==========================================================================
-   Header
+   Checkout Page
    ========================================================================== */
-#header {
-  max-width: 960px;
-  margin: 0 auto; }
-
-/* Navigation */
-#header ul {
-  list-style: none;
-  display: inline-block;
-  float: right;
-  padding-left: 0;
-  margin-right: 0 !important; }
-
-#header ul li {
-  float: left;
-  padding: 5px;
-  font-size: 16px;
-  height: 39px;
-  margin: 20px 0 10px 10px;
-  position: relative; }
-
-#header ul li a {
-  margin-right: 5px;
-  padding-top: 0;
-  color: #EF206E; }
-
-#cartCount {
-  position: absolute;
-  font-size: 10px;
-  background-color: #259de9;
-  border-radius: 50px;
-  border: 1px solid #1787CF;
-  height: 16px;
-  width: 16px;
-  padding: 3px 4px;
-  color: #FFF;
-  font-weight: bolder;
-  top: 0;
-  right: 5px; }
-
-.brand {
-  color: #222; }
-
-.brand:hover {
-  color: #222; }
-
 .qty-td {
   max-width: 200px !important; }
 
@@ -165,7 +121,7 @@ a:hover {
 
 #checkout-form, #confirmation {
   margin: 0 auto;
-  width: 600px; }
+  max-width: 600px; }
 
 #checkout-form p, #confirmation p {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -214,13 +170,13 @@ a:hover {
 .zip {
   max-width: 80px; }
 
-#firstname, #lastname {
+#checkout-form #firstname, #checkout-form #lastname {
   max-width: 154px; }
 
 .fname, .lname {
   display: inline-block; }
 
-#checkout-form .alert {
+.alert {
   text-align: center; }
 
 #checkout-form .button-group {
@@ -234,6 +190,93 @@ a:hover {
   margin-top: 20px;
   display: block; }
 
+@media print {
+  body * {
+    visibility: hidden; }
+
+  #confirmation-content, #confirmation-content * {
+    visibility: visible; }
+
+  #confirmation-content {
+    position: absolute;
+    left: 0;
+    top: 0; } }
+/* ==========================================================================
+   Dashboard
+   ========================================================================== */
+.btn-make-item {
+  float: right; }
+
+/* ==========================================================================
+   Image Upload
+   ========================================================================== */
+.print-info-group {
+  width: 330px;
+  margin: 0 auto; }
+
+.bootstrap-select {
+  width: 190px !important; }
+
+.category-group {
+  width: 190px;
+  float: left;
+  margin-right: 20px; }
+
+.price-group {
+  width: 120px;
+  float: left; }
+
+#printModal .modal-dialog {
+  width: 375px; }
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+#header {
+  max-width: 960px;
+  margin: 0 auto; }
+
+/* Navigation */
+#header ul {
+  list-style: none;
+  display: inline-block;
+  float: right;
+  padding-left: 0;
+  margin-right: 0 !important; }
+
+#header ul li {
+  float: left;
+  padding: 5px;
+  font-size: 16px;
+  height: 39px;
+  margin: 20px 0 10px 10px;
+  position: relative; }
+
+#header ul li a {
+  margin-right: 5px;
+  padding-top: 0;
+  color: #EF206E; }
+
+#cartCount {
+  position: absolute;
+  font-size: 10px;
+  background-color: #259de9;
+  border-radius: 50px;
+  border: 1px solid #1787CF;
+  height: 16px;
+  width: 16px;
+  padding: 3px 4px;
+  color: #FFF;
+  font-weight: bolder;
+  top: 0;
+  right: 5px; }
+
+.brand {
+  color: #222; }
+
+.brand:hover {
+  color: #222; }
+
 /* ==========================================================================
    Buttons
    ========================================================================== */
@@ -241,7 +284,7 @@ a:hover {
   background-color: #259de9;
   border-color: #1787CF; }
 
-.btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+.btn-primary:hover, .btn-primary:active, .btn-primary:visited, .btn-sample:focus {
   background-color: #1787CF;
   border-color: #1787CF; }
 
@@ -275,10 +318,6 @@ a {
 h3 {
   font-family: "OldSansBlack", sans-serif;
   text-transform: uppercase; }
-
-.wrapper p {
-  font-family: "FreightTextBook", serif;
-  font-size: 18px; }
 
 /* ==========================================================================
    Font Imports
