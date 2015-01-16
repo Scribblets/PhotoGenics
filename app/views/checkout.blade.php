@@ -163,24 +163,27 @@
 					<div class="panel-body">
 						<div id="confirmation">
 							<div class="alert alert-success" role="alert"><b>Success!</b> Your order number is <b>#591392</b>.</div>
-							<h3>Thank You!</h3>
-							<p>Thank you for your order. The details are below:</p> 
-							<p><b>Order ID:</b> <code>#591392</code></p>
-							<p><b>Date:</b> 01/10/2015</p>
-							<p><b>Total:</b> $19.98</p>
-							<p><b>Items:</b></p>
-							<ul>
-								<li>Item #214121 - Kitty Print by Jebus Krist Qty. 1 - $9.99</li>
-								<li>Item #612510 - Cats Print by Jebus Krist Qty. 1 - $9.99</li>
-							</ul>
-							
-							<p><b>Billing Information:</b></p>
-							<ul>
-								<li>Name - Lindsay Roberts</li>
-								<li>Email - lrroberts0122@gmail.com</li>
-								<li>Address - 5584 Century 21 Blvd. #121, Orlando, FL 32807</li>
-								<li>Card - Ending in <code>x1001</code></li>
-							</ul>
+							<div id="confirmation-content">
+								<h3>Order Receipt!</h3>
+								<p>Thank you for your order. The details are below:</p> 
+								<p><b>Order ID:</b> <code>#591392</code></p>
+								<p><b>Date:</b> 01/10/2015</p>
+								<p><b>Total:</b> $19.98</p>
+								<p><b>Items:</b></p>
+								<ul>
+									<li>Item #214121 - Kitty Print by Jebus Krist Qty. 1 - $9.99</li>
+									<li>Item #612510 - Cats Print by Jebus Krist Qty. 1 - $9.99</li>
+								</ul>
+								
+								<p><b>Billing Information:</b></p>
+								<ul>
+									<li>Name - Lindsay Roberts</li>
+									<li>Email - lrroberts0122@gmail.com</li>
+									<li>Address - 5584 Century 21 Blvd. #121, Orlando, FL 32807</li>
+									<li>Card - Ending in <code>x1001</code></li>
+								</ul>
+							</div>
+							<button type="button" class="btn btn-default" id="print-confirmation"><i class="fa fa-print"></i> Print</button>
 						</div>
 					</div>
 				</div>

@@ -15,8 +15,7 @@ return array(
 	|
 	*/
 
-	/* Swapped this to database driver because it's simpler to just write the SQL than learn how to use the new Eloquent stuff for now. */
-	'driver' => 'database',
+	'driver' => 'eloquent',
 
 	/*
 	|--------------------------------------------------------------------------

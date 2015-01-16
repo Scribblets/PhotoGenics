@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "be79e21845808352cff2e4721fdb6f18",
+    "hash": "bda8ebe4ee9ffd14cdf18d7693b66fc8",
     "packages": [
         {
             "name": "authorizenet/authorizenet",
@@ -545,16 +545,16 @@
         },
         {
             "name": "patchwork/utf8",
-            "version": "v1.1.28",
+            "version": "v1.1.26",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tchwork/utf8.git",
-                "reference": "ffa082111aa3cb23cf2479a17e6785ace91da982"
+                "reference": "6b8e46603b49ee87ad6bceb314da94cc04ffcdce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tchwork/utf8/zipball/ffa082111aa3cb23cf2479a17e6785ace91da982",
-                "reference": "ffa082111aa3cb23cf2479a17e6785ace91da982",
+                "url": "https://api.github.com/repos/tchwork/utf8/zipball/6b8e46603b49ee87ad6bceb314da94cc04ffcdce",
+                "reference": "6b8e46603b49ee87ad6bceb314da94cc04ffcdce",
                 "shasum": ""
             },
             "require": {
@@ -567,6 +567,11 @@
                 "ext-mbstring": "Use Mbstring for best performance"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1-dev"
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "Patchwork": "class/",
@@ -592,7 +597,7 @@
                 "utf-8",
                 "utf8"
             ],
-            "time": "2015-01-12 08:05:15"
+            "time": "2014-11-08 10:13:25"
         },
         {
             "name": "phpseclib/phpseclib",
@@ -1670,6 +1675,7 @@
     "minimum-stability": "stable",
     "stability-flags": [],
     "prefer-stable": false,
+    "prefer-lowest": false,
     "platform": {
         "php": ">=5.2.0",
         "ext-curl": "*"
