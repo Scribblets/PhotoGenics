@@ -1,8 +1,7 @@
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
-
-				<!-- Set the route on the form here -->
-				<?php echo Form::open(array('url' => '/login')); ?>
+		<!-- Set the route on the form here -->
+		<?php echo Form::open(array('url' => '/login')); ?>
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -31,5 +30,5 @@
 		</div>
 
 	</div>
-	</form>
+</form>
 </div>
