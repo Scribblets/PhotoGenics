@@ -12,8 +12,20 @@
 			isResizable: true,
 			isAnimated: true
 		});
-
+		
+		$container.isotope();
 	});
+	
+/*
+	$("#filterAll").click(function() {
+		var selector = $(this).attr('data-filter');
+		$container.isotope({filter:selector});
+		
+		$(".active").removeAttr("class");
+		$("#filterAll").attr("class", "active");
+		return false;
+	});
+*/
 	
 	$("#filterAll").on('click', function(e) {
 		$('.active').removeAttr('class');
@@ -66,7 +78,9 @@
 	    $("#printForm").attr("action", "");
 	    
 	    // File Input HTML
-	    html = '<div id="file-image" class="fileinput fileinput-new" data-provides="fileinput"><label for="file">Upload Image:</label><br/><div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 130px;"></div><div><span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" id="file" name="file"></span><a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a></div></div>';
+// 	    html = '<div id="file-image" class="fileinput fileinput-new" data-provides="fileinput"><label for="file">Upload Image:</label><br/><div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 130px;"></div><div><span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" id="file" name="file"></span><a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a></div></div>';
+
+		html = '<div id="file-image" class="fileinput fileinput-new" data-provides="fileinput">{{ Form::label(\'image\', \'Upload Image:\', array(\'class\' => \'control-label\')) }} <br/><div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 130px;"></div><div><span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span>{{ Form::file(\'image\') }}</span><a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a></div></div>';
 	    
 	    $("#end-of-form").before(html);
     });

@@ -5,7 +5,7 @@
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				<h4 class="modal-title" id="printModalLabel">Print Details</h4>
 			</div>
-			
+
 			<form action="" method="POST" enctype="multipart/form-data" id="printForm">
 				<div class="modal-body">
 					<div class="form-group print-info-group">
@@ -44,9 +44,6 @@
 							<textarea class="form-control"></textarea>
 						</div>
 						
-						
-						
-						<!-- jQuery will insert Create / Edit fields -->
 						<div id="end-of-form" class="clear"></div>
 					</div>
 				</div>

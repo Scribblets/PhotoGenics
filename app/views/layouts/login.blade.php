@@ -6,8 +6,28 @@
 				<h4 class="modal-title" id="loginModalLabel">Login</h4>
 			</div>
 			
-			<div class="modal-body">
-				<form>
+			{{ Form::open(array('url' => '')) }}
+				<div class="modal-body">
+					<div class="form-group">
+						{{ Form::label('username', 'Username:', array('class' => 'control-label')) }}
+						{{ Form::text('username', '', array('class' => 'form-control')) }}
+					</div>
+					
+					<div class="form-group">
+						{{ Form::label('password', 'Password:', array('class' => 'control-label')) }}
+						{{ Form::password('password', array('class' => 'form-control')) }}
+					</div>
+				</div>
+				
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					{{ Form::submit('Login', array('class' => 'btn btn-primary')) }}
+				</div>
+			{{ Form::close() }}
+			
+<!--
+			<form>
+				<div class="modal-body">
 					<div class="form-group">
 						<label for="username" class="control-label">Username:</label>
 						<input type="text" class="form-control" id="username">
@@ -17,13 +37,14 @@
 						<label for="password" class="control-label">Password:</label>
 						<input type="password" class="form-control" id="password">
 					</div>
-				</form>
-			</div>
+				</div>
 			
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				<a href="/dashboard/12345" type="button" class="btn btn-primary" id="btn-login">Login</a>
-			</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<input type="submit" class="btn btn-primary" id="btn-login" value="Login" />
+				</div>
+			</form>
+-->
 		</div>
 	</div>
 </div>
