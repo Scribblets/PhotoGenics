@@ -99,6 +99,7 @@ Route::post('login', function()
         // We are in, go to dashboard
         // What are we saving into session, btw?
 		echo 'Great succcess!';
+		var_dump($_SESSION);
         // return Redirect::to('dashboard');
 	} else {
     	// Nope. Have to figure out how to pass the error data back here...
