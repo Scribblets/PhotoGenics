@@ -104,6 +104,7 @@ a:hover {
 /* ==========================================================================
    Checkout Page
    ========================================================================== */
+/* Cart */
 .qty-td {
   max-width: 200px !important; }
 
@@ -119,24 +120,29 @@ a:hover {
 .input-qty, .btn-delete-item {
   display: inline-block; }
 
+/* Checkout Form */
 #checkout-form, #confirmation {
   margin: 0 auto;
-  max-width: 600px; }
+  max-width: 650px;
+  min-width: 375px; }
 
 #checkout-form p, #confirmation p {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 16px; }
 
-#cc-number {
+.credit-card-information {
+  float: left; }
+
+#tf_checkout_ccNumber {
   max-width: 215px; }
 
-#cc-exp-month {
+#tf_checkout_ccExpMonth {
   max-width: 50px; }
 
-#cc-exp-year {
+#tf_checkout_ccExpYear {
   max-width: 70px; }
 
-#cc-exp-month, #cc-exp-year {
+#tf_checkout_ccExpMonth, #tf_checkout_ccExpYear {
   display: inline-block; }
 
 .cc-exp-date-label {
@@ -150,13 +156,16 @@ a:hover {
   max-width: 60px;
   margin-left: 20px; }
 
-.credit-card-information {
-  float: left; }
-
 .shipping-information {
-  max-width: 450px;
+  max-width: 330px;
   float: left;
   margin-right: 50px; }
+
+.fname, .lname {
+  display: inline-block; }
+
+#tf_checkout_firstname, #tf_checkout_lastname {
+  max-width: 154px; }
 
 .city, .state, .zip {
   display: inline-block; }
@@ -169,12 +178,6 @@ a:hover {
 
 .zip {
   max-width: 80px; }
-
-#checkout-form #firstname, #checkout-form #lastname {
-  max-width: 154px; }
-
-.fname, .lname {
-  display: inline-block; }
 
 .alert {
   text-align: center; }

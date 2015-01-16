@@ -74,6 +74,8 @@
  *--------------------------------------
  */
     $('.btn-make-item').on('click', function(e) {
+	    
+	    // #Studnicky
 	    // Change action for Create Form
 	    $("#printForm").attr("action", "");
 	    
@@ -133,14 +135,14 @@
 	});
 	
 	/* Numbers Only Input */
-	$('#zip, #cc-number, #cc-exp-month, #cc-exp-year, #cc-code').keypress(function (e) {
+	$('#tf_checkout_zip, #tf_checkout_ccNumber, #tf_checkout_ccExpMonth, #tf_checkout_ccExpYear, #tf_checkout_ccCode').keypress(function (e) {
 		if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
 			return false;
 		}
 	});
 	
 	/* Required Fields Button Enabling */
-	$('#firstname, #lastname, #email, #address, #city, #state, #zip, #cc-exp-month, #cc-exp-year, #cc-code').bind('keyup', function() {
+	$('#tf_checkout_firstname, #tf_checkout_lastname, #tf_checkout_email, #tf_checkout_address, #tf_checkout_city, #tf_checkout_state, #tf_checkout_zip, #tf_checkout_ccNumber, #tf_checkout_ccExpMonth, #tf_checkout_ccExpYear, #tf_checkout_ccCode').bind('keyup', function() {
 		if(allFilled()) {
 			$('#placeOrder').removeAttr('disabled');
 		} else {
