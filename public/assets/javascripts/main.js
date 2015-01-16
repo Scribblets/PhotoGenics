@@ -78,9 +78,7 @@
 	    $("#printForm").attr("action", "");
 	    
 	    // File Input HTML
-// 	    html = '<div id="file-image" class="fileinput fileinput-new" data-provides="fileinput"><label for="file">Upload Image:</label><br/><div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 130px;"></div><div><span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" id="file" name="file"></span><a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a></div></div>';
-
-		html = '<div id="file-image" class="fileinput fileinput-new" data-provides="fileinput">{{ Form::label(\'image\', \'Upload Image:\', array(\'class\' => \'control-label\')) }} <br/><div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 130px;"></div><div><span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span>{{ Form::file(\'image\') }}</span><a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a></div></div>';
+ 	    html = '<div id="file-image" class="fileinput fileinput-new" data-provides="fileinput"><label for="tf_file">Upload Image:</label><br/><div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 130px;"></div><div><span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" id="tf_file" name="tf_file"></span><a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a></div></div>';
 	    
 	    $("#end-of-form").before(html);
     });
@@ -90,7 +88,7 @@
 	    $("#printForm").attr("action", "");
 	    
 	    // User ID Hidden Input (For Edits)
-	   html = '<input type="hidden" name="item-id" id="item-id" value="12345" />';
+	   html = '<input type="hidden" name="tf_id" id="tf_id" value="12345" />';
 	   $("#end-of-form").before(html);
     });
     
