@@ -32,7 +32,19 @@
 									<input type="text" class="form-control" id="printPrice">
 								</div>
 							</div>
+							
+							<div class="form-group dimensions-group">
+								<label for="printDescription">Dimensions:</label>
+								<input type="text" class="form-control" id="printDimensions" data-mask='99" x 99"' placeholder='__" x __"'>
+							</div>
 						</div>
+						
+						<div class="form-group">
+							<label for="printDescription">Description:</label>
+							<textarea class="form-control"></textarea>
+						</div>
+						
+						
 						
 						<!-- jQuery will insert Create / Edit fields -->
 						<div id="end-of-form" class="clear"></div>

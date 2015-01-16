@@ -264,24 +264,30 @@ a:hover {
 /* ==========================================================================
    Image Upload
    ========================================================================== */
+.dimensions-group {
+	width: 85px;
+	float: left;
+}
+
 .print-info-group {
 	width: 330px;
 	margin: 0 auto;
 }
 
 .bootstrap-select {
-	width: 190px !important;
+	width: 100px !important;
 }
 
 .category-group {
-	width: 190px;
+	width: 100px;
 	float: left;
 	margin-right: 20px;
 }
 
 .price-group {
-	width: 120px;
+	width: 100px;
 	float: left;
+	margin-right: 20px;
 }
 
 #printModal .modal-dialog {
