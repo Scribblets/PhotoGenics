@@ -9,6 +9,7 @@ module.exports = function(grunt) {
           'bower_components/jquery/dist/jquery.js',
           'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js',
           'bower_components/jquery-masonry/dist/masonry.pkgd.min.js',
+          'bower_components/isotope/dist/isotope.pkgd.min.js',
           'bower_components/imagesloaded/imagesloaded.pkgd.min.js'
         ],
         dest: 'public/assets/javascripts/application.js'
@@ -38,6 +39,7 @@ module.exports = function(grunt) {
           'bower_components/jquery/dist/jquery.js',
           'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js',
           'bower_components/jquery-masonry/dist/masonry.pkgd.min.js',
+          'bower_components/isotope/dist/isotope.pkgd.min.js',
           'bower_components/imagesloaded/*.js',
           'public/assets/javascripts/*.js'
           ],

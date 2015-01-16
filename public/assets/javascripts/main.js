@@ -1,10 +1,10 @@
 (function(jQuery) {
 /***************************************
- * Masonry
+ * Masonry and Isotope
  *--------------------------------------
  */
 	var $container = $('#container');
-	
+
 	$container.imagesLoaded(function() {
 		$container.masonry({
 			itemSelector: '.item',
@@ -12,8 +12,38 @@
 			isResizable: true,
 			isAnimated: true
 		});
+
 	});
-    
+	
+	$("#filterAll").on('click', function(e) {
+		$container.isotope({
+			filter: '*'
+		});
+	});
+	
+	$("#filterAnimals").on('click', function(e) {
+		$container.isotope({
+			filter: '.animals'
+		});
+	});
+	
+	$("#filterPeople").on('click', function(e) {
+		$container.isotope({
+			filter: '.people'
+		});
+	});
+	
+	$("#filterNature").on('click', function(e) {
+		$container.isotope({
+			filter: '.nature'
+		});
+	});
+	
+	$("#filterArt").on('click', function(e) {
+		$container.isotope({
+			filter: '.art'
+		});
+	});
 /***************************************
  * Print Modal
  *--------------------------------------
