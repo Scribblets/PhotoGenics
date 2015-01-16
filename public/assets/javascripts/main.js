@@ -16,33 +16,43 @@
 	});
 	
 	$("#filterAll").on('click', function(e) {
+		$('.active').removeAttr('class');
 		$container.isotope({
 			filter: '*'
 		});
+		$("#filterAll").attr("class", "active");
 	});
 	
 	$("#filterAnimals").on('click', function(e) {
+		$('.active').removeAttr('class');
 		$container.isotope({
 			filter: '.animals'
 		});
+		$("#filterAnimals").attr("class", "active");
 	});
 	
 	$("#filterPeople").on('click', function(e) {
+		$('.active').removeAttr('class');
 		$container.isotope({
 			filter: '.people'
 		});
+		$("#filterPeople").attr("class", "active");
 	});
 	
 	$("#filterNature").on('click', function(e) {
+		$('.active').removeAttr('class');
 		$container.isotope({
 			filter: '.nature'
 		});
+		$("#filterNature").attr("class", "active");
 	});
 	
 	$("#filterArt").on('click', function(e) {
+		$('.active').removeAttr('class');
 		$container.isotope({
 			filter: '.art'
 		});
+		$("#filterArt").attr("class", "active");
 	});
 /***************************************
  * Print Modal

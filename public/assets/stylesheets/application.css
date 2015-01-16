@@ -151,12 +151,12 @@ a:hover {
   margin-left: 20px; }
 
 .credit-card-information {
-  float: left;
-  margin-left: 50px; }
+  float: left; }
 
 .shipping-information {
   max-width: 450px;
-  float: left; }
+  float: left;
+  margin-right: 50px; }
 
 .city, .state, .zip {
   display: inline-block; }
@@ -324,6 +324,15 @@ h3 {
   font-family: "OldSansBlack", sans-serif;
   text-transform: uppercase; }
 
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+@media (max-width: 767px) {
+  table {
+    font-size: 10px !important; }
+
+  table button {
+    padding: 1px 3px !important; } }
 /* ==========================================================================
    Font Imports
    ========================================================================== */

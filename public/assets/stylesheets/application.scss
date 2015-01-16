@@ -190,12 +190,12 @@ a:hover {
 
 .credit-card-information {
 	float: left;
-	margin-left: 50px;
 }
 
 .shipping-information {
 	max-width: 450px;
 	float: left;
+	margin-right: 50px;
 }
 
 .city, .state, .zip {
@@ -404,6 +404,19 @@ h3 {
 .wrapper p {
 // 	font-family: $copy-font;
 // 	font-size: 18px;
+}
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+@media (max-width: 767px) {
+    table {
+	    font-size: 10px !important;
+    }
+    
+    table button {
+	    padding: 1px 3px !important;
+    }
 }
 
 /* ==========================================================================
