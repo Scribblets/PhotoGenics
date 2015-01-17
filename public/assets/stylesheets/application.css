@@ -12,7 +12,7 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
-  background: url("/assets/images/bg.jpg") no-repeat;
+  background: url('/assets/images/bg.jpg') no-repeat;
   background-size: 1920px 1080px;
   color: #EEE; }
 
@@ -221,7 +221,9 @@ a:hover {
   #confirmation-content {
     position: absolute;
     left: 0;
-    top: 0; } }
+    top: 0; }
+ }
+
 /* ==========================================================================
    Dashboard
    ========================================================================== */
@@ -303,6 +305,9 @@ a:hover {
 .brand:hover {
   color: #222; }
 
+.welcomeMessage {
+  line-height: 32px; }
+
 /* ==========================================================================
    Buttons
    ========================================================================== */
@@ -356,22 +361,23 @@ h3 {
     padding: 1px 3px !important; }
 
   /*
-      #landingCTA {
-  	    background: none;
-  	    color: #222;
-      }
-  */
+    #landingCTA {
+	    background: none;
+	    color: #222;
+    }
+*/
   #CTA {
     top: 10%;
-    left: 5%; } }
+    left: 5%; }
+ }
+
 /* ==========================================================================
    Font Imports
    ========================================================================== */
 @font-face {
   font-family: "FreightTextBook";
-  src: url("../fonts/FreightTextBook.ttf"); }
+  src: url('../fonts/FreightTextBook.ttf'); }
+
 @font-face {
   font-family: "OldSansBlack";
-  src: url("../fonts/OldSansBlack.ttf"); }
-
-/*# sourceMappingURL=application.css.map */
+  src: url('../fonts/OldSansBlack.ttf'); }
