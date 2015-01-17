@@ -21,8 +21,9 @@ Route::get('/', function()
 	return View::make('home')->with($data);
 });
 
-Route::get('/{user_id}', function($user_id) {
-
+Route::get('/u/{user_id}', function($user_id) {
+	//photogenics.com/u/LRRoberts0122
+	// php artisan migrate for databases
 });
 
 Route::get('/details/{item_id}', function($item_id) {	
@@ -63,13 +64,13 @@ Route::get('/details/{item_id}', function($item_id) {
 	return View::make('details')->with($data);
 });
 
-Route::get('/store/checkout', function() {
+Route::get('/checkout', function() {
 	$data['cartCount'] = 0;
 	$data['title'] = "PhotoGenics - Checkout";
 	return View::make('checkout', $data);
 });
 
-Route::get('/dashboard/{user_id}', function($user_id) {
+Route::get('/dashboard', function() {
 	$data['cartCount'] = 0;
 	$data['title'] = "PhotoGenics - Dashboard";
 	return View::make('dashboard', $data);

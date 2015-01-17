@@ -4,14 +4,36 @@
 
 body {
   background-color: #FFF !important;
+
 }
 
 .clear {
 	clear: both;
 }
 
+#landingCTA {
+	position: absolute;
+    top: 69px; 
+    right: 0; 
+    bottom: 0; 
+    left: 0;
+	background: url('/assets/images/bg.jpg') no-repeat;
+	background-size: 1920px 1080px;
+	color: #EEE;
+}
+
+#CTA {
+	position: absolute;
+	bottom: 20%;
+	left: 10%;
+}
+
+#CTA h1 {
+	margin-bottom: 20px;
+}
+
 /* ==========================================================================
-   Home Page
+   User Page
    ========================================================================== */
 #container, .wrapper {
 	margin: 0 auto;
@@ -294,7 +316,7 @@ a:hover {
 }
 
 #printModal .modal-dialog {
-	width: 375px;
+	width: 376px;
 }
 
 /* ==========================================================================
@@ -356,8 +378,8 @@ a:hover {
    Buttons
    ========================================================================== */
 .btn-primary {
-	background-color: #259de9;
-	border-color: #1787CF;
+	background-color: #259de9 !important;
+	border-color: #1787CF !important;
 }
 
 .btn-primary:hover, .btn-primary:active, .btn-primary:visited, .btn-sample:focus {
@@ -366,8 +388,8 @@ a:hover {
 }
 
 .btn-success {
-	background-color: $action-color;
-	border-color: #dd135d;
+	background-color: $action-color !important;
+	border-color: #dd135d !important;
 }
 
 .btn-success[disabled] {
@@ -420,6 +442,18 @@ h3 {
     table button {
 	    padding: 1px 3px !important;
     }
+    
+/*
+    #landingCTA {
+	    background: none;
+	    color: #222;
+    }
+*/
+
+	#CTA {
+		top: 10%;
+		left: 5%;
+	}
 }
 
 /* ==========================================================================
