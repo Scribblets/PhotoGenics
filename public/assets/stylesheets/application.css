@@ -1,4 +1,5 @@
 @import url(bootstrap.css);
+@import url(bootstrap-select.min.css);
 body {
   background-color: #FFF !important; }
 
@@ -101,6 +102,142 @@ a:hover {
   font-weight: bold; }
 
 /* ==========================================================================
+   Checkout Page
+   ========================================================================== */
+/* Cart */
+.qty-td {
+  max-width: 200px !important; }
+
+.total {
+  float: right; }
+
+.button-group {
+  float: right; }
+
+.input-qty {
+  max-width: 55px; }
+
+.input-qty, .btn-delete-item {
+  display: inline-block; }
+
+/* Checkout Form */
+#checkout-form, #confirmation {
+  margin: 0 auto;
+  max-width: 650px;
+  min-width: 375px; }
+
+#checkout-form p, #confirmation p {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 16px; }
+
+.credit-card-information {
+  float: left; }
+
+#tf_checkout_ccNumber {
+  max-width: 215px; }
+
+#tf_checkout_ccExpMonth {
+  max-width: 50px; }
+
+#tf_checkout_ccExpYear {
+  max-width: 70px; }
+
+#tf_checkout_ccExpMonth, #tf_checkout_ccExpYear {
+  display: inline-block; }
+
+.cc-exp-date-label {
+  display: block; }
+
+.cc-exp-date {
+  float: left; }
+
+.cc-code {
+  float: left;
+  max-width: 60px;
+  margin-left: 20px; }
+
+.shipping-information {
+  max-width: 330px;
+  float: left;
+  margin-right: 50px; }
+
+.fname, .lname {
+  display: inline-block; }
+
+#tf_checkout_firstname, #tf_checkout_lastname {
+  max-width: 154px; }
+
+.city, .state, .zip {
+  display: inline-block; }
+
+.city {
+  max-width: 250px; }
+
+.state {
+  max-width: 50px; }
+
+.zip {
+  max-width: 80px; }
+
+.alert {
+  text-align: center; }
+
+#checkout-form .button-group {
+  margin-top: 15px; }
+
+.credit-card-information {
+  max-width: 220px; }
+
+.cc-total {
+  clear: both;
+  margin-top: 20px;
+  display: block; }
+
+@media print {
+  body * {
+    visibility: hidden; }
+
+  #confirmation-content, #confirmation-content * {
+    visibility: visible; }
+
+  #confirmation-content {
+    position: absolute;
+    left: 0;
+    top: 0; } }
+/* ==========================================================================
+   Dashboard
+   ========================================================================== */
+.btn-make-item {
+  float: right; }
+
+/* ==========================================================================
+   Create & Edit Forms
+   ========================================================================== */
+.dimensions-group {
+  width: 85px;
+  float: left; }
+
+.print-info-group {
+  width: 330px;
+  margin: 0 auto; }
+
+.bootstrap-select {
+  width: 100px !important; }
+
+.category-group {
+  width: 100px;
+  float: left;
+  margin-right: 20px; }
+
+.price-group {
+  width: 100px;
+  float: left;
+  margin-right: 20px; }
+
+#printModal .modal-dialog {
+  width: 375px; }
+
+/* ==========================================================================
    Header
    ========================================================================== */
 #header {
@@ -148,92 +285,6 @@ a:hover {
 .brand:hover {
   color: #222; }
 
-.qty-td {
-  max-width: 200px !important; }
-
-.total {
-  float: right; }
-
-.button-group {
-  float: right; }
-
-.input-qty {
-  max-width: 55px; }
-
-.input-qty, .btn-delete-item {
-  display: inline-block; }
-
-#checkout-form, #confirmation {
-  margin: 0 auto;
-  width: 600px; }
-
-#checkout-form p, #confirmation p {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 16px; }
-
-#cc-number {
-  max-width: 215px; }
-
-#cc-exp-month {
-  max-width: 50px; }
-
-#cc-exp-year {
-  max-width: 70px; }
-
-#cc-exp-month, #cc-exp-year {
-  display: inline-block; }
-
-.cc-exp-date-label {
-  display: block; }
-
-.cc-exp-date {
-  float: left; }
-
-.cc-code {
-  float: left;
-  max-width: 60px;
-  margin-left: 20px; }
-
-.credit-card-information {
-  float: left;
-  margin-left: 50px; }
-
-.shipping-information {
-  max-width: 450px;
-  float: left; }
-
-.city, .state, .zip {
-  display: inline-block; }
-
-.city {
-  max-width: 250px; }
-
-.state {
-  max-width: 50px; }
-
-.zip {
-  max-width: 80px; }
-
-#firstname, #lastname {
-  max-width: 154px; }
-
-.fname, .lname {
-  display: inline-block; }
-
-#checkout-form .alert {
-  text-align: center; }
-
-#checkout-form .button-group {
-  margin-top: 15px; }
-
-.credit-card-information {
-  max-width: 220px; }
-
-.cc-total {
-  clear: both;
-  margin-top: 20px;
-  display: block; }
-
 /* ==========================================================================
    Buttons
    ========================================================================== */
@@ -241,7 +292,7 @@ a:hover {
   background-color: #259de9;
   border-color: #1787CF; }
 
-.btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+.btn-primary:hover, .btn-primary:active, .btn-primary:visited, .btn-sample:focus {
   background-color: #1787CF;
   border-color: #1787CF; }
 
@@ -276,10 +327,15 @@ h3 {
   font-family: "OldSansBlack", sans-serif;
   text-transform: uppercase; }
 
-.wrapper p {
-  font-family: "FreightTextBook", serif;
-  font-size: 18px; }
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+@media (max-width: 767px) {
+  table {
+    font-size: 10px !important; }
 
+  table button {
+    padding: 1px 3px !important; } }
 /* ==========================================================================
    Font Imports
    ========================================================================== */
