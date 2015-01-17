@@ -1,0 +1,13 @@
+<?php $__env->startSection('body'); ?>
+	<?php echo $__env->make('layouts.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    <!-- GIANT IMAGE AND CALL TO ACTION -->
+    <div id="landingCTA">
+	    <div id="CTA">
+		    <h1>A marketplace for the enthusiast.</h1>
+		    <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#registerModal">Create an Account - It's FREE</button>
+	    </div>
+    </div>
+	<?php echo $__env->make('layouts.login', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	<?php echo $__env->make('layouts.register', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
