@@ -16,55 +16,16 @@
 		$container.isotope();
 	});
 	
-/*
-	$("#filterAll").click(function() {
+	$(".filters").click(function() {
 		var selector = $(this).attr('data-filter');
-		$container.isotope({filter:selector});
+		if(selector != "*") {
+			selector = "." + selector;
+		}
 		
-		$(".active").removeAttr("class");
-		$("#filterAll").attr("class", "active");
+		$container.isotope({filter: selector});
+ 		$('.active').attr('class', 'filters');
+		$(this).attr('class', 'filters active');
 		return false;
-	});
-*/
-	
-	$("#filterAll").on('click', function(e) {
-		$('.active').removeAttr('class');
-		$container.isotope({
-			filter: '*'
-		});
-		$("#filterAll").attr("class", "active");
-	});
-	
-	$("#filterAnimals").on('click', function(e) {
-		$('.active').removeAttr('class');
-		$container.isotope({
-			filter: '.animals'
-		});
-		$("#filterAnimals").attr("class", "active");
-	});
-	
-	$("#filterPeople").on('click', function(e) {
-		$('.active').removeAttr('class');
-		$container.isotope({
-			filter: '.people'
-		});
-		$("#filterPeople").attr("class", "active");
-	});
-	
-	$("#filterNature").on('click', function(e) {
-		$('.active').removeAttr('class');
-		$container.isotope({
-			filter: '.nature'
-		});
-		$("#filterNature").attr("class", "active");
-	});
-	
-	$("#filterArt").on('click', function(e) {
-		$('.active').removeAttr('class');
-		$container.isotope({
-			filter: '.art'
-		});
-		$("#filterArt").attr("class", "active");
 	});
 /***************************************
  * Print Modal

@@ -4,11 +4,11 @@
 	@include('layouts.header')
     <div id="categories">
 	    <ul>
-		    <li><a href="#" id="filterAll" class="active">All</a></li>
-		    <li><a href="#" id="filterPeople">People</a></li>
-		    <li><a href="#" id="filterAnimals">Animals</a></li>
-		    <li><a href="#" id="filterNature">Nature</a></li>
-		    <li><a href="#" id="filterArt">Art</a></li>
+		    <li><a href="#" id="filterAll" data-filter="*" class="filters active">All</a></li>
+		    <li><a href="#" id="filterPeople" data-filter="people" class="filters">People</a></li>
+		    <li><a href="#" id="filterAnimals" data-filter="animals" class="filters">Animals</a></li>
+		    <li><a href="#" id="filterNature" data-filter="nature" class="filters">Nature</a></li>
+		    <li><a href="#" id="filterArt" data-filter="art" class="filters">Art</a></li>
 	    </ul>
     </div>
     
