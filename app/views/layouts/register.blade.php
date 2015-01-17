@@ -6,38 +6,39 @@
 				<h4 class="modal-title" id="registerModalLabel">Register Account</h4>
 			</div>
 			
-			<div class="modal-body">
-				<form>
+				<?php echo Form::open(array('url' => '/register')); ?>
+				<div class="modal-body">
 					<div class="form-group">
-						<label for="firstname" class="control-label">First Name:</label>
-						<input type="text" class="form-control" id="firstname">
+						<label for="tf_firstname" class="control-label">First Name:</label>
+						<input type="text" class="form-control" id="tf_firstname" name="tf_firstname">
 					</div>
 					<div class="form-group">
-						<label for="lastname" class="control-label">Last Name:</label>
-						<input type="text" class="form-control" id="lastname">
+						<label for="tf_lastname" class="control-label">Last Name:</label>
+						<input type="text" class="form-control" id="tf_lastname" name="tf_lastname">
 					</div>
 					<div class="form-group">
-						<label for="username" class="control-label">Username:</label>
-						<input type="text" class="form-control" id="username">
+						<label for="tf_username" class="control-label">Username:</label>
+						<input type="text" class="form-control" id="tf_username" name="tf_username">
 					</div>
 					<div class="form-group">
-						<label for="email" class="control-label">Email:</label>
-						<input type="email" class="form-control" id="email">
+						<label for="tf_email" class="control-label">Email:</label>
+						<input type="email" class="form-control" id="tf_email" name="tf_email">
 					</div>
 					<div class="form-group">
-						<label for="password" class="control-label">Password:</label>
-						<input type="password" class="form-control" id="password">
+						<label for="tf_password" class="control-label">Password:</label>
+						<input type="password" class="form-control" id="tf_password" name="tf_password">
 					</div>
 					<div class="form-group">
-						<label for="ver_password" class="control-label">Verify Password:</label>
-						<input type="password" class="form-control" id="ver_password">
+						<label for="tf_ver_password" class="control-label">Verify Password:</label>
+						<input type="password" class="form-control" id="tf_ver_password" name="tf_ver_password">
 					</div>
-				</form>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				<a href="/dashboard/12345" type="button" class="btn btn-success" id="btn-register">Sign Up!</a>
-			</div>
+				</div>
+				
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<input type="submit" class="btn btn-success" id="btn-register" value="Sign Up!" />
+				</div>
+			</form>
 		</div>
 	</div>
 </div>
