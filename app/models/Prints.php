@@ -11,4 +11,5 @@ class Prints extends Eloquent implements UserInterface, RemindableInterface {
 	use UserTrait, RemindableTrait;
 	
 	protected $table = 'prints';
+	protected $fillable = ['path','user_id','title','category','price','dimensions','description'];	
 }
