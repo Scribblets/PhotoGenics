@@ -7,12 +7,12 @@
 			</div>
 			
 			<!-- CREATE / EDIT PRINT FORM -->
-			<form action="" method="POST" enctype="multipart/form-data" id="printForm">
+			{{ Form::open(array('url'=>'/print/create','method'=>'POST', 'files'=>true), array('id' => 'printForm')) }}
 				<div class="modal-body">
 					<div class="form-group print-info-group">
 						<div class="form-group">
 							<label for="tf_title" class="control-label">Title:</label>
-							<input type="text" class="form-control" id="tf_title">
+							<input type="text" class="form-control" id="tf_title" name="tf_title">
 						</div>
 						
 						<div class="form-group">
@@ -36,7 +36,7 @@
 							
 							<div class="form-group dimensions-group">
 								<label for="tf_dimensions">Dimensions:</label>
-								<input type="text" class="form-control" id="tf_dimensions" name="tf_price" data-mask='99" x 99"' placeholder='__" x __"'>
+								<input type="text" class="form-control" id="tf_dimensions" name="tf_dimensions" data-mask='99" x 99"' placeholder='__" x __"'>
 							</div>
 						</div>
 						

@@ -51,7 +51,7 @@
 	    $("#printForm").attr("action", "");
 	    
 	    // User ID Hidden Input (For Edits)
-	   html = '<input type="hidden" name="tf_id" id="tf_id" value="12345" />';
+	   html = '<input type="hidden" name="tf_print_id" id="tf_print_id" value="12345" />';
 	   $("#end-of-form").before(html);
     });
     
