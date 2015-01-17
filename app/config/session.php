@@ -16,7 +16,7 @@ return array(
 	|
 	*/
 
-	'driver' => 'file',
+	'driver' => 'database',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -31,7 +31,8 @@ return array(
 
 	'lifetime' => 120,
 
-	'expire_on_close' => false,
+	/* Set this to true for the 'remember me' functionality */
+	'expire_on_close' => true,
 
 	/*
 	|--------------------------------------------------------------------------
@@ -57,7 +58,7 @@ return array(
 	|
 	*/
 
-	'connection' => null,
+	'connection' => 'mysql',
 
 	/*
 	|--------------------------------------------------------------------------

@@ -6,7 +6,7 @@
 				<h4 class="modal-title" id="registerModalLabel">Register Account</h4>
 			</div>
 			
-			<form id="registerForm">
+				{{ Form::open(array('url' => '/register')) }}
 				<div class="modal-body">
 					<div class="form-group">
 						<label for="tf_firstname" class="control-label">First Name:</label>
