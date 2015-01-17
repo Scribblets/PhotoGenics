@@ -13,7 +13,7 @@
 			
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#"><i class="fa fa-shopping-cart fa-2x">
+					<li><a href="/store/checkout"><i class="fa fa-shopping-cart fa-2x">
 						<div id="cartCount"><p>{{ $cartCount }}</p></div>
 					</i></a></li>
 					<li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">Login</button></li>

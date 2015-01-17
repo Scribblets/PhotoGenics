@@ -61,33 +61,30 @@ Route::get('/details/{item_id}', function($item_id) {
 		return View::make('details')->with($data);
 	});
 
-Route::get('/checkout', function() {
+Route::get('/store/checkout', function() {
 	$data['cartCount'] = 0;
 	$data['title'] = "PhotoGenics - Checkout";
 	return View::make('checkout', $data);
 });
 
-/* Where is this one going?? */
-Route::get('/data/{url_var}', function($url_var)
-{
-	$data["url_var"] = $url_var;
-	return View::make('rawr', $data);
+Route::get('/dashboard', function() {
+	$data['cartCount'] = 0;
+	$data['title'] = "PhotoGenics - Dashboard";
+	return View::make('dashboard', $data);
 });
-
-
 
 /* Process the login request */ 
 Route::post('login', function()
 {
 
 	$userdata = array(
-		'username' => Input::get('username'),
-		'password' => Input::get('password')
+		'username' => Input::get('tf_login_username'),
+		'password' => Input::get('tf_login_password')
 		);
 
     // Debug for login....
-	echo 'Attempted username: ' .  Input::get('username') . '<br/>';
-	echo 'Attempted password: ' .  Input::get('password') . '<br/>';
+	echo 'Attempted username: ' .  Input::get('tf_login_username') . '<br/>';
+	echo 'Attempted password: ' .  Input::get('tf_login_password') . '<br/>';
 
 	/* See if the 'Remember Me' is toggled */
 	if(Input::get('persist') == 'on') {
@@ -122,12 +119,12 @@ Route::get('logout', function()
 /* register a new user */
 Route::post('register', function(){
 	$userdata = array(
-		'firstname' => Input::get('firstname'),
-		'lastname' 	=> Input::get('lastname'),
-		'username' 	=> Input::get('username'),
-		'email' 	=> Input::get('email'),
-		'password' 	=> Input::get('password'),
-		'ver_password' 	=> Input::get('ver_password')
+		'firstname' => Input::get('tf_firstname'),
+		'lastname' 	=> Input::get('tf_lastname'),
+		'username' 	=> Input::get('tf_username'),
+		'email' 	=> Input::get('tf_email'),
+		'password' 	=> Input::get('tf_password'),
+		'ver_password' 	=> Input::get('tf_ver_password')
 		);
 
 	if($userdata['password'] == $userdata['ver_password']){
@@ -136,10 +133,6 @@ Route::post('register', function(){
 		echo "Dishonor on your family.";
 	}
 
-
 	var_dump($userdata);	
-
 	$newuser = User::create($userdata);
-
-
 });
