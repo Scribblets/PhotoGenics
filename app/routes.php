@@ -73,66 +73,9 @@ Route::get('/dashboard', function() {
 	return View::make('dashboard', $data);
 });
 
-/* Process the login request */ 
-Route::post('login', function()
-{
-
-	$userdata = array(
-		'username' => Input::get('tf_login_username'),
-		'password' => Input::get('tf_login_password')
-		);
-
-    // Debug for login....
-	echo 'Attempted username: ' .  Input::get('tf_login_username') . '<br/>';
-	echo 'Attempted password: ' .  Input::get('tf_login_password') . '<br/>';
-
-	/* See if the 'Remember Me' is toggled */
-	if(Input::get('persist') == 'on') {
-		$isAuth = Auth::attempt($userdata, true);
-	} else {
-		$isAuth = Auth::attempt($userdata);
-	}
-
-	/* Is it in yet? */
-	if($isAuth) {
-        // We are in, go to dashboard
-        // What are we saving into session, btw?
-		echo 'Great succcess!';
-        // return Redirect::to('dashboard');
-	} else {
-    	// Nope. Have to figure out how to pass the error data back here...
-    	// Should we set up an optional argument on the route for the error?
-    	// We could just set an error code in session and parse it out from there.
-		echo 'Eternal shame.';
-		// return Redirect::to('/');
-	}
-});
-
-/* logout the user */
-Route::get('logout', function()
-{
-	Auth::logout();
-	return Redirect::to('login');
-});
-
-
 /* register a new user */
-Route::post('register', function(){
-	$userdata = array(
-		'firstname' => Input::get('tf_firstname'),
-		'lastname' 	=> Input::get('tf_lastname'),
-		'username' 	=> Input::get('tf_username'),
-		'email' 	=> Input::get('tf_email'),
-		'password' 	=> Input::get('tf_password'),
-		'ver_password' 	=> Input::get('tf_ver_password')
-		);
-
-	if($userdata['password'] == $userdata['ver_password']){
-		$userdata['password'] = Hash::make($userdata['password']);
-	} else {
-		echo "Dishonor on your family.";
-	}
-
-	var_dump($userdata);	
-	$newuser = User::create($userdata);
-});
+Route::post('register', 'UserController@register_user');
+/* Process the login request */ 
+Route::post('login', 'UserController@login_user');
+/* logout the user */
+Route::get('logout', 'UserController@logout_user');
