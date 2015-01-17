@@ -10,17 +10,17 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-
+Route::resource('home', 'SessionController');
 Route::get('/', function()
 {
 	$data = [
 		'cartCount' => 0, // cartCount NEEDS to be a session variable. This is for demo purposes, only
 		'title' => "PhotoGenics - Home"
-		
 		];
-		return View::make('home')->with($data);
-		var_dump(session);
-	});
+	return View::make('home')->with($data);
+	
+	var_dump($_SESSION);
+});
 
 Route::get('/details/{item_id}', function($item_id) {	
 	// Fetch item data by $item_id...

@@ -7,4 +7,4 @@ Please be aware, this project is currently ongoing. More documentation will be a
 # Contact
 Front End: Lindsay Roberts - lrroberts0122@gmail.com <br />
 Back End: Andrew Studnicky - A.J.Studnicky@gmail.com <br />
-Other Inquiries: Eli Damasio - darkstar87d@gmail.com
+Other Inquiries: Damasio Eli Gerena IV - darkstar87d@gmail.com
