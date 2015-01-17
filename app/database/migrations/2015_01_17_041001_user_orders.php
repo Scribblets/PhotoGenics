@@ -17,8 +17,8 @@ class UserOrders extends Migration {
 			$table->increments('id');
 			$table->integer('user_id')->unsigned();
 			$table->foreign('user_id')->references('id')->on('users');
-			$table->integer('photo_id')->unsigned();
-			$table->foreign('photo_id')->references('id')->on('photos');
+			$table->integer('print_id')->unsigned();
+			$table->foreign('print_id')->references('id')->on('prints');
 
         // created_at, updated_at DATETIME
 			$table->timestamps();
