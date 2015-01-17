@@ -136,3 +136,52 @@ Route::post('register', function(){
 	var_dump($userdata);	
 	$newuser = User::create($userdata);
 });
+
+
+/* register a new user */
+Route::post('newprint', function(){
+
+	$file = Input::file('tf_file');
+
+
+	if (Input::hasFile('tf_file')){
+
+		// Store the image in a folder for that user
+		$destinationPath = 'uploads/' . Auth::user()->username;
+		
+		echo 'user data';
+		var_dump(Auth::user());
+
+		echo 'file data';
+		var_dump($file);
+
+		$filename = $file->getClientOriginalName();
+		//$extension =$file->getClientOriginalExtension();
+
+		$upload_success = Input::file('tf_file')->move($destinationPath, $filename);
+
+ 		$path = 'uploads/' . Auth::user()->username . '/' . $filename;
+
+		echo 'path to the file';
+		var_dump($path);
+
+	}
+
+	//	For pushing to the database...
+	$printdata = array(
+		'user_id' 	=> Auth::id(),
+		'path'		=> $path,
+		'title' 	=> Input::get('tf_title'),
+		'category' 	=> Input::get('tf_category'),
+		'price' 	=> Input::get('tf_price'),
+		'hor' 		=> Input::get('tf_dimensions'),
+		'vert' 		=> Input::get('tf_dimensions'),
+		'desc' 		=> Input::get('tf_description')
+		);
+
+	var_dump($printdata);
+
+	//	This needs to go into the database!
+});
+
+
