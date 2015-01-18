@@ -54,7 +54,6 @@
     });
     
     $('.btn-edit-item').on('click', function(e) {
-<<<<<<< HEAD
 	    id			= $(e.currentTarget).data('print-id');
 	    title 		= $(e.currentTarget).data('print-title');
 	    category	= $(e.currentTarget).data('print-category');
@@ -64,10 +63,6 @@
 	    
 	    var action = "/print/update/" + id;
 	    $("#printForm").attr("action", action);
-=======
-	    // Change action for Edit Form
-	    $("#printForm").attr("action", "/print/update/1");
->>>>>>> FETCH_HEAD
 	    
 	    $("#tf_title").val(title);
 	    $("#tf_price").val(price);
