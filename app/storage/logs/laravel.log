@@ -4087,3 +4087,11 @@ Stack trace:
 #12 /Applications/MAMP/htdocs/asl/laravel/public/index.php(49): Illuminate\Foundation\Application->run()
 #13 /Applications/MAMP/htdocs/asl/laravel/server.php(19): require_once('/Applications/M...')
 #14 {main} [] []
+[2015-01-18 01:45:41] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected '::' (T_PAAMAYIM_NEKUDOTAYIM)' in /Users/Studs/Desktop/PhotoGenics/app/controllers/PrintController.php:58
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2015-01-18 01:46:19] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected '::' (T_PAAMAYIM_NEKUDOTAYIM)' in /Users/Studs/Desktop/PhotoGenics/app/controllers/PrintController.php:58
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []

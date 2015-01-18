@@ -48,7 +48,7 @@
     
     $('.btn-edit-item').on('click', function(e) {
 	    // Change action for Edit Form
-	    $("#printForm").attr("action", "");
+	    $("#printForm").attr("action", "/print/update/1");
 	    
 	    // User ID Hidden Input (For Edits)
 	   html = '<input type="hidden" name="tf_print_id" id="tf_print_id" value="12345" />';
