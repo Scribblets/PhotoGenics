@@ -4087,6 +4087,7 @@ Stack trace:
 #12 /Applications/MAMP/htdocs/asl/laravel/public/index.php(49): Illuminate\Foundation\Application->run()
 #13 /Applications/MAMP/htdocs/asl/laravel/server.php(19): require_once('/Applications/M...')
 #14 {main} [] []
+<<<<<<< HEAD
 [2015-01-18 01:48:29] production.ERROR: exception 'ErrorException' with message 'Undefined variable: data' in /Applications/MAMP/htdocs/asl/laravel/app/storage/views/3c42636aec225899165610c78e408b45:159
 Stack trace:
 #0 /Applications/MAMP/htdocs/asl/laravel/app/storage/views/3c42636aec225899165610c78e408b45(159): Illuminate\Exception\Handler->handleError(8, 'Undefined varia...', '/Applications/M...', 159, Array)
@@ -5601,3 +5602,13 @@ Stack trace:
 #17 /Applications/MAMP/htdocs/asl/laravel/public/index.php(49): Illuminate\Foundation\Application->run()
 #18 /Applications/MAMP/htdocs/asl/laravel/server.php(19): require_once('/Applications/M...')
 #19 {main} [] []
+=======
+[2015-01-18 01:45:41] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected '::' (T_PAAMAYIM_NEKUDOTAYIM)' in /Users/Studs/Desktop/PhotoGenics/app/controllers/PrintController.php:58
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2015-01-18 01:46:19] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected '::' (T_PAAMAYIM_NEKUDOTAYIM)' in /Users/Studs/Desktop/PhotoGenics/app/controllers/PrintController.php:58
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+>>>>>>> FETCH_HEAD

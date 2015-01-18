@@ -12,8 +12,18 @@ class Prints extends Eloquent implements UserInterface, RemindableInterface {
 	
 	protected $table = 'prints';
 	protected $fillable = ['path','user_id','title','category','price','dimensions','description'];
+<<<<<<< HEAD
 	
 	public function User(){
 		return $this->belongsTo('User');
 	}
 }
+=======
+
+	public function User(){
+		return $this->belongsTo('User');
+	}
+
+}
+
+>>>>>>> FETCH_HEAD
