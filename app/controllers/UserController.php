@@ -96,6 +96,7 @@ class UserController extends BaseController {
 	
 	public function logout_user() {
 		Auth::logout();
+		Session::flush();		
 		return Redirect::to('/');
 	}
 	

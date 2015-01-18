@@ -2,7 +2,7 @@
 
 @section('body')
 	@include('layouts.header')
-	<a class="brand" href="/"><h1><span class="logo-color"><i class="fa fa-camera-retro"></i></span>{{ $user['username'] }}</h1></a>
+	@include('layouts.logo')
 	@include('layouts.navigation')
 	
 	<div class="wrapper">
@@ -11,53 +11,50 @@
 				<div class="panel-heading" role="tab" id="headingOne">
 					<h4 class="panel-title">View Cart</h4>
 				</div>
-				
+				<!-- Delete = Index... Delete from session at index ... -->
 				<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
 					<div class="panel-body">
-						<table class="table">
-							<thead>
-								<tr>
-									<th>Preview</th>
-									<th>Item ID</th>
-									<th>Item Title</th>
-									<th>Item Artist</th>
-									<th>Qty.</th>
-									<th>Price</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><img src="http://placekitten.com/g/30/30" /></td>
-									<td>#12345</td>
-									<td>Kitty</td>
-									<td>Jebus Krist</td>
-									<td class="qty-td">
-										<input type="number" max="10" min="1" value="1" class="form-control input-qty" placeholder="Qty." />
-										<button class="btn btn-danger btn-delete-item" type="button"><i class="fa fa-times"></i></button>
-									</td>
-									<td>$9.99</td>
-								</tr>
+						@if (Session::has('cart.prints'))
+							@if (Session::get('cart.count') > 0)
+								<table class="table">
+									<thead>
+										<tr>
+											<th>Preview</th>
+											<th>ID#</th>
+											<th>Title</th>
+											<th>Artist</th>
+											<th>Dimensions</th>
+											<th>Price</th>
+											<th></th>
+										</tr>
+									</thead>
+									<tbody>
+										@for($i = 0; $i < Session::get('cart.count'); $i++)
+											<tr>
+												<td><img src="{{ $prints[$i]['path'] }}" /></td>
+												<td>#{{ $prints[$i]['id'] }}</td>
+												<td>{{ $prints[$i]['title'] }}</td>
+												<td>{{ $prints[$i]['artist'] }}</td>
+												<td>{{ $prints[$i]['dimensions'] }}</td>
+												<td>{{ $prints[$i]['price'] }}</td>
+												<td class="qty-td"><a href="/cart/delete/{{ $i }}"><button class="btn btn-danger btn-delete-item" type="button"><i class="fa fa-times"></i></button></a></td>
+											</tr>
+										@endfor
+									</tbody>
+								</table>
 								
-								<tr>
-									<td><img src="http://placekitten.com/g/30/30" /></td>
-									<td>#12345</td>
-									<td>Kitty</td>
-									<td>Jebus Krist</td>
-									<td class="qty-td">
-										<input type="number" max="10" min="1" value="1" class="form-control input-qty" placeholder="Qty." />
-										<button class="btn btn-danger btn-delete-item" type="button"><i class="fa fa-times"></i></button>
-									</td>
-									<td>$9.99</td>
-								</tr>
-							</tbody>
-						</table>
-						
-						<div class="total">
-							<h3>Total: $19.98</h3>
-							<div class="button-group">
-								<button type="button" class="btn btn-success prev-next">Proceed to Checkout</button>
-							</div>
-						</div>
+								<div class="total">
+									<h3>Total: ${{ Session::get('cart.total') }}</h3>
+									<div class="button-group">
+										<button type="button" class="btn btn-success prev-next">Proceed to Checkout</button>
+									</div>
+								</div>
+							@else
+								<p class="cartEmpty">You don't have any items in your cart!</p>
+							@endif
+						@else
+							<p class="cartEmpty">You don't have any items in your cart!</p>
+						@endif
 					</div>
 				</div>
 			</div>

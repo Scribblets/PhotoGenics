@@ -2,12 +2,12 @@
 
 <?php $__env->startSection('body'); ?>
 	<?php echo $__env->make('layouts.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-	<a class="brand" href="/"><h1><?php echo $user['firstname']; ?><span class="logo-color"><i class="fa fa-camera-retro"></i><?php echo $user['lastname']; ?></span></h1></a>
+	<a class="brand" href="/u/<?php echo $user['username']; ?>"><h1><?php echo $user['firstname']; ?><span class="logo-color"><i class="fa fa-camera-retro"></i><?php echo $user['lastname']; ?></span></h1></a>
 	<?php echo $__env->make('layouts.navigation', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 	
 	<div class="wrapper">
 		<div class="print_info">
-			<h3>PRINT DETAILS <button type="button" class="btn btn-success btn-addtocart"><i class="fa fa-shopping-cart"></i> Add to Cart</button></h3>
+			<h3>PRINT DETAILS <a href="/cart/add/<?php echo $print['id']; ?>"><button type="button" class="btn btn-success btn-addtocart"><i class="fa fa-shopping-cart"></i> Add to Cart</button></a></h3>
 			<div class="product_image">
 				<img src="<?php echo $print['path']; ?>" />
 			</div>

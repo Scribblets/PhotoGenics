@@ -12,19 +12,7 @@
 */
 
 Route::get('/', function() {
-	$data = [
-		'cartCount' => 0, // cartCount NEEDS to be a session variable. This is for demo purposes, only
-		'title' => "PhotoGenics - Home"
-	];
-	
-	return View::make('home')->with($data);
-	var_dump(session);
-});
-
-Route::get('/store/checkout', function() {
-	$data['cartCount'] = 0;
-	$data['title'] = "PhotoGenics - Checkout";
-	return View::make('checkout', $data);
+	return View::make('home');
 });
 
 /* User Routes */
@@ -41,3 +29,8 @@ Route::get('/dashboard', 'UserController@user_dashboard');
 Route::post('/print/create', 'PrintController@create_print');
 Route::post('/print/update/{print_id}', 'PrintController@update_print');
 Route::get('/print/delete/{print_id}', 'PrintController@delete_print');
+
+/* Checkout Routes */
+Route::get('/cart/add/{print_id}', 'CartController@add_to_cart');
+Route::get('/cart/delete/{session_index}', 'CartController@delete_from_cart_by_index');
+Route::get('/checkout', 'CartController@read_all');

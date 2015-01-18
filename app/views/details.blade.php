@@ -2,12 +2,12 @@
 
 @section('body')
 	@include('layouts.header')
-	<a class="brand" href="/"><h1>{{ $user['firstname'] }}<span class="logo-color"><i class="fa fa-camera-retro"></i>{{ $user['lastname'] }}</span></h1></a>
+	<a class="brand" href="/u/{{ $user['username'] }}"><h1>{{ $user['firstname'] }}<span class="logo-color"><i class="fa fa-camera-retro"></i>{{ $user['lastname'] }}</span></h1></a>
 	@include('layouts.navigation')
 	
 	<div class="wrapper">
 		<div class="print_info">
-			<h3>PRINT DETAILS <button type="button" class="btn btn-success btn-addtocart"><i class="fa fa-shopping-cart"></i> Add to Cart</button></h3>
+			<h3>PRINT DETAILS <a href="/cart/add/{{ $print['id'] }}"><button type="button" class="btn btn-success btn-addtocart"><i class="fa fa-shopping-cart"></i> Add to Cart</button></a></h3>
 			<div class="product_image">
 				<img src="{{ $print['path'] }}" />
 			</div>

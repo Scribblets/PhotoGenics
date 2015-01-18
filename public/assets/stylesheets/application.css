@@ -27,6 +27,14 @@ body {
 /* ==========================================================================
    User Page
    ========================================================================== */
+.noPrints {
+  font-family: "OldSansBlack", sans-serif;
+  font-size: 18px;
+  text-align: center;
+  display: block;
+  min-width: 300px;
+  margin: 120px auto; }
+
 #container, .wrapper {
   margin: 0 auto;
   clear: both;
@@ -243,6 +251,9 @@ a:hover {
   margin-top: 20px;
   display: block; }
 
+.cartEmpty {
+  text-align: center; }
+
 @media print {
   body * {
     visibility: hidden; }
@@ -401,12 +412,9 @@ h3 {
   table button {
     padding: 1px 3px !important; }
 
-  /*
-    #landingCTA {
-	    background: none;
-	    color: #222;
-    }
-*/
+  .welcomeMessage {
+    display: none; }
+
   #CTA {
     top: 10%;
     left: 5%; }
