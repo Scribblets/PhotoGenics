@@ -12,7 +12,7 @@ class CreatePhotos extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('photos', function(Blueprint $table)
+		Schema::create('prints', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->string('path');
@@ -21,9 +21,8 @@ class CreatePhotos extends Migration {
 			$table->string('title');
 			$table->string('category');
 			$table->string('price');
-			$table->integer('hor');
-			$table->integer('vert');
-			$table->text('desc');
+			$table->string('dimensions');
+			$table->text('description');
         // created_at, updated_at DATETIME
 			$table->timestamps();
 		});
@@ -37,7 +36,7 @@ class CreatePhotos extends Migration {
 	public function down()
 	{
 		//
-		Schema::drop('photos');
+		Schema::drop('prints');
 
 	}
 

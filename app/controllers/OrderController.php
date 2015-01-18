@@ -1,6 +1,6 @@
 <?php
 	
-class PrintController extends BaseController {
+class OrderController extends BaseController {
 	
 	public function create_order() {
 	}
