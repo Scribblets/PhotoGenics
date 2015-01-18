@@ -12,8 +12,13 @@
 */
 
 Route::get('/', function() {
-	return View::make('home');
-});
+
+	/* bypass the splash screen if the user is remembered */
+	if(Auth::viaRemember()) {
+		return Redirect::to('/dashboard');
+	} else {
+		return View::make('home');
+	}});
 
 /* User Routes */
 Route::post('/user/register', 'UserController@register_user');
@@ -34,3 +39,6 @@ Route::get('/print/delete/{print_id}', 'PrintController@delete_print');
 Route::get('/cart/add/{print_id}', 'CartController@add_to_cart');
 Route::get('/cart/delete/{session_index}', 'CartController@delete_from_cart_by_index');
 Route::get('/checkout', 'CartController@read_all');
+
+/* stripe payment routes */
+Route::post('');

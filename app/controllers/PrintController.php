@@ -3,16 +3,11 @@
 class PrintController extends BaseController {
 	
 	public function create_print() {
+
 		$file = Input::file('tf_file');
 		
 		if (Input::hasFile('tf_file')){
 			$destinationPath = 'public/uploads/' . Auth::user()->username;
-			
-			echo 'user data';
-			var_dump(Auth::user());
-	
-			echo 'file data';
-			var_dump($file);
 	
 			$filename = $file->getClientOriginalName();
 	
@@ -30,15 +25,9 @@ class PrintController extends BaseController {
 			'dimensions' 	=> Input::get('tf_dimensions'),
 			'description' 	=> Input::get('tf_description')
 			);
-	
-		echo "User_ID: " . $print_data['user_id'] . "<br />";
-		echo "Title:" . $print_data['title'] . "<br />";
-		echo "Category:" . $print_data['category'] . "<br />";
-		echo "Price:" . $print_data['price'] . "<br />";
-		echo "Dimensions:" . $print_data['dimensions'] . "<br />";
-		echo "Description:" . $print_data['description'] . "<br />";
 		
 		$newPrint = Prints::create($print_data);
+
 		return Redirect::to('/dashboard');
 	}
 	
