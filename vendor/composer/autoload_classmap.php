@@ -522,6 +522,7 @@ return array(
     'Net_SSH1' => $vendorDir . '/phpseclib/phpseclib/phpseclib/Net/SSH1.php',
     'Net_SSH2' => $vendorDir . '/phpseclib/phpseclib/phpseclib/Net/SSH2.php',
     'Normalizer' => $vendorDir . '/patchwork/utf8/class/Normalizer.php',
+    'Order' => $baseDir . '/app/models/Orders.php',
     'OrderController' => $baseDir . '/app/controllers/OrderController.php',
     'PHPParser_Autoloader' => $vendorDir . '/nikic/php-parser/lib/PHPParser/Autoloader.php',
     'PHPParser_Builder' => $vendorDir . '/nikic/php-parser/lib/PHPParser/Builder.php',

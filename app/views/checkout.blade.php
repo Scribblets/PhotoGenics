@@ -5,6 +5,7 @@
 	@include('layouts.logo')
 	@include('layouts.navigation')
 	
+
 	<div class="wrapper">
 		<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="false">
 			<div class="panel panel-default">
@@ -131,21 +132,25 @@
 										<input type="text" class="form-control" id="cc-exp-month" placeholder="MM" maxlength="2" val=""> / 
 										<input type="text" class="form-control" id="cc-exp-year" placeholder="YYYY" maxlength="4" val="">
 									</div>
-									
+
 									<div class="form-group cc-code">
 										<label for="cc-code">CSC:</label>
 										<input type="text" class="form-control" id="cc-code" placeholder="123" maxlength="3" val="">
 									</div>
 									<div class="clear"></div>
 								</div>
-								
+
 								<div class="form-group cc-total">
-									<p>*A total of <b>$19.98</b> will be charged to your credit card.</p>
+									<p>*A total of <b>${{ Session::get('cart.total') }}</b> will be charged to your credit card.</p>
+								</div>
+
+								<div class="form-group cc-total">
+									<p id="payment-errors"></p>
 								</div>
 								
 								<div class="button-group">
 									<button type="button" class="btn btn-default prev-next">Edit Cart</button>
-									<button id="placeOrder" type="button" class="btn btn-success" disabled="true">Place Order</button>
+									<button type="button" id="placeOrder" class="btn btn-success">Place Order</button>
 								</div>
 							</div>
 						</form>						
@@ -189,4 +194,37 @@
 	
 	@include('layouts.login')
 	@include('layouts.register')
+
+	@section('footer')
+	@parent
+		<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+		<script>
+			// Stripe.setPublishableKey('@stripeKey');
+
+			// $('#placeOrder').on('click', function(e){
+			// 	e.preventDefault();
+
+			// 	var $form = $(this);
+			// 	$form.find('#payment-errors').hide();
+			// 	$form.find('#placeOrder').prop('disabled', true);
+			// 	Stripe.createToken($form, stripeResponseHandler);
+			// 	return false;
+			// });
+
+			// function stripeResponseHandler(status, response){
+			// 	var $form = $('checkout-form');
+
+			// 	if(response.error){
+			// 		$form.find('#payment-errors').text(response.error.message).show();
+			// 		$form.find('#placeOrder').prop('disabled', false);
+			// 	} else {
+			// 		var token = response.id;
+			// 		$form.append($('<input type="hidden" name="stripeToken" />').val(token));
+			// 		$form.get(0).submit();
+			// 	}
+			// }
+
+		</script>
+	@stop
+
 @stop
