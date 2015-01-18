@@ -1744,7 +1744,10 @@
     "minimum-stability": "stable",
     "stability-flags": [],
     "prefer-stable": false,
+<<<<<<< HEAD
     "prefer-lowest": false,
+=======
+>>>>>>> FETCH_HEAD
     "platform": [],
     "platform-dev": []
 }

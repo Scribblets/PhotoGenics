@@ -6950,6 +6950,7 @@ Stack trace:
 #10 /Users/Studs/Desktop/PhotoGenics/public/index.php(49): Illuminate\Foundation\Application->run()
 #11 /Users/Studs/Desktop/PhotoGenics/server.php(19): require_once('/Users/Studs/De...')
 #12 {main} [] []
+<<<<<<< HEAD
 [2015-01-18 22:23:23] production.ERROR: exception 'ErrorException' with message 'Missing argument 2 for Illuminate\Routing\Router::post(), called in /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 208 and defined' in /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Routing/Router.php:155
 Stack trace:
 #0 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Routing/Router.php(155): Illuminate\Exception\Handler->handleError(2, 'Missing argumen...', '/Applications/M...', 155, Array)
@@ -7138,3 +7139,5 @@ Stack trace:
 Stack trace:
 #0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
 #1 {main} [] []
+=======
+>>>>>>> FETCH_HEAD
