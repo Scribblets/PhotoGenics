@@ -7,8 +7,7 @@ class UserController extends BaseController {
 	| Default User Controller
 	|--------------------------------------------------------------------------
 	*/	
-	public function register_user()
-	{
+	public function register_user() {
 		$errors = array();
 		
 		$userdata = array(
@@ -45,13 +44,22 @@ class UserController extends BaseController {
 			}
 		} else {
 			$userdata['password'] = Hash::make($userdata['password']);
-			$newuser = User::create($userdata);
-			return View::make('/dashboard');
+			$newUser = User::create($userdata);
+			
+			if($newUser){
+            	Auth::login($newUser);
+            	Session::flash('flash_message', '<b>Success!</b> Your account was successfully created! Welcome to your dashboard.');
+				Session::flash('flash_type', 'alert-success');
+            	return Redirect::to('/dashboard');
+			} else {
+				Session::flash('flash_message', '<b>Error!</b> An error occurred while logging you in. Please try again.');
+				Session::flash('flash_type', 'alert-danger');
+				return Redirect::to('/');
+			}
 		}
 	}
 	
-	public function login_user()
-	{
+	public function login_user() {
 		$errors = array();
 		
 		$userdata = array(
@@ -75,7 +83,9 @@ class UserController extends BaseController {
 	        // Login Successful
 	        // Route to Dashboard
 	        // Set Session
-			return View::make('/dashboard');
+	        return Redirect::to('/dashboard');
+	        // return Route::post('/dashboard/', 'UserController@login_user');
+			// return View::make('/dashboard');
 		} else {
 	    	// Login Failed
 	    	// Display Error
@@ -84,9 +94,30 @@ class UserController extends BaseController {
 		}
 	}
 	
-	public function logout_user()
-	{
+	public function logout_user() {
 		Auth::logout();
 		return Redirect::to('/');
+	}
+	
+	public function user_dashboard() {
+		// Get All Prints by User
+		// Get All Orders by User... Not very hard... :D
+		if(Auth::check()) {
+			$current_uid = Auth::user()->id;
+			$prints = Prints::whereUser_id($current_uid)->get();
+			$data['prints'] = $prints;
+			
+			// $data['orders'] = $orders;
+			return View::make('dashboard', $data);
+			
+/*
+			foreach($prints as $print) {
+				echo "Title:" . $print['title'];
+				echo "<br><br>";
+			}
+*/
+		} else {
+			return Redirect::to('/');
+		}
 	}
 }

@@ -2,6 +2,8 @@
 
 @section('body')
 	@include('layouts.header')
+	<a class="brand" href="/"><h1><span class="logo-color"><i class="fa fa-camera-retro"></i></span>{{ $user['username'] }}</h1></a>
+	@include('layouts.navigation')
 	
 	<div class="wrapper">
 		<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="false">

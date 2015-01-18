@@ -66,13 +66,25 @@ a:hover {
   margin: 10px;
   float: left;
   position: relative;
-  background: #00b3ee; }
+  background: #EF206E; }
+
+.item img:hover {
+  filter: alpha(opacity=50);
+  opacity: 0.3;
+  -webkit-transition: opacity 0.35s ease-in-out;
+  -moz-transition: opacity 0.35s ease-in-out;
+  -ms-transition: opacity 0.35s ease-in-out;
+  -o-transition: opacity 0.35s ease-in-out;
+  transition: opacity 0.35s ease-in-out; }
+
+.item img {
+  max-width: 340px; }
 
 .thumb-text {
   position: absolute;
   bottom: 15px;
   left: 0px;
-  width: 160px;
+  width: 170px;
   background: rgba(0, 0, 0, 0.75);
   color: #FFF;
   padding: 10px;
@@ -99,12 +111,32 @@ a:hover {
 
 .product_image {
   max-width: 340px;
-  max-height: 340px;
   float: left;
   margin-right: 25px; }
 
+.product_details {
+  float: left;
+  max-width: 530px; }
+
+.product_image img {
+  max-width: 340px; }
+
 .more {
-  clear: both; }
+  clear: both;
+  margin-top: 30px; }
+
+.more a {
+  display: block;
+  height: 225px;
+  width: 225px;
+  overflow: hidden;
+  float: left;
+  margin-right: 5px; }
+
+.more img {
+  min-height: 225px;
+  min-width: 225px;
+  max-height: 230px; }
 
 .print_info {
   position: relative; }
@@ -230,6 +262,13 @@ a:hover {
 .btn-make-item {
   float: right; }
 
+.db-panel td {
+  text-transform: capitalize; }
+
+td img {
+  max-width: 30px;
+  max-height: 30px; }
+
 /* ==========================================================================
    Create & Edit Forms
    ========================================================================== */
@@ -281,9 +320,11 @@ a:hover {
   position: relative; }
 
 #header ul li a {
-  margin-right: 5px;
   padding-top: 0;
   color: #EF206E; }
+
+.anchor-button {
+  padding: 0 !important; }
 
 #cartCount {
   position: absolute;

@@ -158,7 +158,9 @@
 			</div>
 		</div>
 	</div>
-  
+	
+	{{ data }}
+	
 	@include('layouts.login')
 	@include('layouts.register')
 @stop

@@ -27,19 +27,17 @@ Route::get('/store/checkout', function() {
 	return View::make('checkout', $data);
 });
 
-Route::get('/dashboard', function() {
-	$data['cartCount'] = 0;
-	$data['title'] = "PhotoGenics - Dashboard";
-	return View::make('dashboard', $data);
-});
-
-/* Users: Register, Login, and Logout */
+/* User Routes */
 Route::post('/user/register', 'UserController@register_user');
 Route::post('/user/login', 'UserController@login_user');
 Route::get('/logout', 'UserController@logout_user');
 
-/* Prints: Create, Read, Update, and Delete */
-Route::get('/u/{username}', 'PrintController@read_print_by_username');
+/* Front-End Routes  */
+Route::get('/u/{username}', 'PrintController@read_all_prints_by_username');
+Route::get('/u/{username}/{print_id}', 'PrintController@read_print_by_ids');
+
+/* Back-End Routes */
+Route::get('/dashboard', 'UserController@user_dashboard');
 Route::post('/print/create', 'PrintController@create_print');
-//	Route::post('/print/update', 'PrintController@update_print');
-//	Route::get('/print/delete/{user_id}', 'PrinController@delete_print');
+Route::post('/print/update/{print_id}', 'PrintController@update_print');
+Route::get('/print/delete/{print_id}', 'PrintController@delete_print');

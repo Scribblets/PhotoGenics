@@ -23,6 +23,17 @@
 <body>
     @yield('body')
     
+    @if ( Session::has('flash_message'))    
+		<div class="modal fade" id="flashModal" tabindex="-1" role="dialog">
+			<div class="modal-dialog">
+				<div class="alert {{ Session::get('flash_type') }} alert-dismissible" role="alert">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<p>{{ Session::get('flash_message') }}</p>
+				</div>
+			</div>
+		</div>
+	@endif
+    
     @section('footer')
         <!-- Javascript -->
         <script src="/assets/javascripts/application.js"></script>

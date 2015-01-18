@@ -6,7 +6,6 @@ class PrintController extends BaseController {
 		$file = Input::file('tf_file');
 		
 		if (Input::hasFile('tf_file')){
-			// Store Image File in uploads/{username}
 			$destinationPath = 'public/uploads/' . Auth::user()->username;
 			
 			echo 'user data';
@@ -16,14 +15,9 @@ class PrintController extends BaseController {
 			var_dump($file);
 	
 			$filename = $file->getClientOriginalName();
-			//$extension =$file->getClientOriginalExtension();
 	
 			$upload_success = Input::file('tf_file')->move($destinationPath, $filename);
-	 		$path = 'public/uploads/' . Auth::user()->username . '/' . $filename;
-	
-			echo 'path to the file';
-			var_dump($path);
-	
+	 		$path = '/uploads/' . Auth::user()->username . '/' . $filename;
 		}
 	
 		//	For pushing to the database...
@@ -44,40 +38,73 @@ class PrintController extends BaseController {
 		echo "Dimensions:" . $print_data['dimensions'] . "<br />";
 		echo "Description:" . $print_data['description'] . "<br />";
 		
-		// TO-DO:
-		// 1. Print needs to be stored in the database.
-		// 2. Print data needs to be displayed on Print Details Page.
-		//		- For example: /details/1
-		//		  should display all info for the
-		//		  print in the database with id of 1
-		// 2. Print 
-		// var_dump($print_data);
-		//	This needs to go into the database!
 		$newPrint = Prints::create($print_data);
+		return Redirect::to('/dashboard');
 	}
 	
-	public function read_print_by_username($username) {
-		$user = DB::table('users')->where('username', $username)->first();
-		//var_dump($user->id);
-		// echo $user->id;
-		$print = DB::table('prints')->where('user_id', $user->id)->orderBy('created_at')->get();
-		var_dump($print);
+	public function read_all_prints_by_username($username) {
+		$user = User::whereUsername($username)->first();
+		$prints = Prints::whereUser_id($user->id)->get();
 		
+		$data['user'] = array('firstname' => $user->firstname, 'lastname' => $user->lastname, 'username' => $username);
+		$data['prints'] = $prints;
+		
+		return View::make('user')->with($data);
 	}
 	
-	public function update_print() {
+	public function read_print_by_ids($username, $print_id) {
+		$user = User::whereUsername($username)->first();
+		$print = Prints::whereId($print_id)->whereUser_id($user['id'])->first();
+		$count = Prints::whereUser_id($user['id'])->count();
+		
+		if($count >= 2) {
+			$data['random']['enough'] = true;
+			if($count >= 5) {
+				$count = 4;
+				$data['random']['class'] = "more" . $count;
+			} else {
+				$count = $count - 1;
+				$data['random']['class'] = "more" . $count;
+			}
+		} else {
+			$data['random']['enough'] = false;
+		}
+		
+		$random_prints = Prints::whereUser_id($user['id'])->whereNotIn('id', [$print_id])->orderBy(DB::raw('RAND()'))->take($count)->get();
+		
+		$data['print'] 				= $print;
+		$data['user']['firstname'] 	= $user['firstname'];
+		$data['user']['lastname'] 	= $user['lastname'];
+		$data['user']['username'] 	= $username;
+		$data['random']['prints'] 	= $random_prints;
+		
+		return View::make('details')->with($data);
+	}
+	
+	public function update_print($print_id) {
 		$print_data = array(
-			'print_id'		=> Input::get('tf_print_id'),
 			'title'			=> Input::get('tf_title'),
 			'category'		=> Input::get('tf_category'),
 			'price'			=> Input::get('tf_price'),
 			'dimensions'	=> Input::get('tf_dimensions'),
 			'description'	=> Input::get('tf_description')
 		);
+		
+		$print = Prints::find($print_id);
+		$print->title = Input::get('tf_title');
+		$print->category = Input::get('tf_category');
+		$print->price = Input::get('tf_price');
+		$print->dimensions = Input::get('tf_dimensions');
+		$print->description = Input::get('tf_description');
+		$print->save();
+		
+		return Redirect::to('/dashboard');
 	}
 	
-	public function delete_print() {
-		// Get Print From Database...
-		// Delete Print...
+	public function delete_print($print_id) {
+		$print = Prints::find($print_id);
+		$print->delete();
+		
+		return Redirect::to('/dashboard');
 	}
 }
