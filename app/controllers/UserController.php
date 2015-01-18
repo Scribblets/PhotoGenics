@@ -67,10 +67,6 @@ class UserController extends BaseController {
 			'password'	=>	Input::get('tf_login_password')
 		);
 	
-	    // Debug for login....
-		// echo 'Attempted username: ' .  Input::get('tf_login_username') . '<br/>';
-		// echo 'Attempted password: ' .  Input::get('tf_login_password') . '<br/>';
-	
 		/* See if the 'Remember Me' is toggled */
 		if(Input::get('persist') == 'on') {
 			$isAuth = Auth::attempt($userdata, true);
@@ -80,23 +76,19 @@ class UserController extends BaseController {
 	
 		/* Is it in yet? */
 		if($isAuth) {
-	        // Login Successful
-	        // Route to Dashboard
-	        // Set Session
+	        // Login Successful route to Dashboard
 	        return Redirect::to('/dashboard');
-	        // return Route::post('/dashboard/', 'UserController@login_user');
-			// return View::make('/dashboard');
 		} else {
 	    	// Login Failed
 	    	// Display Error
-			echo 'Username or password incorrect.';
+			// echo 'Username or password incorrect.';
 			return Redirect::to('/');
 		}
 	}
 	
 	public function logout_user() {
 		Auth::logout();
-		Session::flush();		
+		Session::flush();
 		return Redirect::to('/');
 	}
 	
