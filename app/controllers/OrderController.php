@@ -1,11 +1,12 @@
 <?php
 	
-class OrderController extends BaseController {
+class HomeController extends BaseController {
 	
-	public function create_order() {
-	}
-	
-	public function read_order() {
-		
+	public function home() {
+		if(Auth::check()) {
+			return View::make('user', $data);
+		} else {
+			return View::make('home');
+		}
 	}
 }
