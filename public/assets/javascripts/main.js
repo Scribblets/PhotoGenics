@@ -158,6 +158,7 @@
 			$('#checkout-form .credit-card-information .button-group').prepend('<input type="hidden" id="tf_lastFour" name="tf_lastFour" value="' + response.card.last4 + '" />');
 			$('#checkout-form .credit-card-information .button-group').prepend('<input type="hidden" id="tf_token" name="tf_token" value="' + token + '" />');
 			$('#collapseTwo').collapse('toggle');
+			$('.spin').show();
 		}		
 	}
 	

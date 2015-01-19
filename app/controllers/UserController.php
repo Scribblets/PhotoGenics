@@ -37,11 +37,16 @@ class UserController extends BaseController {
 		}
 		
 		if(count($errors) > 0) {
-			echo "There was an error creating your account. Please correct the following errors: <br>";
-			
+			$html = "<b>Register Error!</b> ";
 			foreach($errors as $err) {
-				echo "- " . $err . "<br>";
+				$eHTML = $err . " ";
+				$html .= $eHTML;
 			}
+			
+			Session::flash('flash_message', $html);
+			Session::flash('flash_type', 'alert-danger');			
+			
+			return Redirect::to('/');
 		} else {
 			$userdata['password'] = Hash::make($userdata['password']);
 			$newUser = User::create($userdata);
