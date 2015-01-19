@@ -3,31 +3,37 @@
 class PrintController extends BaseController {
 	
 	public function create_print() {
-
 		$file = Input::file('tf_file');
 		
 		if (Input::hasFile('tf_file')){
-			$destinationPath = 'public/uploads/' . Auth::user()->username;
-	
-			$filename = $file->getClientOriginalName();
-	
-			$upload_success = Input::file('tf_file')->move($destinationPath, $filename);
-	 		$path = '/uploads/' . Auth::user()->username . '/' . $filename;
+			if(Input::get('tf_title') != '' && Input::get('tf_category') != '' && Input::get('tf_price') != '' && Input::get('tf_dimensions') != '' && Input::get('tf_description') != '') {
+				$destinationPath = 'public/uploads/' . Auth::user()->username;
+		
+				$filename = $file->getClientOriginalName();
+		
+				$upload_success = Input::file('tf_file')->move($destinationPath, $filename);
+		 		$path = '/uploads/' . Auth::user()->username . '/' . $filename;
+		 		
+		 		$print_data = array(
+					'path'			=> $path,
+					'user_id' 		=> Auth::id(),
+					'title' 		=> Input::get('tf_title'),
+					'category' 		=> Input::get('tf_category'),
+					'price' 		=> Input::get('tf_price'),
+					'dimensions' 	=> Input::get('tf_dimensions'),
+					'description' 	=> Input::get('tf_description')
+				);
+				
+				$newPrint = Prints::create($print_data);
+			} else {
+				Session::flash('flash_message', '<b>Error!</b> All fields are required. Please try again.');
+				Session::flash('flash_type', 'alert-danger');
+			}
+		} else {
+			Session::flash('flash_message', '<b>Error!</b> No image was uploaded. Please try again.');
+			Session::flash('flash_type', 'alert-danger');
 		}
 	
-		//	For pushing to the database...
-		$print_data = array(
-			'path'			=> $path,
-			'user_id' 		=> Auth::id(),
-			'title' 		=> Input::get('tf_title'),
-			'category' 		=> Input::get('tf_category'),
-			'price' 		=> Input::get('tf_price'),
-			'dimensions' 	=> Input::get('tf_dimensions'),
-			'description' 	=> Input::get('tf_description')
-			);
-		
-		$newPrint = Prints::create($print_data);
-
 		return Redirect::to('/dashboard');
 	}
 	
@@ -71,21 +77,26 @@ class PrintController extends BaseController {
 	}
 
 	public function update_print($print_id) {
-		$print_data = array(
-			'title'			=> Input::get('tf_title'),
-			'category'		=> Input::get('tf_category'),
-			'price'			=> Input::get('tf_price'),
-			'dimensions'	=> Input::get('tf_dimensions'),
-			'description'	=> Input::get('tf_description')
-		);
-		
-		$print = Prints::find($print_id);
-		$print->title = Input::get('tf_title');
-		$print->category = Input::get('tf_category');
-		$print->price = Input::get('tf_price');
-		$print->dimensions = Input::get('tf_dimensions');
-		$print->description = Input::get('tf_description');
-		$print->save();
+		if(Input::get('tf_title') != '' && Input::get('tf_category') != '' && Input::get('tf_price') != '' && Input::get('tf_dimensions') != '' && Input::get('tf_description') != '') {
+			$print_data = array(
+				'title'			=> Input::get('tf_title'),
+				'category'		=> Input::get('tf_category'),
+				'price'			=> Input::get('tf_price'),
+				'dimensions'	=> Input::get('tf_dimensions'),
+				'description'	=> Input::get('tf_description')
+			);
+			
+			$print = Prints::find($print_id);
+			$print->title = Input::get('tf_title');
+			$print->category = Input::get('tf_category');
+			$print->price = Input::get('tf_price');
+			$print->dimensions = Input::get('tf_dimensions');
+			$print->description = Input::get('tf_description');
+			$print->save();
+		} else {
+			Session::flash('flash_message', '<b>Error!</b> All fields are required. Please try again.');
+			Session::flash('flash_type', 'alert-danger');
+		}
 		
 		return Redirect::to('/dashboard');
 	}
