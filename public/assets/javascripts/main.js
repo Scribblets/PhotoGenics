@@ -107,11 +107,13 @@
 		$('#collapseTwo').collapse('toggle');
 	});
 	
-	$('#placeOrder').on('click', function(e) {
+	/*
+$('#placeOrder').on('click', function(e) {
 		// Submit Form via AJAX
 		$('#collapseTwo').collapse('toggle');
 		$('#collapseThree').collapse('toggle');
 	});
+*/
 	
 	/* Numbers Only Input */
 	$('#tf_checkout_zip, #tf_checkout_ccNumber, #tf_checkout_ccExpMonth, #tf_checkout_ccExpYear, #tf_checkout_ccCode').keypress(function (e) {
@@ -129,7 +131,40 @@
 		}
 	});
 	
-	/* Print Confirmation */
+	/* Stripe Functionality */
+	Stripe.setPublishableKey('pk_test_byl39OOJq9GcVZZSanaY9aUv');
+
+	$('#placeOrder').on('click', function(e){
+		e.preventDefault();
+		var $form = $('#checkout-form');
+		$form.find('#payment-errors').hide();
+		$form.find('#placeOrder').prop('disabled', true);
+		Stripe.createToken($form, stripeResponseHandler);
+		
+		return false;
+	});
+	
+	function stripeResponseHandler(status, response){
+		var $form = $('#checkout-form');
+		
+		if(response.error){
+			console.log(response.error);
+			$('#checkout-form .alert-danger').html('<b><i class="fa fa-exclamation"></i></b> ' + response.error.message).show();
+		} else {
+			var token = response.id;
+			var order_id = response.card.id.slice(5);
+			var route = '/order/process/' + order_id;
+			$form.attr('action', route);
+			$('#checkout-form .credit-card-information .button-group').prepend('<input type="hidden" name="tf_token" value="' + token + '" />');
+			$form.submit();
+			//$('#collapseTwo').collapse('toggle');
+			// $('#collapseThree').collapse('toggle');
+			// $form.get(0).submit();
+		}		
+	}
+	
+	
+	// /* Print Confirmation */
 	$('#print-confirmation').on('click', function(e) {
 		window.print();
 	});

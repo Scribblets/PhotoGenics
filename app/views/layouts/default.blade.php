@@ -39,6 +39,7 @@
         <script src="/assets/javascripts/application.js"></script>
         <script src="/assets/javascripts/bootstrap-select.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
+        <script src="https://js.stripe.com/v2/"></script>
         <script src="/assets/javascripts/main.js"></script>
     @show
 </body>

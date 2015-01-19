@@ -27,4 +27,15 @@ class User extends Eloquent implements UserInterface, RemindableInterface, Billa
 	protected $fillable = ['firstname','lastname','username','email','password'];
 	protected $dates = ['trial_ends_at', 'subscription_ends_at'];
 
+
+	public function Prints(){
+		return $this->hasMany('Prints');
+	}
+
+	public function Orders(){
+		return $this->hasMany('Orders');
+	}
+	
+
+
 }

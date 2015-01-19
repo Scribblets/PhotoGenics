@@ -14,11 +14,13 @@ class UserOrders extends Migration {
 	{
 		Schema::create('orders', function(Blueprint $table)
 		{
-			$table->increments('id');
+			$table->integer('order_id')->unsigned();
 			$table->integer('user_id')->unsigned();
 			$table->foreign('user_id')->references('id')->on('users');
 			$table->integer('print_id')->unsigned();
 			$table->foreign('print_id')->references('id')->on('prints');
+			$table->integer('price')->unsigned();
+			$table->integer('status')->unsigned();
 
         // created_at, updated_at DATETIME
 			$table->timestamps();

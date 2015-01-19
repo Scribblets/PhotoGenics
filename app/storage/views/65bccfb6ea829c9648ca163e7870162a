@@ -66,7 +66,7 @@
 				
 				<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
 					<div class="panel-body">						
-						<form id="checkout-form">
+						<form id="checkout-form" method="POST">
 							
 							<div class="alert alert-danger" role="alert"><b>Oops!</b> There was an error processing your order! Please try again.</div>
 							
@@ -122,19 +122,19 @@
 								
 								<div class="form-group">
 									<label for="tf_checkout_ccNumber">Card Number:</label>
-									<input type="text" class="form-control" id="tf_checkout_ccNumber" name="tf_checkout_ccNumber" placeholder="Credit Card Number" maxlength="16" val="">
+									<input type="text" data-stripe="number" class="form-control" id="tf_checkout_ccNumber" placeholder="Credit Card Number" maxlength="16" val="">
 								</div>
 								
 								<div class="form-group">
 									<div class="form-group cc-exp-date">
 										<label for="tf_checkout_ccExpMonth" class="cc-exp-date-label">Expiration Date:</label>
-										<input type="text" class="form-control" id="tf_checkout_ccExpMonth" name="tf_checkout_ccExpMonth" placeholder="MM" maxlength="2" val=""> / 
-										<input type="text" class="form-control" id="tf_checkout_ccExpYear" name="tf_checkout_ccExpYear" placeholder="YYYY" maxlength="4" val="">
+										<input type="text" data-stripe="exp-month" class="form-control" id="tf_checkout_ccExpMonth" placeholder="MM" maxlength="2" val=""> / 
+										<input type="text" data-stripe="exp-year" class="form-control" id="tf_checkout_ccExpYear" placeholder="YYYY" maxlength="4" val="">
 									</div>
 									
 									<div class="form-group cc-code">
-										<label for="tf_checkout_ccCode">CSC:</label>
-										<input type="text" class="form-control" id="tf_checkout_ccCode" name="tt_checkout_ccCode" placeholder="123" maxlength="3" val="">
+										<label for="tf_checkout_ccCode">CVC:</label>
+										<input type="text" data-stripe="cvc" class="form-control" id="tf_checkout_ccCode" placeholder="123" maxlength="3" val="">
 									</div>
 									<div class="clear"></div>
 								</div>
@@ -145,7 +145,7 @@
 								
 								<div class="button-group">
 									<button type="button" class="btn btn-default prev-next">Edit Cart</button>
-									<button id="placeOrder" type="button" class="btn btn-success" disabled="true">Place Order</button>
+									<button type="submit" id="placeOrder" class="btn btn-success" disabled="true"><i class="fa fa-cc-stripe"></i> Place Order</button>
 								</div>
 							</div>
 						</form>						
@@ -161,10 +161,10 @@
 				<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
 					<div class="panel-body">
 						<div id="confirmation">
-							<div class="alert alert-success" role="alert"><b>Success!</b> Your order number is <b>#591392</b>.</div>
+							<div class="alert alert-success" role="alert"><b><i class="fa fa-check"></i></b> Your order number is <b>#591392</b>.</div>
 							<h3>Thank You!</h3>
 							<p>Thank you for your order. The details are below:</p> 
-							<p><b>Order ID:</b> <code>#591392</code></p>
+							<p><b>Order:</b> <code>#591392</code></p>
 							<p><b>Date:</b> 01/10/2015</p>
 							<p><b>Total:</b> $19.98</p>
 							<p><b>Items:</b></p>
@@ -186,7 +186,7 @@
 			</div>
 		</div> <!-- End, Panel Group -->
 	</div> <!-- End, Wrapper -->
-	
+
 	<?php echo $__env->make('layouts.login', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 	<?php echo $__env->make('layouts.register', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <?php $__env->stopSection(); ?>
