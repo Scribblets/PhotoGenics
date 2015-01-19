@@ -92,12 +92,6 @@ Insert Sessions:
 INSERT INTO `sessions` (`id`, `payload`, `last_activity`)
 VALUES
 	('a79c1a7073082de785e46223ef31f9b9f5e66440','YTo0OntzOjU6ImZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NjoiX3Rva2VuIjtzOjQwOiJPU1BpYmhsdGRKdzNKMHNXOWlIWjlJSTQ3Q1d2NG54c2xqMDlDZGFnIjtzOjM4OiJsb2dpbl84MmU1ZDJjNTZiZGQwODExMzE4ZjBjZjA3OGI3OGJmYyI7aTozO3M6OToiX3NmMl9tZXRhIjthOjM6e3M6MToidSI7aToxNDIxNjk0MTIzO3M6MToiYyI7aToxNDIxNjQ4ODA3O3M6MToibCI7czoxOiIwIjt9fQ==',1421694123);
-
-INSERT INTO `users` (`id`, `firstname`, `lastname`, `username`, `email`, `password`, `remember_token`, `created_at`, `updated_at`, `stripe_active`, `stripe_id`, `stripe_subscription`, `stripe_plan`, `last_four`, `trial_ends_at`, `subscription_ends_at`)
-VALUES
-	(1,'damasio','gerena','dgerena','darktheman2000@yahoo.com','$2y$10$RsUfxIxLGM4RaKZdKzN1S.l6mEg63.g.FoI7.9WXlhDQOv3OSe9RG','6MIEAgtkSauVjtbtGJX8XlLZf31jSRVx4kXQiZAhWR67AvYSGuRHJ0jfdxIb','2015-01-19 06:27:17','2015-01-19 06:27:17',0,NULL,NULL,NULL,NULL,NULL,NULL),
-	(2,'A','Studnicky','astudnicky','astud@somewhere.com','$2y$10$ZXo43GlLdMTyVWzMfmdbVesZnqt3O9s0WiAmiLFCFMEHzB9ygS/jO','RtwhCNmYOpuoUg7bTqkFymZdE7mmpgMXdBb3l4UByIANnOfFYjGFt0aXd5Xq','2015-01-19 18:27:46','2015-01-19 18:27:46',0,NULL,NULL,NULL,NULL,NULL,NULL),
-	(3,'L','Roberts','lroberts','lroberts@someplace.com','$2y$10$QrGCExBCXKP0RIbErngYz.fvQcnhE5xxWgMQdjiMaP81DCQIJhnBe',NULL,'2015-01-19 18:53:53','2015-01-19 18:53:53',0,NULL,NULL,NULL,NULL,NULL,NULL);
 ```
 
 # Developers
