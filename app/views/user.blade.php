@@ -2,6 +2,10 @@
 
 @section('body')
 	@include('layouts.header')
+	<a class="brand" href="/u/{{ $user['username'] }}"><h1>{{ $user['firstname'] }}<span class="logo-color"><i class="fa fa-camera-retro"></i>{{ $user['lastname'] }}</span></h1></a>
+	@include('layouts.navigation')
+	
+	@if(count($prints) > 0) 
     <div id="categories">
 	    <ul>
 		    <li><a href="#" id="filterAll" data-filter="*" class="filters active">All</a></li>
@@ -12,153 +16,25 @@
 	    </ul>
     </div>
     
-    <div id="container">   
-		<div class="item people">
-			<img src="http://placekitten.com/g/160/160" />
-			<div class="thumb-text">
-				<p class="printTitle">Print Title</p>
-				<p class="printArtist"><i>Author Name</i></p>
-				<p class="printPrice">$9.99</p>
+    <div id="container">
+		
+		@foreach($prints as $print)
+			<div class="item {{ $print->category }}">
+				<a href="/u/{{$user['username']}}/{{$print->id}}">
+					<img src="{{$print->path}}" />
+					<div class="thumb-text">
+						<p class="printTitle">{{$print->title}}</p>
+						<p class="printArtist"><i>{{$user['firstname']}} {{$user['lastname']}}</i></p>
+						<p class="printPrice">${{$print->price}}</p>
+					</div>
+				</a>
 			</div>
-		</div>
-		<div class="item people">
-			<img src="http://placekitten.com/g/340/160" />
-			<div class="thumb-text">
-				<p class="printTitle">Print Title</p>
-				<p class="printArtist"><i>Author Name</i></p>
-				<p class="printPrice">$9.99</p>
-			</div>
-		</div>
-		<div class="item animals">
-			<img src="http://placekitten.com/g/160/160" />
-			<div class="thumb-text">
-				<p class="printTitle">Print Title</p>
-				<p class="printArtist"><i>Author Name</i></p>
-				<p class="printPrice">$9.99</p>
-			</div>
-		</div>
-		<div class="item nature">
-			<img src="http://placekitten.com/g/340/160" />
-			<div class="thumb-text">
-				<p class="printTitle">Print Title</p>
-				<p class="printArtist"><i>Author Name</i></p>
-				<p class="printPrice">$9.99</p>
-			</div>
-		</div>
-		<div class="item art">
-			<img src="http://placekitten.com/g/160/340" />
-			<div class="thumb-text">
-				<p class="printTitle">Print Title</p>
-				<p class="printArtist"><i>Author Name</i></p>
-				<p class="printPrice">$9.99</p>
-			</div>
-		</div>
-		<div class="item art">
-			<img src="http://placekitten.com/g/160/160" />
-			<div class="thumb-text">
-				<p class="printTitle">Print Title</p>
-				<p class="printArtist"><i>Author Name</i></p>
-				<p class="printPrice">$9.99</p>
-			</div>
-		</div>
-		<div class="item nature">
-			<img src="http://placekitten.com/g/160/340" />
-			<div class="thumb-text">
-				<p class="printTitle">Print Title</p>
-				<p class="printArtist"><i>Author Name</i></p>
-				<p class="printPrice">$9.99</p>
-			</div>
-		</div>
-		<div class="item people">
-			<img src="http://placekitten.com/g/340/340" />
-			<div class="thumb-text">
-				<p class="printTitle">Print Title</p>
-				<p class="printArtist"><i>Author Name</i></p>
-				<p class="printPrice">$9.99</p>
-			</div>
-		</div>
-		<div class="item animals">
-			<img src="http://placekitten.com/g/160/160" />
-			<div class="thumb-text">
-				<p class="printTitle">Print Title</p>
-				<p class="printArtist"><i>Author Name</i></p>
-				<p class="printPrice">$9.99</p>
-			</div>
-		</div>
-		<div class="item art">
-			<img src="http://placekitten.com/g/160/160" />
-			<div class="thumb-text">
-				<p class="printTitle">Print Title</p>
-				<p class="printArtist"><i>Author Name</i></p>
-				<p class="printPrice">$9.99</p>
-			</div>
-		</div>
-		<div class="item nature">
-			<img src="http://placekitten.com/g/160/340" />
-			<div class="thumb-text">
-				<p class="printTitle">Print Title</p>
-				<p class="printArtist"><i>Author Name</i></p>
-				<p class="printPrice">$9.99</p>
-			</div>
-		</div>
-		<div class="item people">
-			<img src="http://placekitten.com/g/160/160" />
-			<div class="thumb-text">
-				<p class="printTitle">Print Title</p>
-				<p class="printArtist"><i>Author Name</i></p>
-				<p class="printPrice">$9.99</p>
-			</div>
-		</div>
-		<div class="item art">
-			<img src="http://placekitten.com/g/160/160" />
-			<div class="thumb-text">
-				<p class="printTitle">Print Title</p>
-				<p class="printArtist"><i>Author Name</i></p>
-				<p class="printPrice">$9.99</p>
-			</div>
-		</div>
-		<div class="item animals">
-			<img src="http://placekitten.com/g/340/160" />
-			<div class="thumb-text">
-				<p class="printTitle">Print Title</p>
-				<p class="printArtist"><i>Author Name</i></p>
-				<p class="printPrice">$9.99</p>
-			</div>
-		</div>
-		<div class="item people">
-			<img src="http://placekitten.com/g/160/160" />
-			<div class="thumb-text">
-				<p class="printTitle">Print Title</p>
-				<p class="printArtist"><i>Author Name</i></p>
-				<p class="printPrice">$9.99</p>
-			</div>
-		</div>
-		<div class="item people">
-			<img src="http://placekitten.com/g/700/340" />
-			<div class="thumb-text">
-				<p class="printTitle">Print Title</p>
-				<p class="printArtist"><i>Author Name</i></p>
-				<p class="printPrice">$9.99</p>
-			</div>
-		</div>
-		<div class="item nature">
-			<img src="http://placekitten.com/g/160/160" />
-			<div class="thumb-text">
-				<p class="printTitle">Print Title</p>
-				<p class="printArtist"><i>Author Name</i></p>
-				<p class="printPrice">$9.99</p>
-			</div>
-		</div>
-		<div class="item animals">
-			<img src="http://placekitten.com/g/160/340" />
-			<div class="thumb-text">
-				<p class="printTitle">Print Title</p>
-				<p class="printArtist"><i>Author Name</i></p>
-				<p class="printPrice">$9.99</p>
-			</div>
-		</div>
-	</div>
-  
+		@endforeach
+    </div>
+    @else
+    	<p class="noPrints">This user doesn't have any prints yet!</p>
+    @endif
+	
 	@include('layouts.login')
 	@include('layouts.register')
 @stop

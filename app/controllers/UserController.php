@@ -7,8 +7,7 @@ class UserController extends BaseController {
 	| Default User Controller
 	|--------------------------------------------------------------------------
 	*/	
-	public function register_user()
-	{
+	public function register_user() {
 		$errors = array();
 		
 		$userdata = array(
@@ -45,23 +44,28 @@ class UserController extends BaseController {
 			}
 		} else {
 			$userdata['password'] = Hash::make($userdata['password']);
-			$newuser = User::create($userdata);
-			return View::make('/dashboard');
+			$newUser = User::create($userdata);
+			
+			if($newUser){
+            	Auth::login($newUser);
+            	Session::flash('flash_message', '<b>Success!</b> Your account was successfully created! Welcome to your dashboard.');
+				Session::flash('flash_type', 'alert-success');
+            	return Redirect::to('/dashboard');
+			} else {
+				Session::flash('flash_message', '<b>Error!</b> An error occurred while logging you in. Please try again.');
+				Session::flash('flash_type', 'alert-danger');
+				return Redirect::to('/');
+			}
 		}
 	}
 	
-	public function login_user()
-	{
+	public function login_user() {
 		$errors = array();
 		
 		$userdata = array(
 			'username'	=>	Input::get('tf_login_username'),
 			'password'	=>	Input::get('tf_login_password')
 		);
-	
-	    // Debug for login....
-		// echo 'Attempted username: ' .  Input::get('tf_login_username') . '<br/>';
-		// echo 'Attempted password: ' .  Input::get('tf_login_password') . '<br/>';
 	
 		/* See if the 'Remember Me' is toggled */
 		if(Input::get('persist') == 'on') {
@@ -72,21 +76,41 @@ class UserController extends BaseController {
 	
 		/* Is it in yet? */
 		if($isAuth) {
-	        // Login Successful
-	        // Route to Dashboard
-	        // Set Session
-			return View::make('/dashboard');
+	        // Login Successful route to Dashboard
+	        return Redirect::to('/dashboard');
 		} else {
 	    	// Login Failed
 	    	// Display Error
-			echo 'Username or password incorrect.';
+			// echo 'Username or password incorrect.';
 			return Redirect::to('/');
 		}
 	}
 	
-	public function logout_user()
-	{
+	public function logout_user() {
 		Auth::logout();
+		Session::flush();
 		return Redirect::to('/');
+	}
+	
+	public function user_dashboard() {
+		// Get All Prints by User
+		// Get All Orders by User... Not very hard... :D
+		if(Auth::check()) {
+			$current_uid = Auth::user()->id;
+			$prints = Prints::whereUser_id($current_uid)->get();
+			$data['prints'] = $prints;
+			
+			// $data['orders'] = $orders;
+			return View::make('dashboard', $data);
+			
+/*
+			foreach($prints as $print) {
+				echo "Title:" . $print['title'];
+				echo "<br><br>";
+			}
+*/
+		} else {
+			return Redirect::to('/');
+		}
 	}
 }

@@ -1,0 +1,1 @@
+				<a class="brand" href="/"><h1>Photo<span class="logo-color"><i class="fa fa-camera-retro"></i>Genics</span></h1></a>

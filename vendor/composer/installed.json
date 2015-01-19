@@ -720,38 +720,6 @@
         ]
     },
     {
-        "name": "authorizenet/authorizenet",
-        "version": "1.8.0",
-        "version_normalized": "1.8.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/AuthorizeNet/sdk-php.git",
-            "reference": "77ed2315c722bbb8ae82b545d4a5fa2a1ce1f4c7"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/AuthorizeNet/sdk-php/zipball/77ed2315c722bbb8ae82b545d4a5fa2a1ce1f4c7",
-            "reference": "77ed2315c722bbb8ae82b545d4a5fa2a1ce1f4c7",
-            "shasum": ""
-        },
-        "require": {
-            "ext-curl": "*",
-            "php": ">=5.2.0"
-        },
-        "time": "2014-03-29 00:01:15",
-        "type": "library",
-        "installation-source": "dist",
-        "notification-url": "https://packagist.org/downloads/",
-        "description": "Official PHP SDK for Authorize.Net",
-        "homepage": "http://developer.authorize.net",
-        "keywords": [
-            "authorize.net",
-            "authorizenet",
-            "ecommerce",
-            "payment"
-        ]
-    },
-    {
         "name": "patchwork/utf8",
         "version": "v1.1.28",
         "version_normalized": "1.1.28.0",
@@ -1716,5 +1684,113 @@
         ],
         "description": "Symfony Filesystem Component",
         "homepage": "http://symfony.com"
+    },
+    {
+        "name": "stripe/stripe-php",
+        "version": "v1.17.5",
+        "version_normalized": "1.17.5.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/stripe/stripe-php.git",
+            "reference": "e93d4f101fe0c01fb61fe820043ead545045ed3c"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/stripe/stripe-php/zipball/e93d4f101fe0c01fb61fe820043ead545045ed3c",
+            "reference": "e93d4f101fe0c01fb61fe820043ead545045ed3c",
+            "shasum": ""
+        },
+        "require": {
+            "ext-curl": "*",
+            "ext-json": "*",
+            "ext-mbstring": "*",
+            "php": ">=5.2"
+        },
+        "require-dev": {
+            "simpletest/simpletest": "*"
+        },
+        "time": "2014-12-23 23:59:35",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [
+                "lib/Stripe/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Stripe and contributors",
+                "homepage": "https://github.com/stripe/stripe-php/contributors"
+            }
+        ],
+        "description": "Stripe PHP Library",
+        "homepage": "https://stripe.com/",
+        "keywords": [
+            "api",
+            "payment processing",
+            "stripe"
+        ]
+    },
+    {
+        "name": "laravel/cashier",
+        "version": "v2.0.4",
+        "version_normalized": "2.0.4.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/laravel/cashier.git",
+            "reference": "3fb0e39304cf8584ec239f7096bcc1a7f271c93c"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/laravel/cashier/zipball/3fb0e39304cf8584ec239f7096bcc1a7f271c93c",
+            "reference": "3fb0e39304cf8584ec239f7096bcc1a7f271c93c",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/filesystem": "~4.1",
+            "illuminate/support": "~4.1",
+            "nesbot/carbon": "~1.0",
+            "php": ">=5.4.0",
+            "stripe/stripe-php": "~1.9",
+            "symfony/http-kernel": "~2.3"
+        },
+        "require-dev": {
+            "illuminate/routing": "~4.1",
+            "illuminate/view": "~4.1",
+            "mockery/mockery": "~0.9",
+            "phpunit/phpunit": "~4.0"
+        },
+        "time": "2014-07-18 20:15:27",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Laravel\\Cashier\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Taylor Otwell",
+                "email": "taylorotwell@gmail.com"
+            }
+        ],
+        "keywords": [
+            "billing",
+            "laravel",
+            "stripe"
+        ]
     }
 ]

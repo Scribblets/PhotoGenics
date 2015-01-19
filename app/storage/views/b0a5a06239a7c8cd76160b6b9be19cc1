@@ -1,33 +1,42 @@
+
+
 <?php $__env->startSection('body'); ?>
 	<?php echo $__env->make('layouts.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	<a class="brand" href="/u/<?php echo $user['username']; ?>"><h1><?php echo $user['firstname']; ?><span class="logo-color"><i class="fa fa-camera-retro"></i><?php echo $user['lastname']; ?></span></h1></a>
+	<?php echo $__env->make('layouts.navigation', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 	
 	<div class="wrapper">
 		<div class="print_info">
-			<h3>PRINT DETAILS <button type="button" class="btn btn-success btn-addtocart"><i class="fa fa-shopping-cart"></i> Add to Cart</button></h3>
-			
+			<h3>PRINT DETAILS <a href="/cart/add/<?php echo $print['id']; ?>"><button type="button" class="btn btn-success btn-addtocart"><i class="fa fa-shopping-cart"></i> Add to Cart</button></a></h3>
 			<div class="product_image">
-				<img src="<?php echo $item['source']; ?>" />
+				<img src="<?php echo $print['path']; ?>" />
 			</div>
 			
 			<div class="product_details">
-				<p><span class="info_label">Title:</span> <?php echo $item['title']; ?></p>
-				<p><span class="info_label">Artist:</span> <?php echo $item['artist']; ?></p>
-				<p><span class="info_label">Dimensions:</span> <?php echo $item['size']; ?></p>
-				<p><span class="info_label">Price:</span> $<?php echo $item['price']; ?></p>
-				<p><span class="info_label">ID:</span> #<?php echo $item['id']; ?></p>
-				<p><span class="info_label">Description:</span><br /> <?php echo $item['description']; ?></p>
+				<p><span class="info_label">Title:</span> <?php echo $print['title']; ?></p>
+				<p><span class="info_label">Artist:</span> <?php echo $user['firstname']; ?> <?php echo $user['lastname']; ?></p>
+				<p><span class="info_label">Dimensions:</span> <?php echo $print['dimensions']; ?></p>
+				<p><span class="info_label">Price:</span> $<?php echo $print['price']; ?></p>
+				<p><span class="info_label">ID:</span> #<?php echo $print['id']; ?></p>
+				<p><span class="info_label">Description:</span></p> 
+				<p><?php echo $print['description']; ?></p>
 			</div>
-			<div class="clear"></div>
+			
+			<div class="clear">
 		</div>
 		
 		<div class="more">
-			<h3>MORE SIMILAR TO <?php echo $item['title']; ?></h3>
-			<?php foreach($related as $related_item): ?>
-				<a href="<?php echo $related_item['link']; ?>"><img src="<?php echo $related_item['source']; ?>" /></a>
-			<?php endforeach; ?>
+			<?php if($random['enough']): ?>
+				<h3>MORE FROM <?php echo $user['firstname']; ?></h3>
+				
+				<?php foreach($random['prints'] as $p): ?>
+					<a href="/u/<?php echo $user['username']; ?>/<?php echo $p['id']; ?>">
+						<img src="<?php echo $p['path']; ?>" />
+					</a>
+				<?php endforeach; ?>
+			<?php endif; ?>
 		</div>
 	</div>
-	
 	<?php echo $__env->make('layouts.login', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 	<?php echo $__env->make('layouts.register', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <?php $__env->stopSection(); ?>

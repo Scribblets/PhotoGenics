@@ -1,8 +1,10 @@
 <?php $__env->startSection('body'); ?>
 	<?php echo $__env->make('layouts.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	<?php echo $__env->make('layouts.logo', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	<?php echo $__env->make('layouts.navigation', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 	
 	<div class="wrapper">
-	<div class="alert alert-info" role="alert"><p>Your URL is: <b>http://photogenics.designby.fish/lrroberts0122</b></p></div>
+	<div class="alert alert-info" role="alert"><p>Your URL is: <b><a href="/u/<?php echo Auth::user()->username; ?>">http://photogenics.designby.fish/u/<?php echo Auth::user()->username; ?></a></b></p></div>
 	
 	<div class="panel panel-default db-panel" id="db-items">
 		<div class="panel-heading">My Items <button class="btn btn-success btn-make-item btn-xs" type="button" data-toggle="modal" data-target="#printModal"><i class="fa fa-plus fa-xsmall"></i> <b>Create Print</b></button></div>
@@ -19,40 +21,29 @@
 						<th class="text-right">Make Changes</th>
 					</tr>
 				</thead>
-				<tbody >
-					<tr>
-						<td><img src="http://placekitten.com/g/30/30" /></td>
-						<td>#12345</td>
-						<td>Kitty</td>
-						<td>Jebus Krist</td>
-						<td>$9.99</td>
-						<td class="qty-td text-right">
-							<button class="btn btn-primary btn-edit-item" type="button" data-toggle="modal" data-target="#printModal"><i class="fa fa-pencil"></i></button>
-							<button class="btn btn-danger btn-remove-item" type="button"><i class="fa fa-times"></i></button>
-						</td>
-					</tr>
-					<tr>
-						<td><img src="http://placekitten.com/g/30/30" /></td>
-						<td>#12345</td>
-						<td>Kitty</td>
-						<td>Jebus Krist</td>
-						<td>$9.99</td>
-						<td class="qty-td text-right">
-							<button class="btn btn-primary btn-edit-item" type="button" data-toggle="modal" data-target="#printModal"><i class="fa fa-pencil"></i></button>
-							<button class="btn btn-danger btn-remove-item" type="button"><i class="fa fa-times"></i></button>
-						</td>
-					</tr>
-					<tr>
-						<td><img src="http://placekitten.com/g/30/30" /></td>
-						<td>#12345</td>
-						<td>Kitty</td>
-						<td>Jebus Krist</td>
-						<td>$9.99</td>
-						<td class="qty-td text-right">
-							<button class="btn btn-primary btn-edit-item" type="button" data-toggle="modal" data-target="#printModal"><i class="fa fa-pencil"></i></button>
-							<button class="btn btn-danger btn-remove-item" type="button"><i class="fa fa-times"></i></button>
-						</td>
-					</tr>
+				<tbody>
+					<!-- For Each... -->
+					<?php foreach($prints as $print): ?>
+						<tr>
+							<td><img src="<?php echo $print['path']; ?>" /></td>
+							<td>#<?php echo $print['id']; ?></td>
+							<td><?php echo $print['title']; ?></td>
+							<td><?php echo $print['category']; ?></td>
+							<td>$<?php echo $print['price']; ?></td>
+							<td class="qty-td text-right">
+								<button 
+								class="btn btn-primary btn-edit-item" 
+								type="button" 
+								data-print-id="<?php echo $print['id']; ?>" 
+								data-print-title="<?php echo $print['title']; ?>"
+								data-print-category="<?php echo $print['category']; ?>"
+								data-print-price="<?php echo $print['price']; ?>"
+								data-print-dimensions='<?php echo $print['dimensions']; ?>'
+								data-print-description="<?php echo $print['description']; ?>"><i class="fa fa-pencil"></i></button>
+								<a href="/print/delete/<?php echo $print['id']; ?>"><button class="btn btn-danger btn-remove-item" type="button"><i class="fa fa-times"></i></button></a>
+							</td>
+						</tr>
+					<?php endforeach; ?>
 				</tbody>
 			</table>
 		</div>
