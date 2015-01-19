@@ -181,4 +181,60 @@
 	    });
 	    return filled;
 	}
+	
+/***************************************
+ * Order Modal
+ *--------------------------------------
+ */
+	$('.text-right a').on('click', function(e) {
+		var order_id = $(e.currentTarget).data('orderid');
+		var order_items_array = [];
+		$('.' + order_id + ' .order_items .order_item').each(function() {
+			console.log($(this).data('print-id'));
+
+			var print = {
+				'id' : $(this).data('print-id'),
+				'title' : $(this).data('print-title'),
+				'price' : $(this).data('price')
+			}
+			
+			order_items_array.push(print);
+		});
+		
+		var status = $('.' + order_id + ' .order_info').data('status');
+		
+		if(status == 0 || status == '0') {
+			status = "PROCESSING";
+		}
+		
+		var order = {
+			'id' : order_id,
+			'status' : status,
+			'date' : $('.' + order_id + ' .order_info').data('date'),
+			'total' : $('.' + order_id + ' .order_info').data('total'),
+			'items' : order_items_array,
+			'name' : $('.' + order_id + ' .order_info').data('name'),
+			'email' : $('.' + order_id + ' .order_info').data('email'),
+			'address' : $('.' + order_id + ' .order_info').data('address'),
+			'card' : $('.' + order_id + ' .order_info').data('card')
+		}
+		
+		$('.oNumber').html(order.id);
+		$('#oStatus').html(order.status);
+		$('#oDate').html(order.date);
+		$('#oTotal').html(order.total);
+		
+		$(order.items).each(function() {
+			$('#oItems').append('<li>Item <code>#' + this.id + '</code> - ' + this.title + ' - $' + this.price + '</li>');
+		});
+		
+		$('#oName').html(order.name);
+		$('#oEmail').html(order.email);
+		$('#oAddress').html(order.address);
+		$('#oCard').html(order.card);
+	});
+	
+	$('#orderModal').on('hidden.bs.modal', function() {
+		$("#oItems").html('');
+	});
 })($);

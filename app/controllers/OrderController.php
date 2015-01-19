@@ -66,6 +66,7 @@ class OrderController extends BaseController {
 				
 				array_push($order_items, $order_item);
 			}
+			
 			$data['order'] = $order;
 			$data['order_items'] = $order_items;
 			
@@ -78,7 +79,6 @@ class OrderController extends BaseController {
 		} catch(Stripe_CardError $e) {
         	// Payment failed
         	Session::put('order.error', true);
-        	echo "FAIL!!!";
         	var_dump($e);
 			return Redirect::to('/checkout');
 		}

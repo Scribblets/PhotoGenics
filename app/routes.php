@@ -13,6 +13,7 @@
 
 /* Home Route */
 Route::get('/', 'HomeController@home');
+Route::get('/browse', 'HomeController@browse');
 
 /* User Routes */
 Route::post('/user/register', 'UserController@register_user');

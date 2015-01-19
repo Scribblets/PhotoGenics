@@ -3,26 +3,24 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title" id="loginModalLabel">Details for Order #523115</h4>
+				<h4 class="modal-title" id="loginModalLabel">Details for Order #<span class="oNumber"></span></h4>
 			</div>
 			
 			<div class="modal-body">
-				<p><b>Order #523115</b></p>
-				<p><b>Status:</b> APPROVED</p>
-				<p><b>Date:</b> 01/11/2015</p>
-				<p><b>Total:</b> $19.98</p>
+				<p><b>Order #<span class="oNumber"></span></b></p>
+				<p><b>Status:</b> <span id="oStatus"></span></p>
+				<p><b>Date:</b> <span id="oDate"></span></p>
+				<p><b>Total:</b> $<span id="oTotal"></span></p>
 				<p><b>Items:</b></p>
-				<ul>
-					<li>Item <code>#214121</code> - Kitty Print by Jebus Krist <b>Qty. 1</b> - $9.99</li>
-					<li>Item <code>#612510</code> - Kitty Print by Jebus Krist <b>Qty. 1</b> - $9.99</li>
+				<ul id="oItems">
 				</ul>
 				
 				<p><b>Billing Information:</b></p>
 				<ul>
-					<li>Name - Lindsay Roberts</li>
-					<li>Email - lrroberts0122@gmail.com</li>
-					<li>Address - 5584 Century 21 Blvd. #121, Orlando, FL 32807</li>
-					<li>Card - Ending in <code>x0001</code></li>
+					<li>Name - <span id="oName"></span></li>
+					<li>Email - <span id="oEmail"></span></li>
+					<li>Address - <span id="oAddress"></span></li>
+					<li>Card - Ending in <code>x<span id="oCard"></span></code></li>
 				</ul>
 			</div>
 			

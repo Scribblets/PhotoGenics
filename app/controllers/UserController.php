@@ -97,7 +97,55 @@ class UserController extends BaseController {
 		if(Auth::check()) {
 
 			$data['prints'] = Prints::whereUser_id(Auth::user()->id)->get();
-			$data['orders'] = OrderItems::whereUser_id(Auth::user()->id)->get();
+			$order_items = OrderItems::whereUser_id(Auth::user()->id)->get();
+			
+			
+			$order_ids = array();
+			// $result = array_unique($data['order_items']);
+			foreach($order_items as $order_item) {
+				if(!in_array($order_item->order_id, $order_ids)) {
+				    array_push($order_ids, $order_item->order_id);
+				}
+			}
+			
+			$orders = array(); // Display unique orders, only.
+			
+			foreach($order_ids as $id) {
+				$order = Orders::whereOrder_id($id)->first();
+				array_push($orders, $order);
+			}
+			
+			$data['order_items'] = $order_items;
+			$data['order_ids'] = $order_ids;
+			$data['orders'] = $orders;
+			
+			/*
+foreach($orders as $order) {
+				echo $order->order_id . "<br><br>";
+			}
+*/
+			
+			// Bootstrap Modal Array
+			// - For each Order Items...
+			// - If Order Items -> Order ID is equal to the current order id value...
+			// - Display Order Item info.
+			
+			// - For each Print Item...
+			// - If Order Items -> Print ID is equal to the current print id value...
+			// - Display Print Item info...
+			
+			/*
+$data['orders'] = array();
+			foreach($data['order_items'] as $doi) {
+				$order = Orders::whereOrder_id($data['order_items']->order_id)->get();
+				array_push($data['orders'], $order)
+			}
+*/
+			
+			
+			// #1	Kitty
+			// #1	Rawr
+			// #2	Kitty
 
 			// var_dump($data);
 			return View::make('dashboard', $data);

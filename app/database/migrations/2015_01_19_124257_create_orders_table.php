@@ -16,7 +16,7 @@ class CreateOrdersTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('order_id')->unique();
-			$table->integer('total')->unsigned();
+			$table->decimal('total');
 			$table->integer('status')->unsigned();
 			$table->string('firstname');
 			$table->string('lastname');
