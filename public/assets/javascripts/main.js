@@ -42,8 +42,7 @@
  * -> Edit Prints
  *--------------------------------------
  */
-    $('.btn-make-item').on('click', function(e) {
-	    // #Studnicky
+    $('.btn-make-item').on('click', function(e) {	    
 	    // Change action for Create Form
 	    $("#printForm").attr("action", "/print/create");
 	    
@@ -107,14 +106,6 @@
 		$('#collapseTwo').collapse('toggle');
 	});
 	
-	/*
-$('#placeOrder').on('click', function(e) {
-		// Submit Form via AJAX
-		$('#collapseTwo').collapse('toggle');
-		$('#collapseThree').collapse('toggle');
-	});
-*/
-	
 	/* Numbers Only Input */
 	$('#tf_checkout_zip, #tf_checkout_ccNumber, #tf_checkout_ccExpMonth, #tf_checkout_ccExpYear, #tf_checkout_ccCode').keypress(function (e) {
 		if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
@@ -122,9 +113,16 @@ $('#placeOrder').on('click', function(e) {
 		}
 	});
 	
+	/* Capital Letters Only Input */
+	$('#tf_checkout_state').keypress(function(e) {
+		if(e.which < 65 || e.which > 90) {
+			return false;
+		}
+	});
+
 	/* Required Fields Button Enabling */
 	$('#tf_checkout_firstname, #tf_checkout_lastname, #tf_checkout_email, #tf_checkout_address, #tf_checkout_city, #tf_checkout_state, #tf_checkout_zip, #tf_checkout_ccNumber, #tf_checkout_ccExpMonth, #tf_checkout_ccExpYear, #tf_checkout_ccCode').bind('keyup', function() {
-		if(allFilled()) {
+		if(allFilled($('#checkout-form input'))) {
 			$('#placeOrder').removeAttr('disabled');
 		} else {
 			$('#placeOrder').attr('disabled', true);
@@ -169,9 +167,9 @@ $('#placeOrder').on('click', function(e) {
 		window.print();
 	});
 	
-	function allFilled() {
+	function allFilled(formInput) {
 	    var filled = true;
-	    $('#checkout-form input').each(function() {
+	    formInput.each(function() {
 	        if($(this).val() == '') {
 		        filled = false;
 		    }

@@ -37,11 +37,16 @@ class UserController extends BaseController {
 		}
 		
 		if(count($errors) > 0) {
-			echo "There was an error creating your account. Please correct the following errors: <br>";
-			
+			$html = "<b>Register Error!</b> ";
 			foreach($errors as $err) {
-				echo "- " . $err . "<br>";
+				$eHTML = $err . " ";
+				$html .= $eHTML;
 			}
+			
+			Session::flash('flash_message', $html);
+			Session::flash('flash_type', 'alert-danger');			
+			
+			return Redirect::to('/');
 		} else {
 			$userdata['password'] = Hash::make($userdata['password']);
 			$newUser = User::create($userdata);
@@ -78,10 +83,10 @@ class UserController extends BaseController {
 		if($isAuth) {
 	        // Login Successful route to Dashboard
 	        return Redirect::to('/dashboard');
-		} else {
-	    	// Login Failed
-	    	// Display Error
-			// echo 'Username or password incorrect.';
+		} else {			
+			Session::flash('flash_message', "<b>Login Error!</b> Username or password is incorrect.");
+			Session::flash('flash_type', 'alert-danger');			
+			
 			return Redirect::to('/');
 		}
 	}
@@ -110,6 +115,9 @@ class UserController extends BaseController {
 			}
 */
 		} else {
+			Session::flash('flash_message', "<b>Login Error!</b> You must be logged in to do that!");
+			Session::flash('flash_type', 'alert-danger');
+			
 			return Redirect::to('/');
 		}
 	}

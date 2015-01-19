@@ -104,12 +104,12 @@
 									
 									<div class="form-group state">
 										<label for="tf_checkout_state">State:</label>
-										<input type="text" class="form-control" id="tf_checkout_state" name="tf_checkout_state" placeholder="XX" maxlength="2" val="">
+										<input type="text" class="form-control" id="tf_checkout_state" name="tf_checkout_state" placeholder="ST" maxlength="2" val="">
 									</div>
 									
 									<div class="form-group zip">
 										<label for="tf_checkout_zip">Zip Code:</label>
-										<input type="text" class="form-control" id="tf_checkout_zip" name="tf_checkout_zip" placeholder="XXXXX" maxlength="5" val="">
+										<input type="text" class="form-control" id="tf_checkout_zip" name="tf_checkout_zip" placeholder="10000" maxlength="5" val="">
 									</div>
 								</div>
 							</div>
