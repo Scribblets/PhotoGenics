@@ -1,12 +1,12 @@
 <?php
 
-class Order extends Eloquent {
+class Orders extends Eloquent {
 	
 	protected $table = 'orders';
-	protected $fillable = ['id','order_id','user_id','print_id','price','status'];
+	protected $fillable = ['order_id','total','status','firstname','lastname','email','address','city','state','zip','card'];
 	
-	public function User(){
-		return $this->belongsTo('User');
+	public function OrderItems(){
+		return $this->hasMany('OrderItems');
 	}
 
 }

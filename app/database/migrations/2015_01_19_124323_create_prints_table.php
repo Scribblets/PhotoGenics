@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePhotos extends Migration {
+class CreatePrintsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -23,7 +23,6 @@ class CreatePhotos extends Migration {
 			$table->string('price');
 			$table->string('dimensions');
 			$table->text('description');
-        // created_at, updated_at DATETIME
 			$table->timestamps();
 		});
 	}
@@ -35,9 +34,7 @@ class CreatePhotos extends Migration {
 	 */
 	public function down()
 	{
-		//
 		Schema::drop('prints');
-
 	}
 
 }

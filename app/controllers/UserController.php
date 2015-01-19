@@ -37,16 +37,11 @@ class UserController extends BaseController {
 		}
 		
 		if(count($errors) > 0) {
-			$html = "<b>Register Error!</b> ";
+			echo "There was an error creating your account. Please correct the following errors: <br>";
+			
 			foreach($errors as $err) {
-				$eHTML = $err . " ";
-				$html .= $eHTML;
+				echo "- " . $err . "<br>";
 			}
-			
-			Session::flash('flash_message', $html);
-			Session::flash('flash_type', 'alert-danger');			
-			
-			return Redirect::to('/');
 		} else {
 			$userdata['password'] = Hash::make($userdata['password']);
 			$newUser = User::create($userdata);
@@ -83,10 +78,9 @@ class UserController extends BaseController {
 		if($isAuth) {
 	        // Login Successful route to Dashboard
 	        return Redirect::to('/dashboard');
-		} else {			
-			Session::flash('flash_message', "<b>Login Error!</b> Username or password is incorrect.");
-			Session::flash('flash_type', 'alert-danger');			
-			
+		} else {
+	    	Session::flash('flash_message', "<b>Login Error!</b> Username or password is incorrect.");
+			Session::flash('flash_type', 'alert-danger');
 			return Redirect::to('/');
 		}
 	}
@@ -101,23 +95,16 @@ class UserController extends BaseController {
 		// Get All Prints by User
 		// Get All Orders by User... Not very hard... :D
 		if(Auth::check()) {
-			$current_uid = Auth::user()->id;
-			$prints = Prints::whereUser_id($current_uid)->get();
-			$data['prints'] = $prints;
-			
-			// $data['orders'] = $orders;
+
+			$data['prints'] = Prints::whereUser_id(Auth::user()->id)->get();
+			$data['orders'] = OrderItems::whereUser_id(Auth::user()->id)->get();
+
+			// var_dump($data);
 			return View::make('dashboard', $data);
-			
-/*
-			foreach($prints as $print) {
-				echo "Title:" . $print['title'];
-				echo "<br><br>";
-			}
-*/
+
 		} else {
 			Session::flash('flash_message', "<b>Login Error!</b> You must be logged in to do that!");
 			Session::flash('flash_type', 'alert-danger');
-			
 			return Redirect::to('/');
 		}
 	}

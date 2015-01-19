@@ -12,7 +12,7 @@
 					<h4 class="panel-title">View Cart</h4>
 				</div>
 				<!-- Delete = Index... Delete from session at index ... -->
-				<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+				<div id="collapseOne" class="panel-collapse collapse @if(!Session::has('order.complete')) in @endif) " role="tabpanel" aria-labelledby="headingOne">
 					<div class="panel-body">
 						@if (Session::has('cart.prints'))
 							@if (Session::get('cart.count') > 0)
@@ -64,7 +64,7 @@
 					<h4 class="panel-title">Billing &amp; Shipping Information</h4>
 				</div>
 				
-				<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+				<div id="collapseTwo" class="panel-collapse collapse @if(Session::get('order.complete') === false) in @endif)" role="tabpanel" aria-labelledby="headingTwo">
 					<div class="panel-body">						
 						<form id="checkout-form" method="POST">
 							
@@ -158,7 +158,7 @@
 					<h4 class="panel-title">Order Confirmation</h4>
 				</div>
 				
-				<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+				<div id="collapseThree" class="panel-collapse collapse @if(Session::get('order.complete')) in @endif" role="tabpanel" aria-labelledby="headingThree">
 					<div class="panel-body">
 						<div id="confirmation">
 							<div class="alert alert-success" role="alert"><b><i class="fa fa-check"></i></b> Your order number is <b>#591392</b>.</div>

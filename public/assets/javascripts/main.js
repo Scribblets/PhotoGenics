@@ -97,6 +97,7 @@
  * Checkout Page
  *--------------------------------------
  */
+ 	
 	/* Checkout Alert */
 	$('#checkout-form .alert').hide();
 	
@@ -151,16 +152,20 @@
 		} else {
 			var token = response.id;
 			var order_id = response.card.id.slice(5);
-			var route = '/order/process/' + order_id;
+			console.log(response);
+			var route = '/order/' + order_id;
 			$form.attr('action', route);
-			$('#checkout-form .credit-card-information .button-group').prepend('<input type="hidden" name="tf_token" value="' + token + '" />');
-			$form.submit();
-			//$('#collapseTwo').collapse('toggle');
-			// $('#collapseThree').collapse('toggle');
-			// $form.get(0).submit();
+			$('#checkout-form .credit-card-information .button-group').prepend('<input type="hidden" id="tf_lastFour" name="tf_lastFour" value="' + response.card.last4 + '" />');
+			$('#checkout-form .credit-card-information .button-group').prepend('<input type="hidden" id="tf_token" name="tf_token" value="' + token + '" />');
+			$('#collapseTwo').collapse('toggle');
 		}		
 	}
 	
+	$('#collapseTwo').on('hide.bs.collapse', function (e) {
+		if($("#tf_token").length > 0) {
+			$('#checkout-form').submit();
+		}
+	});
 	
 	// /* Print Confirmation */
 	$('#print-confirmation').on('click', function(e) {

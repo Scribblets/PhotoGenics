@@ -64,22 +64,18 @@
 					<th class="text-right">Details</th>
 				</thead>
 				<tbody>
+
+					<!-- For Each... -->
+					@foreach ($orders as $order)
 					<tr>
-						<td>#421621</td>
-						<td>01/11/2015</td>
-						<td>Lindsay Roberts</td>
-						<td>Approved</td>
-						<td>$19.98</td>
+						<td>{{$order['order_id']}}</td>
+						<td>{{$order['created_at']}}</td>
+						<td>{{$order['firstname']}} {{$order['lastname']}}</td>
+						<td>{{$order['status']}}</td>
+						<td>${{$order['total']}}</td>
 						<td class="text-right"><a href="#" data-toggle="modal" data-target="#orderModal" data-orderID="421621">Order Details</a></td>
 					</tr>
-					<tr>
-						<td>#589172</td>
-						<td>01/11/2015</td>
-						<td>Mark Lyck</td>
-						<td>Processing</td>
-						<td>$29.97</td>
-						<td class="text-right"><a href="#" data-toggle="modal" data-target="#orderModal" data-orderID="589172">Order Details</a></td>
-					</tr>
+					@endforeach
 				</tbody>
 			</table>
 		</div>
