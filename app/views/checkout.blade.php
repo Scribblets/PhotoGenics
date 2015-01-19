@@ -145,11 +145,7 @@
 								
 								<div class="button-group">
 									<button type="button" class="btn btn-default prev-next">Edit Cart</button>
-<<<<<<< HEAD
 									<button type="submit" id="placeOrder" class="btn btn-success" disabled="true"><i class="fa fa-cc-stripe"></i> Place Order</button>
-=======
-									<button type="submit" id="placeOrder" class="btn btn-success" disabled="true">Place Order</button>
->>>>>>> FETCH_HEAD
 								</div>
 							</div>
 						</form>						
@@ -193,44 +189,4 @@
 
 	@include('layouts.login')
 	@include('layouts.register')
-
-	@section('footer')
-	@parent
-		<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-		<script>
-			Stripe.setPublishableKey('pk_test_byl39OOJq9GcVZZSanaY9aUv');
-
-			function stripeResponseHandler(status, response){
-
-				var $form = $('#checkout-form');
-
-				console.log("Second step happened.");
-
-				if(response.error){
-					$form.find('#payment-errors').text(response.error.message).show();
-					$form.find('#placeOrder').prop('disabled', false);
-				} else {
-					var token = response.id;
-					$form.append($('<input type="hidden" name="stripeToken" />').val(token));
-					$form.get(0).submit();
-
-					console.log(token);
-				}
-			}
-
-			$('#placeOrder').on('click', function(e){
-				e.preventDefault();
-				var $form = $('#checkout-form');
-				$form.find('#payment-errors').hide();
-				$form.find('#placeOrder').prop('disabled', true);
-				Stripe.createToken($form, stripeResponseHandler);
-				return false;
-				console.log("First step happened.");
-
-			});
-
-
-		</script>
-	@stop
-
 @stop
