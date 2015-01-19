@@ -129,10 +129,10 @@
 		}
 	});
 	
-	/* Print Confirmation */
-	$('#print-confirmation').on('click', function(e) {
-		window.print();
-	});
+	// /* Print Confirmation */
+	// $('#print-confirmation').on('click', function(e) {
+	// 	window.print();
+	// });
 	
 	function allFilled() {
 	    var filled = true;

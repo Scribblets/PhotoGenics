@@ -5,7 +5,6 @@
 	@include('layouts.logo')
 	@include('layouts.navigation')
 	
-
 	<div class="wrapper">
 		<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="false">
 			<div class="panel panel-default">
@@ -77,40 +76,40 @@
 								
 								<div>
 									<div class="form-group fname">
-										<label for="firstname">First Name:</label>
-										<input type="text" class="form-control" id="firstname" placeholder="First Name" val="">
+										<label for="tf_checkout_firstname">First Name:</label>
+										<input type="text" class="form-control" id="tf_checkout_firstname" name="tf_checkout_firstname" placeholder="First Name" val="">
 									</div>
 									
 									<div class="form-group fname">
-										<label for="lastname">Last Name:</label>
-										<input type="text" class="form-control" id="lastname" placeholder="Last Name" val="">
+										<label for="tf_checkout_lastname">Last Name:</label>
+										<input type="text" class="form-control" id="tf_checkout_lastname" name="tf_checkout_lastname" placeholder="Last Name" val="">
 									</div>
 								</div>
 								
 								<div class="form-group">
-									<label for="email">Email:</label>
-									<input type="email" class="form-control" id="email" placeholder="Email" val="">
+									<label for="tf_checkout_email">Email:</label>
+									<input type="email" class="form-control" id="tf_checkout_email" name="tf_checkout_email" placeholder="Email" val="">
 								</div>
 								
 								<div class="form-group">
-									<label for="address">Address:</label>
-									<input type="text" class="form-control" id="address" placeholder="Address" val="">
+									<label for="tf_checkout_address">Address:</label>
+									<input type="text" class="form-control" id="tf_checkout_address" name="tf_checkout_address" placeholder="Address" val="">
 								</div>
 								
 								<div class="form-group">
 									<div class="form-group city">
-										<label for="city">City:</label>
-										<input type="text" class="form-control" id="city" placeholder="City" val="">
+										<label for="tf_checkout_city">City:</label>
+										<input type="text" class="form-control" id="tf_checkout_city" name="tf_checkout_city" placeholder="City" val="">
 									</div>
 									
 									<div class="form-group state">
-										<label for="state">State:</label>
-										<input type="text" class="form-control" id="state" placeholder="XX" maxlength="2" val="">
+										<label for="tf_checkout_state">State:</label>
+										<input type="text" class="form-control" id="tf_checkout_state" name="tf_checkout_state" placeholder="XX" maxlength="2" val="">
 									</div>
 									
 									<div class="form-group zip">
-										<label for="zip">Zip Code:</label>
-										<input type="text" class="form-control" id="zip" placeholder="XXXXX" maxlength="5" val="">
+										<label for="tf_checkout_zip">Zip Code:</label>
+										<input type="text" class="form-control" id="tf_checkout_zip" name="tf_checkout_zip" placeholder="XXXXX" maxlength="5" val="">
 									</div>
 								</div>
 							</div>
@@ -122,35 +121,31 @@
 								<p><b>Credit Card Information</b></p>
 								
 								<div class="form-group">
-									<label for="cc-number">Card Number:</label>
-									<input type="text" class="form-control" id="cc-number" placeholder="Credit Card Number" maxlength="16" val="">
+									<label for="tf_checkout_ccNumber">Card Number:</label>
+									<input type="text" class="form-control" id="tf_checkout_ccNumber" name="tf_checkout_ccNumber" placeholder="Credit Card Number" maxlength="16" val="">
 								</div>
 								
 								<div class="form-group">
 									<div class="form-group cc-exp-date">
-										<label for="cc-exp-month" class="cc-exp-date-label">Expiration Date:</label>
-										<input type="text" class="form-control" id="cc-exp-month" placeholder="MM" maxlength="2" val=""> / 
-										<input type="text" class="form-control" id="cc-exp-year" placeholder="YYYY" maxlength="4" val="">
+										<label for="tf_checkout_ccExpMonth" class="cc-exp-date-label">Expiration Date:</label>
+										<input type="text" class="form-control" id="tf_checkout_ccExpMonth" name="tf_checkout_ccExpMonth" placeholder="MM" maxlength="2" val=""> / 
+										<input type="text" class="form-control" id="tf_checkout_ccExpYear" name="tf_checkout_ccExpYear" placeholder="YYYY" maxlength="4" val="">
 									</div>
-
+									
 									<div class="form-group cc-code">
-										<label for="cc-code">CSC:</label>
-										<input type="text" class="form-control" id="cc-code" placeholder="123" maxlength="3" val="">
+										<label for="tf_checkout_ccCode">CSC:</label>
+										<input type="text" class="form-control" id="tf_checkout_ccCode" name="tt_checkout_ccCode" placeholder="123" maxlength="3" val="">
 									</div>
 									<div class="clear"></div>
 								</div>
-
+								
 								<div class="form-group cc-total">
 									<p>*A total of <b>${{ Session::get('cart.total') }}</b> will be charged to your credit card.</p>
-								</div>
-
-								<div class="form-group cc-total">
-									<p id="payment-errors"></p>
 								</div>
 								
 								<div class="button-group">
 									<button type="button" class="btn btn-default prev-next">Edit Cart</button>
-									<button type="button" id="placeOrder" class="btn btn-success">Place Order</button>
+									<button id="placeOrder" type="button" class="btn btn-success" disabled="true">Place Order</button>
 								</div>
 							</div>
 						</form>						
@@ -199,30 +194,30 @@
 	@parent
 		<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 		<script>
-			// Stripe.setPublishableKey('@stripeKey');
+			Stripe.setPublishableKey('@stripeKey');
 
-			// $('#placeOrder').on('click', function(e){
-			// 	e.preventDefault();
+			$('#placeOrder').on('click', function(e){
+				e.preventDefault();
 
-			// 	var $form = $(this);
-			// 	$form.find('#payment-errors').hide();
-			// 	$form.find('#placeOrder').prop('disabled', true);
-			// 	Stripe.createToken($form, stripeResponseHandler);
-			// 	return false;
-			// });
+				var $form = $(this);
+				$form.find('#payment-errors').hide();
+				$form.find('#placeOrder').prop('disabled', true);
+				Stripe.createToken($form, stripeResponseHandler);
+				return false;
+			});
 
-			// function stripeResponseHandler(status, response){
-			// 	var $form = $('checkout-form');
+			function stripeResponseHandler(status, response){
+				var $form = $('checkout-form');
 
-			// 	if(response.error){
-			// 		$form.find('#payment-errors').text(response.error.message).show();
-			// 		$form.find('#placeOrder').prop('disabled', false);
-			// 	} else {
-			// 		var token = response.id;
-			// 		$form.append($('<input type="hidden" name="stripeToken" />').val(token));
-			// 		$form.get(0).submit();
-			// 	}
-			// }
+				if(response.error){
+					$form.find('#payment-errors').text(response.error.message).show();
+					$form.find('#placeOrder').prop('disabled', false);
+				} else {
+					var token = response.id;
+					$form.append($('<input type="hidden" name="stripeToken" />').val(token));
+					$form.get(0).submit();
+				}
+			}
 
 		</script>
 	@stop
