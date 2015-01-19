@@ -96,19 +96,13 @@ class UserController extends BaseController {
 		// Get All Prints by User
 		// Get All Orders by User... Not very hard... :D
 		if(Auth::check()) {
-			$current_uid = Auth::user()->id;
-			$prints = Prints::whereUser_id($current_uid)->get();
-			$data['prints'] = $prints;
-			
-			// $data['orders'] = $orders;
+
+			$data['prints'] = Prints::whereUser_id(Auth::user()->id)->get();
+			$data['orders'] = Order::whereUser_id(Auth::user()->id)->get();
+
+			// var_dump($data);
 			return View::make('dashboard', $data);
-			
-/*
-			foreach($prints as $print) {
-				echo "Title:" . $print['title'];
-				echo "<br><br>";
-			}
-*/
+
 		} else {
 			return Redirect::to('/');
 		}
