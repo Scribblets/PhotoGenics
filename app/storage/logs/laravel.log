@@ -7040,6 +7040,7 @@ Stack trace:
 #10 /Users/Studs/Desktop/PhotoGenics/public/index.php(49): Illuminate\Foundation\Application->run()
 #11 /Users/Studs/Desktop/PhotoGenics/server.php(19): require_once('/Users/Studs/De...')
 #12 {main} [] []
+<<<<<<< HEAD
 [2015-01-19 03:38:32] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'parse error' in /Applications/MAMP/htdocs/asl/laravel/app/controllers/OrderController.php:52
 Stack trace:
 #0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
@@ -7104,3 +7105,5 @@ Stack trace:
 Stack trace:
 #0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
 #1 {main} [] []
+=======
+>>>>>>> FETCH_HEAD

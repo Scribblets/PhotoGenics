@@ -33,4 +33,9 @@ Route::get('/print/delete/{print_id}', 'PrintController@delete_print');
 Route::get('/cart/add/{print_id}', 'CartController@add_to_cart');
 Route::get('/cart/delete/{session_index}', 'CartController@delete_from_cart_by_index');
 Route::get('/checkout', 'CartController@read_all');
+<<<<<<< HEAD
+=======
+
+/* stripe payment routes */
+>>>>>>> FETCH_HEAD
 Route::post('/order/process/{order_id}', 'OrderController@process_stripe');

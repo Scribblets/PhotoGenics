@@ -131,6 +131,7 @@ $('#placeOrder').on('click', function(e) {
 		}
 	});
 	
+<<<<<<< HEAD
 	/* Stripe Functionality */
 	Stripe.setPublishableKey('pk_test_byl39OOJq9GcVZZSanaY9aUv');
 
@@ -168,6 +169,12 @@ $('#placeOrder').on('click', function(e) {
 	$('#print-confirmation').on('click', function(e) {
 		window.print();
 	});
+=======
+	// /* Print Confirmation */
+	// $('#print-confirmation').on('click', function(e) {
+	// 	window.print();
+	// });
+>>>>>>> FETCH_HEAD
 	
 	function allFilled() {
 	    var filled = true;
