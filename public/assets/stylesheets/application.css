@@ -6,9 +6,35 @@ body {
 .clear {
   clear: both; }
 
+#landingCTA {
+  position: absolute;
+  top: 69px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: url('/assets/images/bg.jpg') no-repeat;
+  background-size: 1920px 1080px;
+  color: #EEE; }
+
+#CTA {
+  position: absolute;
+  bottom: 20%;
+  left: 10%; }
+
+#CTA h1 {
+  margin-bottom: 20px; }
+
 /* ==========================================================================
-   Home Page
+   User Page
    ========================================================================== */
+.noPrints {
+  font-family: "OldSansBlack", sans-serif;
+  font-size: 18px;
+  text-align: center;
+  display: block;
+  min-width: 300px;
+  margin: 120px auto; }
+
 #container, .wrapper {
   margin: 0 auto;
   clear: both;
@@ -48,13 +74,25 @@ a:hover {
   margin: 10px;
   float: left;
   position: relative;
-  background: #00b3ee; }
+  background: #EF206E; }
+
+.item img:hover {
+  filter: alpha(opacity=50);
+  opacity: 0.3;
+  -webkit-transition: opacity 0.35s ease-in-out;
+  -moz-transition: opacity 0.35s ease-in-out;
+  -ms-transition: opacity 0.35s ease-in-out;
+  -o-transition: opacity 0.35s ease-in-out;
+  transition: opacity 0.35s ease-in-out; }
+
+.item img {
+  max-width: 340px; }
 
 .thumb-text {
   position: absolute;
   bottom: 15px;
   left: 0px;
-  width: 160px;
+  width: 170px;
   background: rgba(0, 0, 0, 0.75);
   color: #FFF;
   padding: 10px;
@@ -81,12 +119,32 @@ a:hover {
 
 .product_image {
   max-width: 340px;
-  max-height: 340px;
   float: left;
   margin-right: 25px; }
 
+.product_details {
+  float: left;
+  max-width: 530px; }
+
+.product_image img {
+  max-width: 340px; }
+
 .more {
-  clear: both; }
+  clear: both;
+  margin-top: 30px; }
+
+.more a {
+  display: block;
+  height: 225px;
+  width: 225px;
+  overflow: hidden;
+  float: left;
+  margin-right: 5px; }
+
+.more img {
+  min-height: 225px;
+  min-width: 225px;
+  max-height: 230px; }
 
 .print_info {
   position: relative; }
@@ -193,6 +251,9 @@ a:hover {
   margin-top: 20px;
   display: block; }
 
+.cartEmpty {
+  text-align: center; }
+
 @media print {
   body * {
     visibility: hidden; }
@@ -203,12 +264,21 @@ a:hover {
   #confirmation-content {
     position: absolute;
     left: 0;
-    top: 0; } }
+    top: 0; }
+ }
+
 /* ==========================================================================
    Dashboard
    ========================================================================== */
 .btn-make-item {
   float: right; }
+
+.db-panel td {
+  text-transform: capitalize; }
+
+td img {
+  max-width: 30px;
+  max-height: 30px; }
 
 /* ==========================================================================
    Create & Edit Forms
@@ -235,7 +305,7 @@ a:hover {
   margin-right: 20px; }
 
 #printModal .modal-dialog {
-  width: 375px; }
+  width: 376px; }
 
 /* ==========================================================================
    Header
@@ -261,9 +331,11 @@ a:hover {
   position: relative; }
 
 #header ul li a {
-  margin-right: 5px;
   padding-top: 0;
   color: #EF206E; }
+
+.anchor-button {
+  padding: 0 !important; }
 
 #cartCount {
   position: absolute;
@@ -285,20 +357,23 @@ a:hover {
 .brand:hover {
   color: #222; }
 
+.welcomeMessage {
+  line-height: 32px; }
+
 /* ==========================================================================
    Buttons
    ========================================================================== */
 .btn-primary {
-  background-color: #259de9;
-  border-color: #1787CF; }
+  background-color: #259de9 !important;
+  border-color: #1787CF !important; }
 
 .btn-primary:hover, .btn-primary:active, .btn-primary:visited, .btn-sample:focus {
   background-color: #1787CF;
   border-color: #1787CF; }
 
 .btn-success {
-  background-color: #EF206E;
-  border-color: #dd135d; }
+  background-color: #EF206E !important;
+  border-color: #dd135d !important; }
 
 .btn-success[disabled] {
   background-color: #db6d94;
@@ -335,15 +410,23 @@ h3 {
     font-size: 10px !important; }
 
   table button {
-    padding: 1px 3px !important; } }
+    padding: 1px 3px !important; }
+
+  .welcomeMessage {
+    display: none; }
+
+  #CTA {
+    top: 10%;
+    left: 5%; }
+ }
+
 /* ==========================================================================
    Font Imports
    ========================================================================== */
 @font-face {
   font-family: "FreightTextBook";
-  src: url("../fonts/FreightTextBook.ttf"); }
+  src: url('../fonts/FreightTextBook.ttf'); }
+
 @font-face {
   font-family: "OldSansBlack";
-  src: url("../fonts/OldSansBlack.ttf"); }
-
-/*# sourceMappingURL=application.css.map */
+  src: url('../fonts/OldSansBlack.ttf'); }

@@ -11,177 +11,34 @@
 |
 */
 
-Route::get('/', function()
-{
-	$data = [
-		'cartCount' => 0, // cartCount NEEDS to be a session variable. This is for demo purposes, only
-		'title' => "PhotoGenics - Home"
-		
-		];
-		return View::make('home')->with($data);
-		var_dump(session);
-	});
+Route::get('/', function() {
 
-Route::get('/details/{item_id}', function($item_id) {	
-	// Fetch item data by $item_id...
-	// Fetch up to four RANDOM related images from artist...
-	
-	$data = [
-		'cartCount' => 0, // cartCount NEEDS to be a session variable. This is for demo purposes, only
-		'title' => "PhotoGenics - Kitty", // Concatenate the Titles
-		'item' => [
-		'id' => $item_id,
-		'source' => 'http://placekitten.com/g/340/340',
-		'title' => 'Kitty',
-		'artist' => 'Jebus Krist',
-		'size' => '12" x 24"',
-		'price' => 11.99,
-		'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-		],
-		'related' => [
-		[
-		'link' => '/details/12345',
-		'source' => 'http://placekitten.com/g/225/225'
-		],
-		[
-		'link' => '/details/12345',
-		'source' => 'http://placekitten.com/g/225/225'
-		],
-		[
-		'link' => '/details/12345',
-		'source' => 'http://placekitten.com/g/225/225'
-		],
-		[
-		'link' => '/details/12345',
-		'source' => 'http://placekitten.com/g/225/225'
-		]
-		]
-		];
-
-		return View::make('details')->with($data);
-	});
-
-Route::get('/store/checkout', function() {
-	$data['cartCount'] = 0;
-	$data['title'] = "PhotoGenics - Checkout";
-	return View::make('checkout', $data);
-});
-
-Route::get('/dashboard', function() {
-	$data['cartCount'] = 0;
-	$data['title'] = "PhotoGenics - Dashboard";
-	return View::make('dashboard', $data);
-});
-
-/* Process the login request */ 
-Route::post('login', function()
-{
-
-	$userdata = array(
-		'username' => Input::get('tf_login_username'),
-		'password' => Input::get('tf_login_password')
-		);
-
-    // Debug for login....
-	echo 'Attempted username: ' .  Input::get('tf_login_username') . '<br/>';
-	echo 'Attempted password: ' .  Input::get('tf_login_password') . '<br/>';
-
-	/* See if the 'Remember Me' is toggled */
-	if(Input::get('persist') == 'on') {
-		$isAuth = Auth::attempt($userdata, true);
+	/* bypass the splash screen if the user is remembered */
+	if(Auth::viaRemember()) {
+		return Redirect::to('/dashboard');
 	} else {
-		$isAuth = Auth::attempt($userdata);
-	}
+		return View::make('home');
+	}});
 
-	/* Is it in yet? */
-	if($isAuth) {
-        // We are in, go to dashboard
-        // What are we saving into session, btw?
-		echo 'Great succcess!';
-        // return Redirect::to('dashboard');
-	} else {
-    	// Nope. Have to figure out how to pass the error data back here...
-    	// Should we set up an optional argument on the route for the error?
-    	// We could just set an error code in session and parse it out from there.
-		echo 'Eternal shame.';
-		// return Redirect::to('/');
-	}
-});
+/* User Routes */
+Route::post('/user/register', 'UserController@register_user');
+Route::post('/user/login', 'UserController@login_user');
+Route::get('/logout', 'UserController@logout_user');
 
-/* logout the user */
-Route::get('logout', function()
-{
-	Auth::logout();
-	return Redirect::to('login');
-});
+/* Front-End Routes  */
+Route::get('/u/{username}', 'PrintController@read_all_prints_by_username');
+Route::get('/u/{username}/{print_id}', 'PrintController@read_print_by_ids');
 
+/* Back-End Routes */
+Route::get('/dashboard', 'UserController@user_dashboard');
+Route::post('/print/create', 'PrintController@create_print');
+Route::post('/print/update/{print_id}', 'PrintController@update_print');
+Route::get('/print/delete/{print_id}', 'PrintController@delete_print');
 
-/* register a new user */
-Route::post('register', function(){
-	$userdata = array(
-		'firstname' => Input::get('tf_firstname'),
-		'lastname' 	=> Input::get('tf_lastname'),
-		'username' 	=> Input::get('tf_username'),
-		'email' 	=> Input::get('tf_email'),
-		'password' 	=> Input::get('tf_password'),
-		'ver_password' 	=> Input::get('tf_ver_password')
-		);
+/* Checkout Routes */
+Route::get('/cart/add/{print_id}', 'CartController@add_to_cart');
+Route::get('/cart/delete/{session_index}', 'CartController@delete_from_cart_by_index');
+Route::get('/checkout', 'CartController@read_all');
 
-	if($userdata['password'] == $userdata['ver_password']){
-		$userdata['password'] = Hash::make($userdata['password']);
-	} else {
-		echo "Dishonor on your family.";
-	}
-
-	var_dump($userdata);	
-	$newuser = User::create($userdata);
-});
-
-
-/* register a new user */
-Route::post('newprint', function(){
-
-	$file = Input::file('tf_file');
-
-
-	if (Input::hasFile('tf_file')){
-
-		// Store the image in a folder for that user
-		$destinationPath = 'uploads/' . Auth::user()->username;
-		
-		echo 'user data';
-		var_dump(Auth::user());
-
-		echo 'file data';
-		var_dump($file);
-
-		$filename = $file->getClientOriginalName();
-		//$extension =$file->getClientOriginalExtension();
-
-		$upload_success = Input::file('tf_file')->move($destinationPath, $filename);
-
- 		$path = 'uploads/' . Auth::user()->username . '/' . $filename;
-
-		echo 'path to the file';
-		var_dump($path);
-
-	}
-
-	//	For pushing to the database...
-	$printdata = array(
-		'user_id' 	=> Auth::id(),
-		'path'		=> $path,
-		'title' 	=> Input::get('tf_title'),
-		'category' 	=> Input::get('tf_category'),
-		'price' 	=> Input::get('tf_price'),
-		'hor' 		=> Input::get('tf_dimensions'),
-		'vert' 		=> Input::get('tf_dimensions'),
-		'desc' 		=> Input::get('tf_description')
-		);
-
-	var_dump($printdata);
-
-	//	This needs to go into the database!
-});
-
-
+/* stripe payment routes */
+Route::post('/order/process/{order_id}', 'OrderController@process_stripe');

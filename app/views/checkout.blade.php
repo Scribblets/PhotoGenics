@@ -2,6 +2,8 @@
 
 @section('body')
 	@include('layouts.header')
+	@include('layouts.logo')
+	@include('layouts.navigation')
 	
 	<div class="wrapper">
 		<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="false">
@@ -9,53 +11,50 @@
 				<div class="panel-heading" role="tab" id="headingOne">
 					<h4 class="panel-title">View Cart</h4>
 				</div>
-				
+				<!-- Delete = Index... Delete from session at index ... -->
 				<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
 					<div class="panel-body">
-						<table class="table">
-							<thead>
-								<tr>
-									<th>Preview</th>
-									<th>Item ID</th>
-									<th>Item Title</th>
-									<th>Item Artist</th>
-									<th>Qty.</th>
-									<th>Price</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><img src="http://placekitten.com/g/30/30" /></td>
-									<td>#12345</td>
-									<td>Kitty</td>
-									<td>Jebus Krist</td>
-									<td class="qty-td">
-										<input type="number" max="10" min="1" value="1" class="form-control input-qty" placeholder="Qty." />
-										<button class="btn btn-danger btn-delete-item" type="button"><i class="fa fa-times"></i></button>
-									</td>
-									<td>$9.99</td>
-								</tr>
+						@if (Session::has('cart.prints'))
+							@if (Session::get('cart.count') > 0)
+								<table class="table">
+									<thead>
+										<tr>
+											<th>Preview</th>
+											<th>ID#</th>
+											<th>Title</th>
+											<th>Artist</th>
+											<th>Dimensions</th>
+											<th>Price</th>
+											<th></th>
+										</tr>
+									</thead>
+									<tbody>
+										@for($i = 0; $i < Session::get('cart.count'); $i++)
+											<tr>
+												<td><img src="{{ $prints[$i]['path'] }}" /></td>
+												<td>#{{ $prints[$i]['id'] }}</td>
+												<td>{{ $prints[$i]['title'] }}</td>
+												<td>{{ $prints[$i]['artist'] }}</td>
+												<td>{{ $prints[$i]['dimensions'] }}</td>
+												<td>{{ $prints[$i]['price'] }}</td>
+												<td class="qty-td"><a href="/cart/delete/{{ $i }}"><button class="btn btn-danger btn-delete-item" type="button"><i class="fa fa-times"></i></button></a></td>
+											</tr>
+										@endfor
+									</tbody>
+								</table>
 								
-								<tr>
-									<td><img src="http://placekitten.com/g/30/30" /></td>
-									<td>#12345</td>
-									<td>Kitty</td>
-									<td>Jebus Krist</td>
-									<td class="qty-td">
-										<input type="number" max="10" min="1" value="1" class="form-control input-qty" placeholder="Qty." />
-										<button class="btn btn-danger btn-delete-item" type="button"><i class="fa fa-times"></i></button>
-									</td>
-									<td>$9.99</td>
-								</tr>
-							</tbody>
-						</table>
-						
-						<div class="total">
-							<h3>Total: $19.98</h3>
-							<div class="button-group">
-								<button type="button" class="btn btn-success prev-next">Proceed to Checkout</button>
-							</div>
-						</div>
+								<div class="total">
+									<h3>Total: ${{ Session::get('cart.total') }}</h3>
+									<div class="button-group">
+										<button type="button" class="btn btn-success prev-next">Proceed to Checkout</button>
+									</div>
+								</div>
+							@else
+								<p class="cartEmpty">You don't have any items in your cart!</p>
+							@endif
+						@else
+							<p class="cartEmpty">You don't have any items in your cart!</p>
+						@endif
 					</div>
 				</div>
 			</div>
@@ -77,40 +76,40 @@
 								
 								<div>
 									<div class="form-group fname">
-										<label for="firstname">First Name:</label>
-										<input type="text" class="form-control" id="firstname" placeholder="First Name" val="">
+										<label for="tf_checkout_firstname">First Name:</label>
+										<input type="text" class="form-control" id="tf_checkout_firstname" name="tf_checkout_firstname" placeholder="First Name" val="">
 									</div>
 									
 									<div class="form-group fname">
-										<label for="lastname">Last Name:</label>
-										<input type="text" class="form-control" id="lastname" placeholder="Last Name" val="">
+										<label for="tf_checkout_lastname">Last Name:</label>
+										<input type="text" class="form-control" id="tf_checkout_lastname" name="tf_checkout_lastname" placeholder="Last Name" val="">
 									</div>
 								</div>
 								
 								<div class="form-group">
-									<label for="email">Email:</label>
-									<input type="email" class="form-control" id="email" placeholder="Email" val="">
+									<label for="tf_checkout_email">Email:</label>
+									<input type="email" class="form-control" id="tf_checkout_email" name="tf_checkout_email" placeholder="Email" val="">
 								</div>
 								
 								<div class="form-group">
-									<label for="address">Address:</label>
-									<input type="text" class="form-control" id="address" placeholder="Address" val="">
+									<label for="tf_checkout_address">Address:</label>
+									<input type="text" class="form-control" id="tf_checkout_address" name="tf_checkout_address" placeholder="Address" val="">
 								</div>
 								
 								<div class="form-group">
 									<div class="form-group city">
-										<label for="city">City:</label>
-										<input type="text" class="form-control" id="city" placeholder="City" val="">
+										<label for="tf_checkout_city">City:</label>
+										<input type="text" class="form-control" id="tf_checkout_city" name="tf_checkout_city" placeholder="City" val="">
 									</div>
 									
 									<div class="form-group state">
-										<label for="state">State:</label>
-										<input type="text" class="form-control" id="state" placeholder="XX" maxlength="2" val="">
+										<label for="tf_checkout_state">State:</label>
+										<input type="text" class="form-control" id="tf_checkout_state" name="tf_checkout_state" placeholder="XX" maxlength="2" val="">
 									</div>
 									
 									<div class="form-group zip">
-										<label for="zip">Zip Code:</label>
-										<input type="text" class="form-control" id="zip" placeholder="XXXXX" maxlength="5" val="">
+										<label for="tf_checkout_zip">Zip Code:</label>
+										<input type="text" class="form-control" id="tf_checkout_zip" name="tf_checkout_zip" placeholder="XXXXX" maxlength="5" val="">
 									</div>
 								</div>
 							</div>
@@ -122,31 +121,31 @@
 								<p><b>Credit Card Information</b></p>
 								
 								<div class="form-group">
-									<label for="cc-number">Card Number:</label>
-									<input type="text" class="form-control" id="cc-number" placeholder="Credit Card Number" maxlength="16" val="">
+									<label for="tf_checkout_ccNumber">Card Number:</label>
+									<input type="text" data-stripe="number" class="form-control" id="tf_checkout_ccNumber" placeholder="Credit Card Number" maxlength="16" val="">
 								</div>
 								
 								<div class="form-group">
 									<div class="form-group cc-exp-date">
-										<label for="cc-exp-month" class="cc-exp-date-label">Expiration Date:</label>
-										<input type="text" class="form-control" id="cc-exp-month" placeholder="MM" maxlength="2" val=""> / 
-										<input type="text" class="form-control" id="cc-exp-year" placeholder="YYYY" maxlength="4" val="">
+										<label for="tf_checkout_ccExpMonth" class="cc-exp-date-label">Expiration Date:</label>
+										<input type="text" data-stripe="exp-month" class="form-control" id="tf_checkout_ccExpMonth" placeholder="MM" maxlength="2" val=""> / 
+										<input type="text" data-stripe="exp-year" class="form-control" id="tf_checkout_ccExpYear" placeholder="YYYY" maxlength="4" val="">
 									</div>
 									
 									<div class="form-group cc-code">
-										<label for="cc-code">CSC:</label>
-										<input type="text" class="form-control" id="cc-code" placeholder="123" maxlength="3" val="">
+										<label for="tf_checkout_ccCode">CVC:</label>
+										<input type="text" data-stripe="cvc" class="form-control" id="tf_checkout_ccCode" placeholder="123" maxlength="3" val="">
 									</div>
 									<div class="clear"></div>
 								</div>
 								
 								<div class="form-group cc-total">
-									<p>*A total of <b>$19.98</b> will be charged to your credit card.</p>
+									<p>*A total of <b>${{ Session::get('cart.total') }}</b> will be charged to your credit card.</p>
 								</div>
 								
 								<div class="button-group">
 									<button type="button" class="btn btn-default prev-next">Edit Cart</button>
-									<button id="placeOrder" type="button" class="btn btn-success" disabled="true">Place Order</button>
+									<button type="submit" id="placeOrder" class="btn btn-success" disabled="true">Place Order</button>
 								</div>
 							</div>
 						</form>						
@@ -187,7 +186,47 @@
 			</div>
 		</div> <!-- End, Panel Group -->
 	</div> <!-- End, Wrapper -->
-	
+
 	@include('layouts.login')
 	@include('layouts.register')
+
+	@section('footer')
+	@parent
+		<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+		<script>
+			Stripe.setPublishableKey('pk_test_byl39OOJq9GcVZZSanaY9aUv');
+
+			function stripeResponseHandler(status, response){
+
+				var $form = $('#checkout-form');
+
+				console.log("Second step happened.");
+
+				if(response.error){
+					$form.find('#payment-errors').text(response.error.message).show();
+					$form.find('#placeOrder').prop('disabled', false);
+				} else {
+					var token = response.id;
+					$form.append($('<input type="hidden" name="stripeToken" />').val(token));
+					$form.get(0).submit();
+
+					console.log(token);
+				}
+			}
+
+			$('#placeOrder').on('click', function(e){
+				e.preventDefault();
+				var $form = $('#checkout-form');
+				$form.find('#payment-errors').hide();
+				$form.find('#placeOrder').prop('disabled', true);
+				Stripe.createToken($form, stripeResponseHandler);
+				return false;
+				console.log("First step happened.");
+
+			});
+
+
+		</script>
+	@stop
+
 @stop

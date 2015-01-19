@@ -2,9 +2,11 @@
 
 @section('body')
 	@include('layouts.header')
+	@include('layouts.logo')
+	@include('layouts.navigation')
 	
 	<div class="wrapper">
-	<div class="alert alert-info" role="alert"><p>Your URL is: <b>http://photogenics.designby.fish/lrroberts0122</b></p></div>
+	<div class="alert alert-info" role="alert"><p>Your URL is: <b><a href="/u/{{Auth::user()->username}}">http://photogenics.designby.fish/u/{{Auth::user()->username}}</a></b></p></div>
 	
 	<div class="panel panel-default db-panel" id="db-items">
 		<div class="panel-heading">My Items <button class="btn btn-success btn-make-item btn-xs" type="button" data-toggle="modal" data-target="#printModal"><i class="fa fa-plus fa-xsmall"></i> <b>Create Print</b></button></div>
@@ -21,40 +23,29 @@
 						<th class="text-right">Make Changes</th>
 					</tr>
 				</thead>
-				<tbody >
-					<tr>
-						<td><img src="http://placekitten.com/g/30/30" /></td>
-						<td>#12345</td>
-						<td>Kitty</td>
-						<td>Jebus Krist</td>
-						<td>$9.99</td>
-						<td class="qty-td text-right">
-							<button class="btn btn-primary btn-edit-item" type="button" data-toggle="modal" data-target="#printModal"><i class="fa fa-pencil"></i></button>
-							<button class="btn btn-danger btn-remove-item" type="button"><i class="fa fa-times"></i></button>
-						</td>
-					</tr>
-					<tr>
-						<td><img src="http://placekitten.com/g/30/30" /></td>
-						<td>#12345</td>
-						<td>Kitty</td>
-						<td>Jebus Krist</td>
-						<td>$9.99</td>
-						<td class="qty-td text-right">
-							<button class="btn btn-primary btn-edit-item" type="button" data-toggle="modal" data-target="#printModal"><i class="fa fa-pencil"></i></button>
-							<button class="btn btn-danger btn-remove-item" type="button"><i class="fa fa-times"></i></button>
-						</td>
-					</tr>
-					<tr>
-						<td><img src="http://placekitten.com/g/30/30" /></td>
-						<td>#12345</td>
-						<td>Kitty</td>
-						<td>Jebus Krist</td>
-						<td>$9.99</td>
-						<td class="qty-td text-right">
-							<button class="btn btn-primary btn-edit-item" type="button" data-toggle="modal" data-target="#printModal"><i class="fa fa-pencil"></i></button>
-							<button class="btn btn-danger btn-remove-item" type="button"><i class="fa fa-times"></i></button>
-						</td>
-					</tr>
+				<tbody>
+					<!-- For Each... -->
+					@foreach ($prints as $print)
+						<tr>
+							<td><img src="{{$print['path']}}" /></td>
+							<td>#{{$print['id']}}</td>
+							<td>{{$print['title']}}</td>
+							<td>{{$print['category']}}</td>
+							<td>${{$print['price']}}</td>
+							<td class="qty-td text-right">
+								<button 
+								class="btn btn-primary btn-edit-item" 
+								type="button" 
+								data-print-id="{{$print['id']}}" 
+								data-print-title="{{$print['title']}}"
+								data-print-category="{{$print['category']}}"
+								data-print-price="{{$print['price']}}"
+								data-print-dimensions='{{$print['dimensions']}}'
+								data-print-description="{{$print['description']}}"><i class="fa fa-pencil"></i></button>
+								<a href="/print/delete/{{$print['id']}}"><button class="btn btn-danger btn-remove-item" type="button"><i class="fa fa-times"></i></button></a>
+							</td>
+						</tr>
+					@endforeach
 				</tbody>
 			</table>
 		</div>
@@ -73,22 +64,18 @@
 					<th class="text-right">Details</th>
 				</thead>
 				<tbody>
+
+					<!-- For Each... -->
+					@foreach ($orders as $order)
 					<tr>
-						<td>#421621</td>
-						<td>01/11/2015</td>
-						<td>Lindsay Roberts</td>
-						<td>Approved</td>
-						<td>$19.98</td>
+						<td>{{$order['order_id']}}</td>
+						<td>{{$order['created_at']}}</td>
+						<td>{{$order['firstname']}} {{$order['lastname']}}</td>
+						<td>{{$order['status']}}</td>
+						<td>${{$order['total']}}</td>
 						<td class="text-right"><a href="#" data-toggle="modal" data-target="#orderModal" data-orderID="421621">Order Details</a></td>
 					</tr>
-					<tr>
-						<td>#589172</td>
-						<td>01/11/2015</td>
-						<td>Mark Lyck</td>
-						<td>Processing</td>
-						<td>$29.97</td>
-						<td class="text-right"><a href="#" data-toggle="modal" data-target="#orderModal" data-orderID="589172">Order Details</a></td>
-					</tr>
+					@endforeach
 				</tbody>
 			</table>
 		</div>

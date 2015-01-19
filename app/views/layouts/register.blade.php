@@ -6,7 +6,7 @@
 				<h4 class="modal-title" id="registerModalLabel">Register Account</h4>
 			</div>
 			
-				<?php echo Form::open(array('url' => '/register')); ?>
+				{{ Form::open(array('url' => '/user/register')) }}
 				<div class="modal-body">
 					<div class="form-group">
 						<label for="tf_firstname" class="control-label">First Name:</label>

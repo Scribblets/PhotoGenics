@@ -4,15 +4,45 @@
 
 body {
   background-color: #FFF !important;
+
 }
 
 .clear {
 	clear: both;
 }
 
+#landingCTA {
+	position: absolute;
+    top: 69px; 
+    right: 0; 
+    bottom: 0; 
+    left: 0;
+	background: url('/assets/images/bg.jpg') no-repeat;
+	background-size: 1920px 1080px;
+	color: #EEE;
+}
+
+#CTA {
+	position: absolute;
+	bottom: 20%;
+	left: 10%;
+}
+
+#CTA h1 {
+	margin-bottom: 20px;
+}
+
 /* ==========================================================================
-   Home Page
+   User Page
    ========================================================================== */
+.noPrints{ 
+	font-family: $head-font;
+	font-size: 18px;
+	text-align: center;
+	display: block;
+	min-width: 300px;
+	margin: 120px auto;
+}
 #container, .wrapper {
 	margin: 0 auto;
 	clear: both;
@@ -60,14 +90,28 @@ a:hover {
   margin: 10px;
   float: left;
   position: relative;
-  background: #00b3ee;
+  background: #EF206E;
+}
+
+.item img:hover {
+	filter: alpha(opacity=50);
+    opacity: 0.3;
+    -webkit-transition: opacity .35s ease-in-out;
+    -moz-transition: opacity .35s ease-in-out;
+    -ms-transition: opacity .35s ease-in-out;
+    -o-transition: opacity .35s ease-in-out;
+    transition: opacity .35s ease-in-out;
+}
+
+.item img {
+	max-width: 340px;
 }
 
 .thumb-text {
   position: absolute;
   bottom: 15px;
   left: 0px;
-  width: 160px;
+  width: 170px;
   background: rgba(0,0,0,.75);
   color: #FFF;
   padding: 10px;
@@ -100,13 +144,37 @@ a:hover {
 
 .product_image {
 	max-width: 340px;
-	max-height: 340px;
 	float: left;
 	margin-right: 25px;
 }
 
+.product_details {
+	float: left;
+	max-width: 530px;
+}
+
+.product_image img {
+	max-width: 340px;
+}
+
 .more {
 	clear: both;
+	margin-top: 30px;
+}
+
+.more a {
+	display: block;
+	height: 225px;
+	width: 225px;
+	overflow: hidden;
+	float: left;
+	margin-right: 5px;
+}
+
+.more img {
+	min-height: 225px;
+	min-width: 225px;
+	max-height: 230px;
 }
 
 .print_info {
@@ -243,6 +311,10 @@ a:hover {
 	display: block;
 }
 
+.cartEmpty {
+	text-align: center;
+}
+
 @media print {
   body * {
     visibility:hidden;
@@ -262,6 +334,15 @@ a:hover {
    ========================================================================== */
 .btn-make-item {
 	float: right;
+}
+
+.db-panel td {
+	text-transform: capitalize;
+}
+
+td img {
+	max-width: 30px;
+	max-height: 30px;
 }
 
 /* ==========================================================================
@@ -294,7 +375,7 @@ a:hover {
 }
 
 #printModal .modal-dialog {
-	width: 375px;
+	width: 376px;
 }
 
 /* ==========================================================================
@@ -324,9 +405,12 @@ a:hover {
 }
 
 #header ul li a {
-	margin-right: 5px;
 	padding-top: 0;
 	color: $action-color;
+}
+
+.anchor-button {
+	padding: 0 !important;
 }
 
 #cartCount {
@@ -352,12 +436,16 @@ a:hover {
 	color: #222;
 }
 
+.welcomeMessage {
+	line-height: 32px;
+}
+
 /* ==========================================================================
    Buttons
    ========================================================================== */
 .btn-primary {
-	background-color: #259de9;
-	border-color: #1787CF;
+	background-color: #259de9 !important;
+	border-color: #1787CF !important;
 }
 
 .btn-primary:hover, .btn-primary:active, .btn-primary:visited, .btn-sample:focus {
@@ -366,8 +454,8 @@ a:hover {
 }
 
 .btn-success {
-	background-color: $action-color;
-	border-color: #dd135d;
+	background-color: $action-color !important;
+	border-color: #dd135d !important;
 }
 
 .btn-success[disabled] {
@@ -420,6 +508,15 @@ h3 {
     table button {
 	    padding: 1px 3px !important;
     }
+    
+    .welcomeMessage {
+		display: none;
+	}
+
+	#CTA {
+		top: 10%;
+		left: 5%;
+	}
 }
 
 /* ==========================================================================

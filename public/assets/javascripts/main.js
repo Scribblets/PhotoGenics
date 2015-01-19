@@ -4,68 +4,37 @@
  *--------------------------------------
  */
 	var $container = $('#container');
+	$container.masonry();
+	$container.isotope();
 
 	$container.imagesLoaded(function() {
 		$container.masonry({
 			itemSelector: '.item',
-			columnWidth: 180,
 			isResizable: true,
 			isAnimated: true
 		});
-		
-		$container.isotope();
 	});
 	
-/*
-	$("#filterAll").click(function() {
+	$(".filters").click(function() {
 		var selector = $(this).attr('data-filter');
-		$container.isotope({filter:selector});
+		if(selector != "*") {
+			selector = "." + selector;
+		}
 		
-		$(".active").removeAttr("class");
-		$("#filterAll").attr("class", "active");
+		$container.isotope({filter: selector});
+ 		$('.active').attr('class', 'filters');
+		$(this).attr('class', 'filters active');
 		return false;
 	});
-*/
+/***************************************
+ * Flash Modal
+ *--------------------------------------
+ */	
+ 	console.log($('#flashModal').length);
+ 	if($('#flashModal').length > 0) {
+	 	$('#flashModal').modal('show');
+ 	}
 	
-	$("#filterAll").on('click', function(e) {
-		$('.active').removeAttr('class');
-		$container.isotope({
-			filter: '*'
-		});
-		$("#filterAll").attr("class", "active");
-	});
-	
-	$("#filterAnimals").on('click', function(e) {
-		$('.active').removeAttr('class');
-		$container.isotope({
-			filter: '.animals'
-		});
-		$("#filterAnimals").attr("class", "active");
-	});
-	
-	$("#filterPeople").on('click', function(e) {
-		$('.active').removeAttr('class');
-		$container.isotope({
-			filter: '.people'
-		});
-		$("#filterPeople").attr("class", "active");
-	});
-	
-	$("#filterNature").on('click', function(e) {
-		$('.active').removeAttr('class');
-		$container.isotope({
-			filter: '.nature'
-		});
-		$("#filterNature").attr("class", "active");
-	});
-	
-	$("#filterArt").on('click', function(e) {
-		$('.active').removeAttr('class');
-		$container.isotope({
-			filter: '.art'
-		});
-		$("#filterArt").attr("class", "active");
-	});
 /***************************************
  * Print Modal
  *--------------------------------------
@@ -74,10 +43,9 @@
  *--------------------------------------
  */
     $('.btn-make-item').on('click', function(e) {
-	    
 	    // #Studnicky
 	    // Change action for Create Form
-	    $("#printForm").attr("action", "");
+	    $("#printForm").attr("action", "/print/create");
 	    
 	    // File Input HTML
  	    html = '<div id="file-image" class="fileinput fileinput-new" data-provides="fileinput"><label for="tf_file">Upload Image:</label><br/><div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 130px;"></div><div><span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" id="tf_file" name="tf_file"></span><a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a></div></div>';
@@ -86,12 +54,23 @@
     });
     
     $('.btn-edit-item').on('click', function(e) {
-	    // Change action for Edit Form
-	    $("#printForm").attr("action", "");
+	    id			= $(e.currentTarget).data('print-id');
+	    title 		= $(e.currentTarget).data('print-title');
+	    category	= $(e.currentTarget).data('print-category');
+	    price		= $(e.currentTarget).data('print-price');
+	    dimensions	= $(e.currentTarget).data('print-dimensions');
+	    description	= $(e.currentTarget).data('print-description');
 	    
-	    // User ID Hidden Input (For Edits)
-	   html = '<input type="hidden" name="tf_id" id="tf_id" value="12345" />';
-	   $("#end-of-form").before(html);
+	    var action = "/print/update/" + id;
+	    $("#printForm").attr("action", action);
+	    
+	    $("#tf_title").val(title);
+	    $("#tf_price").val(price);
+	    $("#tf_dimensions").val(dimensions);
+	    $('.selectpicker').selectpicker('val', category);
+	    $("#tf_description").val(description);
+	    
+	    $("#printModal").modal('show');
     });
     
     // Resets the Modal on Close
@@ -103,7 +82,7 @@
 	    if($("#user-id").length > 0) {
 		    $("#user-id").remove();
 	    }
-	    
+	    $('.selectpicker').selectpicker('val', 'people');
 	    $("#printForm")[0].reset();
 	});
     	
@@ -150,10 +129,10 @@
 		}
 	});
 	
-	/* Print Confirmation */
-	$('#print-confirmation').on('click', function(e) {
-		window.print();
-	});
+	// /* Print Confirmation */
+	// $('#print-confirmation').on('click', function(e) {
+	// 	window.print();
+	// });
 	
 	function allFilled() {
 	    var filled = true;

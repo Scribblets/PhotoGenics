@@ -36,5 +36,8 @@
 	"config": {
 		"preferred-install": "dist"
 	},
+	"require":{
+		"laravel/cashier": "~2.0"
+	},
 	"minimum-stability": "stable"
 }
