@@ -2,11 +2,11 @@
 
 class OrderItems extends Eloquent {
 	
-	protected $table = 'ordersitems';
-	protected $fillable = ['order_id','print_id','price'];
+	protected $table = 'order_items';
+	protected $fillable = ['order_id','user_id','print_id','price'];
 	
-	public function User(){
-		return $this->belongsTo('Order');
+	public function Orders(){
+		return $this->belongsTo('Orders');
 	}
 
 }

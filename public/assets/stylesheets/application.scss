@@ -319,10 +319,11 @@ a:hover {
   body * {
     visibility:hidden;
   }
-  #confirmation-content, #confirmation-content * {
+  
+  #confirmation, #confirmation * {
     visibility:visible;
   }
-  #confirmation-content {
+  #confirmation {
     position:absolute;
     left:0;
     top:0;

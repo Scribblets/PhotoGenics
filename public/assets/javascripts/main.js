@@ -42,8 +42,7 @@
  * -> Edit Prints
  *--------------------------------------
  */
-    $('.btn-make-item').on('click', function(e) {
-	    // #Studnicky
+    $('.btn-make-item').on('click', function(e) {	    
 	    // Change action for Create Form
 	    $("#printForm").attr("action", "/print/create");
 	    
@@ -98,6 +97,7 @@
  * Checkout Page
  *--------------------------------------
  */
+ 	
 	/* Checkout Alert */
 	$('#checkout-form .alert').hide();
 	
@@ -107,12 +107,6 @@
 		$('#collapseTwo').collapse('toggle');
 	});
 	
-	$('#placeOrder').on('click', function(e) {
-		// Submit Form via AJAX
-		$('#collapseTwo').collapse('toggle');
-		$('#collapseThree').collapse('toggle');
-	});
-	
 	/* Numbers Only Input */
 	$('#tf_checkout_zip, #tf_checkout_ccNumber, #tf_checkout_ccExpMonth, #tf_checkout_ccExpYear, #tf_checkout_ccCode').keypress(function (e) {
 		if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
@@ -120,23 +114,67 @@
 		}
 	});
 	
+	/* Capital Letters Only Input */
+	$('#tf_checkout_state').keypress(function(e) {
+		if(e.which < 65 || e.which > 90) {
+			return false;
+		}
+	});
+
 	/* Required Fields Button Enabling */
 	$('#tf_checkout_firstname, #tf_checkout_lastname, #tf_checkout_email, #tf_checkout_address, #tf_checkout_city, #tf_checkout_state, #tf_checkout_zip, #tf_checkout_ccNumber, #tf_checkout_ccExpMonth, #tf_checkout_ccExpYear, #tf_checkout_ccCode').bind('keyup', function() {
-		if(allFilled()) {
+		if(allFilled($('#checkout-form input'))) {
 			$('#placeOrder').removeAttr('disabled');
 		} else {
 			$('#placeOrder').attr('disabled', true);
 		}
 	});
 	
-	// /* Print Confirmation */
-	// $('#print-confirmation').on('click', function(e) {
-	// 	window.print();
-	// });
+	/* Stripe Functionality */
+	Stripe.setPublishableKey('pk_test_byl39OOJq9GcVZZSanaY9aUv');
+
+	$('#placeOrder').on('click', function(e){
+		e.preventDefault();
+		var $form = $('#checkout-form');
+		$form.find('#payment-errors').hide();
+		$form.find('#placeOrder').prop('disabled', true);
+		Stripe.createToken($form, stripeResponseHandler);
+		
+		return false;
+	});
 	
-	function allFilled() {
+	function stripeResponseHandler(status, response){
+		var $form = $('#checkout-form');
+		
+		if(response.error){
+			console.log(response.error);
+			$('#checkout-form .alert-danger').html('<b><i class="fa fa-exclamation"></i></b> ' + response.error.message).show();
+		} else {
+			var token = response.id;
+			var order_id = response.card.id.slice(5);
+			console.log(response);
+			var route = '/order/' + order_id;
+			$form.attr('action', route);
+			$('#checkout-form .credit-card-information .button-group').prepend('<input type="hidden" id="tf_lastFour" name="tf_lastFour" value="' + response.card.last4 + '" />');
+			$('#checkout-form .credit-card-information .button-group').prepend('<input type="hidden" id="tf_token" name="tf_token" value="' + token + '" />');
+			$('#collapseTwo').collapse('toggle');
+		}		
+	}
+	
+	$('#collapseTwo').on('hide.bs.collapse', function (e) {
+		if($("#tf_token").length > 0) {
+			$('#checkout-form').submit();
+		}
+	});
+	
+	// /* Print Confirmation */
+	$('#print-confirmation').on('click', function(e) {
+		window.print();
+	});
+	
+	function allFilled(formInput) {
 	    var filled = true;
-	    $('#checkout-form input').each(function() {
+	    formInput.each(function() {
 	        if($(this).val() == '') {
 		        filled = false;
 		    }

@@ -79,9 +79,8 @@ class UserController extends BaseController {
 	        // Login Successful route to Dashboard
 	        return Redirect::to('/dashboard');
 		} else {
-	    	// Login Failed
-	    	// Display Error
-			// echo 'Username or password incorrect.';
+	    	Session::flash('flash_message', "<b>Login Error!</b> Username or password is incorrect.");
+			Session::flash('flash_type', 'alert-danger');
 			return Redirect::to('/');
 		}
 	}
@@ -98,12 +97,14 @@ class UserController extends BaseController {
 		if(Auth::check()) {
 
 			$data['prints'] = Prints::whereUser_id(Auth::user()->id)->get();
-			$data['orders'] = Order::whereUser_id(Auth::user()->id)->get();
+			$data['orders'] = OrderItems::whereUser_id(Auth::user()->id)->get();
 
 			// var_dump($data);
 			return View::make('dashboard', $data);
 
 		} else {
+			Session::flash('flash_message', "<b>Login Error!</b> You must be logged in to do that!");
+			Session::flash('flash_type', 'alert-danger');
 			return Redirect::to('/');
 		}
 	}

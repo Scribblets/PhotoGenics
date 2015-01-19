@@ -8,9 +8,9 @@
         
     @section('style')
         <!-- Bootstrap -->
-        {{ HTML::style('/assets/stylesheets/application.css') }}
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">
+        <link rel="stylesheet" href="/assets/stylesheets/application.css">
     @show
     
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -39,6 +39,7 @@
         <script src="/assets/javascripts/application.js"></script>
         <script src="/assets/javascripts/bootstrap-select.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
+        <script src="https://js.stripe.com/v2/"></script>
         <script src="/assets/javascripts/main.js"></script>
     @show
 </body>
