@@ -5,7 +5,7 @@ class HomeController extends BaseController {
 	public function home() {
 		if(Auth::check()) {
 			// Get up to 25-50 random images.
-			$random_prints = Prints::orderBy(DB::raw('RAND()'))->take(25)->get();
+			$random_prints = Prints::orderBy(DB::raw('RAND()'))->take(50)->get();
 			$prints = array();
 			
 			foreach ($random_prints as $r_print) {
@@ -32,7 +32,7 @@ class HomeController extends BaseController {
 	}
 	
 	public function browse() {
-		$random_prints = Prints::orderBy(DB::raw('RAND()'))->take(25)->get();
+		$random_prints = Prints::orderBy(DB::raw('RAND()'))->take(50)->get();
 			$prints = array();
 			
 			foreach ($random_prints as $r_print) {

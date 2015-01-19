@@ -34,7 +34,9 @@
 		</div>
 	@endif
     
+    
     @section('footer')
+    	<div class="clear"></div>
         <!-- Javascript -->
         <script src="/assets/javascripts/application.js"></script>
         <script src="/assets/javascripts/bootstrap-select.min.js"></script>
