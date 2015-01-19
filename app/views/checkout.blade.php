@@ -66,7 +66,7 @@
 				
 				<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
 					<div class="panel-body">						
-						<form id="checkout-form">
+						<form id="checkout-form" method="POST">
 							
 							<div class="alert alert-danger" role="alert"><b>Oops!</b> There was an error processing your order! Please try again.</div>
 							
@@ -145,7 +145,7 @@
 								
 								<div class="button-group">
 									<button type="button" class="btn btn-default prev-next">Edit Cart</button>
-									<button type="submit" id="placeOrder" class="btn btn-success" disabled="true">Place Order</button>
+									<button type="submit" id="placeOrder" class="btn btn-success" disabled="true"><i class="fa fa-cc-stripe"></i> Place Order</button>
 								</div>
 							</div>
 						</form>						
@@ -161,10 +161,10 @@
 				<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
 					<div class="panel-body">
 						<div id="confirmation">
-							<div class="alert alert-success" role="alert"><b>Success!</b> Your order number is <b>#591392</b>.</div>
+							<div class="alert alert-success" role="alert"><b><i class="fa fa-check"></i></b> Your order number is <b>#591392</b>.</div>
 							<h3>Thank You!</h3>
 							<p>Thank you for your order. The details are below:</p> 
-							<p><b>Order ID:</b> <code>#591392</code></p>
+							<p><b>Order:</b> <code>#591392</code></p>
 							<p><b>Date:</b> 01/10/2015</p>
 							<p><b>Total:</b> $19.98</p>
 							<p><b>Items:</b></p>
@@ -189,44 +189,4 @@
 
 	@include('layouts.login')
 	@include('layouts.register')
-
-	@section('footer')
-	@parent
-		<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-		<script>
-			Stripe.setPublishableKey('pk_test_byl39OOJq9GcVZZSanaY9aUv');
-
-			function stripeResponseHandler(status, response){
-
-				var $form = $('#checkout-form');
-
-				console.log("Second step happened.");
-
-				if(response.error){
-					$form.find('#payment-errors').text(response.error.message).show();
-					$form.find('#placeOrder').prop('disabled', false);
-				} else {
-					var token = response.id;
-					$form.append($('<input type="hidden" name="stripeToken" />').val(token));
-					$form.get(0).submit();
-
-					console.log(token);
-				}
-			}
-
-			$('#placeOrder').on('click', function(e){
-				e.preventDefault();
-				var $form = $('#checkout-form');
-				$form.find('#payment-errors').hide();
-				$form.find('#placeOrder').prop('disabled', true);
-				Stripe.createToken($form, stripeResponseHandler);
-				return false;
-				console.log("First step happened.");
-
-			});
-
-
-		</script>
-	@stop
-
 @stop
