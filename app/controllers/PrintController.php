@@ -69,7 +69,7 @@ class PrintController extends BaseController {
 		
 		return View::make('details')->with($data);
 	}
-	
+
 	public function update_print($print_id) {
 		$print_data = array(
 			'title'			=> Input::get('tf_title'),
