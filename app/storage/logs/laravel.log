@@ -7663,3 +7663,150 @@ Stack trace:
 #17 /Applications/MAMP/htdocs/asl/laravel/public/index.php(49): Illuminate\Foundation\Application->run()
 #18 /Applications/MAMP/htdocs/asl/laravel/server.php(19): require_once('/Applications/M...')
 #19 {main} [] []
+[2015-01-19 15:29:06] production.ERROR: exception 'ErrorException' with message 'array_unique() expects parameter 1 to be array, object given' in /Applications/MAMP/htdocs/asl/laravel/app/controllers/UserController.php:102
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleError(2, 'array_unique() ...', '/Applications/M...', 102, Array)
+#1 /Applications/MAMP/htdocs/asl/laravel/app/controllers/UserController.php(102): array_unique(Object(Illuminate\Database\Eloquent\Collection))
+#2 [internal function]: UserController->user_dashboard()
+#3 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(231): call_user_func_array(Array, Array)
+#4 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(93): Illuminate\Routing\Controller->callAction('user_dashboard', Array)
+#5 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(62): Illuminate\Routing\ControllerDispatcher->call(Object(UserController), Object(Illuminate\Routing\Route), 'user_dashboard')
+#6 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Routing/Router.php(962): Illuminate\Routing\ControllerDispatcher->dispatch(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request), 'UserController', 'user_dashboard')
+#7 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#8 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Routing/Route.php(109): call_user_func_array(Object(Closure), Array)
+#9 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Routing/Router.php(1028): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#10 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Routing/Router.php(996): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#11 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(775): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#12 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(745): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#13 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Session/Middleware.php(72): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#14 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Cookie/Queue.php(47): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#15 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Cookie/Guard.php(51): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#16 /Applications/MAMP/htdocs/asl/laravel/vendor/stack/builder/src/Stack/StackedHttpKernel.php(23): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#17 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(641): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#18 /Applications/MAMP/htdocs/asl/laravel/public/index.php(49): Illuminate\Foundation\Application->run()
+#19 /Applications/MAMP/htdocs/asl/laravel/server.php(19): require_once('/Applications/M...')
+#20 {main} [] []
+[2015-01-19 15:43:59] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'Order' not found' in /Applications/MAMP/htdocs/asl/laravel/app/controllers/UserController.php:114
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2015-01-19 15:44:44] production.ERROR: exception 'ErrorException' with message 'Undefined property: Illuminate\Database\Eloquent\Collection::$order_id' in /Applications/MAMP/htdocs/asl/laravel/app/controllers/UserController.php:116
+Stack trace:
+#0 /Applications/MAMP/htdocs/asl/laravel/app/controllers/UserController.php(116): Illuminate\Exception\Handler->handleError(8, 'Undefined prope...', '/Applications/M...', 116, Array)
+#1 [internal function]: UserController->user_dashboard()
+#2 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(231): call_user_func_array(Array, Array)
+#3 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(93): Illuminate\Routing\Controller->callAction('user_dashboard', Array)
+#4 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(62): Illuminate\Routing\ControllerDispatcher->call(Object(UserController), Object(Illuminate\Routing\Route), 'user_dashboard')
+#5 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Routing/Router.php(962): Illuminate\Routing\ControllerDispatcher->dispatch(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request), 'UserController', 'user_dashboard')
+#6 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#7 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Routing/Route.php(109): call_user_func_array(Object(Closure), Array)
+#8 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Routing/Router.php(1028): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#9 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Routing/Router.php(996): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#10 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(775): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#11 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(745): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#12 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Session/Middleware.php(72): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#13 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Cookie/Queue.php(47): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#14 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Cookie/Guard.php(51): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#15 /Applications/MAMP/htdocs/asl/laravel/vendor/stack/builder/src/Stack/StackedHttpKernel.php(23): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#16 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(641): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#17 /Applications/MAMP/htdocs/asl/laravel/public/index.php(49): Illuminate\Foundation\Application->run()
+#18 /Applications/MAMP/htdocs/asl/laravel/server.php(19): require_once('/Applications/M...')
+#19 {main} [] []
+[2015-01-19 15:45:08] production.ERROR: exception 'ErrorException' with message 'Undefined property: Illuminate\Database\Eloquent\Collection::$total' in /Applications/MAMP/htdocs/asl/laravel/app/controllers/UserController.php:116
+Stack trace:
+#0 /Applications/MAMP/htdocs/asl/laravel/app/controllers/UserController.php(116): Illuminate\Exception\Handler->handleError(8, 'Undefined prope...', '/Applications/M...', 116, Array)
+#1 [internal function]: UserController->user_dashboard()
+#2 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(231): call_user_func_array(Array, Array)
+#3 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(93): Illuminate\Routing\Controller->callAction('user_dashboard', Array)
+#4 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(62): Illuminate\Routing\ControllerDispatcher->call(Object(UserController), Object(Illuminate\Routing\Route), 'user_dashboard')
+#5 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Routing/Router.php(962): Illuminate\Routing\ControllerDispatcher->dispatch(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request), 'UserController', 'user_dashboard')
+#6 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#7 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Routing/Route.php(109): call_user_func_array(Object(Closure), Array)
+#8 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Routing/Router.php(1028): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#9 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Routing/Router.php(996): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#10 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(775): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#11 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(745): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#12 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Session/Middleware.php(72): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#13 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Cookie/Queue.php(47): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#14 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Cookie/Guard.php(51): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#15 /Applications/MAMP/htdocs/asl/laravel/vendor/stack/builder/src/Stack/StackedHttpKernel.php(23): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#16 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(641): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#17 /Applications/MAMP/htdocs/asl/laravel/public/index.php(49): Illuminate\Foundation\Application->run()
+#18 /Applications/MAMP/htdocs/asl/laravel/server.php(19): require_once('/Applications/M...')
+#19 {main} [] []
+[2015-01-19 15:45:42] production.ERROR: exception 'ErrorException' with message 'Undefined property: Illuminate\Database\Eloquent\Collection::$id' in /Applications/MAMP/htdocs/asl/laravel/app/controllers/UserController.php:116
+Stack trace:
+#0 /Applications/MAMP/htdocs/asl/laravel/app/controllers/UserController.php(116): Illuminate\Exception\Handler->handleError(8, 'Undefined prope...', '/Applications/M...', 116, Array)
+#1 [internal function]: UserController->user_dashboard()
+#2 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(231): call_user_func_array(Array, Array)
+#3 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(93): Illuminate\Routing\Controller->callAction('user_dashboard', Array)
+#4 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(62): Illuminate\Routing\ControllerDispatcher->call(Object(UserController), Object(Illuminate\Routing\Route), 'user_dashboard')
+#5 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Routing/Router.php(962): Illuminate\Routing\ControllerDispatcher->dispatch(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request), 'UserController', 'user_dashboard')
+#6 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#7 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Routing/Route.php(109): call_user_func_array(Object(Closure), Array)
+#8 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Routing/Router.php(1028): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#9 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Routing/Router.php(996): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#10 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(775): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#11 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(745): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#12 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Session/Middleware.php(72): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#13 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Cookie/Queue.php(47): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#14 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Cookie/Guard.php(51): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#15 /Applications/MAMP/htdocs/asl/laravel/vendor/stack/builder/src/Stack/StackedHttpKernel.php(23): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#16 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(641): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#17 /Applications/MAMP/htdocs/asl/laravel/public/index.php(49): Illuminate\Foundation\Application->run()
+#18 /Applications/MAMP/htdocs/asl/laravel/server.php(19): require_once('/Applications/M...')
+#19 {main} [] []
+[2015-01-19 15:47:21] production.ERROR: exception 'ErrorException' with message 'Undefined variable: orders' in /Applications/MAMP/htdocs/asl/laravel/app/storage/views/97958baf721e6a2a1177d8c490731f37:67
+Stack trace:
+#0 /Applications/MAMP/htdocs/asl/laravel/app/storage/views/97958baf721e6a2a1177d8c490731f37(67): Illuminate\Exception\Handler->handleError(8, 'Undefined varia...', '/Applications/M...', 67, Array)
+#1 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/View/Engines/PhpEngine.php(37): include('/Applications/M...')
+#2 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/View/Engines/CompilerEngine.php(56): Illuminate\View\Engines\PhpEngine->evaluatePath('/Applications/M...', Array)
+#3 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/View/View.php(134): Illuminate\View\Engines\CompilerEngine->get('/Applications/M...', Array)
+#4 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/View/View.php(102): Illuminate\View\View->getContents()
+#5 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/View/View.php(76): Illuminate\View\View->renderContents()
+#6 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Http/Response.php(43): Illuminate\View\View->render()
+#7 /Applications/MAMP/htdocs/asl/laravel/vendor/symfony/http-foundation/Symfony/Component/HttpFoundation/Response.php(202): Illuminate\Http\Response->setContent(Object(Illuminate\View\View))
+#8 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Routing/Router.php(1496): Symfony\Component\HttpFoundation\Response->__construct(Object(Illuminate\View\View))
+#9 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Routing/Router.php(1031): Illuminate\Routing\Router->prepareResponse(Object(Illuminate\Http\Request), Object(Illuminate\View\View))
+#10 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Routing/Router.php(996): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#11 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(775): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#12 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(745): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#13 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Session/Middleware.php(72): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#14 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Cookie/Queue.php(47): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#15 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Cookie/Guard.php(51): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#16 /Applications/MAMP/htdocs/asl/laravel/vendor/stack/builder/src/Stack/StackedHttpKernel.php(23): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#17 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(641): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#18 /Applications/MAMP/htdocs/asl/laravel/public/index.php(49): Illuminate\Foundation\Application->run()
+#19 /Applications/MAMP/htdocs/asl/laravel/server.php(19): require_once('/Applications/M...')
+#20 {main}
+
+Next exception 'ErrorException' with message 'Undefined variable: orders (View: /Applications/MAMP/htdocs/asl/laravel/app/views/dashboard.blade.php)' in /Applications/MAMP/htdocs/asl/laravel/app/storage/views/97958baf721e6a2a1177d8c490731f37:67
+Stack trace:
+#0 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/View/Engines/PhpEngine.php(41): Illuminate\View\Engines\CompilerEngine->handleViewException(Object(ErrorException), 1)
+#1 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/View/Engines/CompilerEngine.php(56): Illuminate\View\Engines\PhpEngine->evaluatePath('/Applications/M...', Array)
+#2 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/View/View.php(134): Illuminate\View\Engines\CompilerEngine->get('/Applications/M...', Array)
+#3 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/View/View.php(102): Illuminate\View\View->getContents()
+#4 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/View/View.php(76): Illuminate\View\View->renderContents()
+#5 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Http/Response.php(43): Illuminate\View\View->render()
+#6 /Applications/MAMP/htdocs/asl/laravel/vendor/symfony/http-foundation/Symfony/Component/HttpFoundation/Response.php(202): Illuminate\Http\Response->setContent(Object(Illuminate\View\View))
+#7 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Routing/Router.php(1496): Symfony\Component\HttpFoundation\Response->__construct(Object(Illuminate\View\View))
+#8 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Routing/Router.php(1031): Illuminate\Routing\Router->prepareResponse(Object(Illuminate\Http\Request), Object(Illuminate\View\View))
+#9 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Routing/Router.php(996): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#10 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(775): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#11 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(745): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#12 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Session/Middleware.php(72): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#13 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Cookie/Queue.php(47): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#14 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Cookie/Guard.php(51): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#15 /Applications/MAMP/htdocs/asl/laravel/vendor/stack/builder/src/Stack/StackedHttpKernel.php(23): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#16 /Applications/MAMP/htdocs/asl/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(641): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#17 /Applications/MAMP/htdocs/asl/laravel/public/index.php(49): Illuminate\Foundation\Application->run()
+#18 /Applications/MAMP/htdocs/asl/laravel/server.php(19): require_once('/Applications/M...')
+#19 {main} [] []
+[2015-01-19 16:18:17] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'parse error' in /Applications/MAMP/htdocs/asl/laravel/app/storage/views/97958baf721e6a2a1177d8c490731f37:84
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2015-01-19 16:55:02] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'parse error' in /Applications/MAMP/htdocs/asl/laravel/app/storage/views/97958baf721e6a2a1177d8c490731f37:91
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []

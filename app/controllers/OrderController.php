@@ -66,6 +66,7 @@ class OrderController extends BaseController {
 				
 				array_push($order_items, $order_item);
 			}
+			
 			$data['order'] = $order;
 			$data['order_items'] = $order_items;
 			

@@ -57,7 +57,6 @@
 					<th>Order #</th>
 					<th>Date</th>
 					<th>Name</th>
-					<th>Status</th>
 					<th>Total</th>
 					<th class="text-right">Details</th>
 				</thead>
@@ -69,9 +68,25 @@
 						<td><?php echo $order['order_id']; ?></td>
 						<td><?php echo $order['created_at']; ?></td>
 						<td><?php echo $order['firstname']; ?> <?php echo $order['lastname']; ?></td>
-						<td><?php echo $order['status']; ?></td>
 						<td>$<?php echo $order['total']; ?></td>
-						<td class="text-right"><a href="#" data-toggle="modal" data-target="#orderModal" data-orderID="421621">Order Details</a></td>
+						<td class="text-right">
+							<a href="#" data-toggle="modal" data-target="#orderModal" data-orderID="<?php echo $order['order_id']; ?>">Order Details</a>
+							<div class="<?php echo $order['order_id']; ?>" style="display:none;">
+								<div class="order_info" data-status="<?php echo $order['status']; ?>" data-date="<?php echo $order['created_at']; ?>" data-total="<?php echo $order['total']; ?>" data-name="<?php echo $order['firstname']; ?> <?php echo $order['lastname']; ?>" data-email="<?php echo $order['email']; ?>" data-address="<?php echo $order['address']; ?>, <?php echo $order['city']; ?>, <?php echo $order['state']; ?> <?php echo $order['zip']; ?>" data-card="<?php echo $order['card']; ?>">
+								</div>
+								<div class="order_items">
+								<?php foreach($order_items as $order_item): ?>
+									<?php if($order_item['order_id'] == $order['order_id']): ?>
+										<?php foreach($prints as $p): ?>
+											<?php if($p['id'] == $order_item['print_id']): ?>
+											<div class="order_item" data-print-id="<?php echo $order_item['print_id']; ?>" data-print-title="<?php echo $p['title']; ?>" data-price="<?php echo $order_item['price']; ?>" style="display: none;"></div>
+											<?php endif; ?>
+										<?php endforeach; ?>
+									<?php endif; ?>
+								<?php endforeach; ?>
+								</div>
+							</div>
+						</td>
 					</tr>
 					<?php endforeach; ?>
 				</tbody>
