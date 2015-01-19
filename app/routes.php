@@ -41,4 +41,4 @@ Route::get('/cart/delete/{session_index}', 'CartController@delete_from_cart_by_i
 Route::get('/checkout', 'CartController@read_all');
 
 /* stripe payment routes */
-// Route::post('');
+Route::post('/order/process/{order_id}', 'OrderController@process_stripe');
