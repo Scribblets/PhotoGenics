@@ -15,8 +15,12 @@
 						<li><a class="anchor-button" href="/dashboard"><button type="button" class="btn btn-primary">Dashboard</button></a></li>
 						<li><a class="anchor-button" href="/logout"><button type="button" class="btn btn-default">Logout</button></a></li>
 					@else
-						<li><a href="/store/checkout"><i class="fa fa-shopping-cart fa-2x">
-							<div id="cartCount"><p>0</p></div>
+						<li><a href="/checkout"><i class="fa fa-shopping-cart fa-2x">
+							@if (Session::has('cart.count'))
+								<div id="cartCount"><p>{{ Session::get('cart.count') }}</p></div>
+							@else
+								<div id="cartCount"><p>0</p></div>
+							@endif
 						</i></a></li>
 						<li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">Login</button></li>
 						<li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#registerModal">Register</button></li>

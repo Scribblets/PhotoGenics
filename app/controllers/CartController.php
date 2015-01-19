@@ -27,7 +27,6 @@ class CartController extends BaseController {
 			$total = $print->price;
 		}
 		Session::put('cart.total', $total);
-		
 		return Redirect::to('/checkout');
 	}
 	

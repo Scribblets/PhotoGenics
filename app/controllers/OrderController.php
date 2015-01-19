@@ -79,7 +79,6 @@ class OrderController extends BaseController {
 		} catch(Stripe_CardError $e) {
         	// Payment failed
         	Session::put('order.error', true);
-        	echo "FAIL!!!";
         	var_dump($e);
 			return Redirect::to('/checkout');
 		}

@@ -68,11 +68,19 @@
 						<td><?php echo $order['order_id']; ?></td>
 						<td><?php echo $order['created_at']; ?></td>
 						<td><?php echo $order['firstname']; ?> <?php echo $order['lastname']; ?></td>
-						<td>$<?php echo $order['total']; ?></td>
+						<?php echo $tmp_total_price = 0; ?>
+
+						<?php foreach($order_items as $o_item): ?>
+							<?php if($o_item['order_id'] == $order['order_id']): ?>
+								<?php echo $tmp_total_price += $o_item['price']; ?>
+
+							<?php endif; ?>
+						<?php endforeach; ?>
+						<td>$<?php echo $tmp_total_price; ?></td>
 						<td class="text-right">
 							<a href="#" data-toggle="modal" data-target="#orderModal" data-orderID="<?php echo $order['order_id']; ?>">Order Details</a>
 							<div class="<?php echo $order['order_id']; ?>" style="display:none;">
-								<div class="order_info" data-status="<?php echo $order['status']; ?>" data-date="<?php echo $order['created_at']; ?>" data-total="<?php echo $order['total']; ?>" data-name="<?php echo $order['firstname']; ?> <?php echo $order['lastname']; ?>" data-email="<?php echo $order['email']; ?>" data-address="<?php echo $order['address']; ?>, <?php echo $order['city']; ?>, <?php echo $order['state']; ?> <?php echo $order['zip']; ?>" data-card="<?php echo $order['card']; ?>">
+								<div class="order_info" data-status="<?php echo $order['status']; ?>" data-date="<?php echo $order['created_at']; ?>" data-total="<?php echo $tmp_total_price; ?>" data-name="<?php echo $order['firstname']; ?> <?php echo $order['lastname']; ?>" data-email="<?php echo $order['email']; ?>" data-address="<?php echo $order['address']; ?>, <?php echo $order['city']; ?>, <?php echo $order['state']; ?> <?php echo $order['zip']; ?>" data-card="<?php echo $order['card']; ?>">
 								</div>
 								<div class="order_items">
 								<?php foreach($order_items as $order_item): ?>

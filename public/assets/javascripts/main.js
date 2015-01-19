@@ -202,6 +202,7 @@
 		});
 		
 		var status = $('.' + order_id + ' .order_info').data('status');
+		
 		if(status == 0 || status == '0') {
 			status = "PROCESSING";
 		}
@@ -223,7 +224,6 @@
 		$('#oDate').html(order.date);
 		$('#oTotal').html(order.total);
 		
-
 		$(order.items).each(function() {
 			$('#oItems').append('<li>Item <code>#' + this.id + '</code> - ' + this.title + ' - $' + this.price + '</li>');
 		});

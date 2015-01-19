@@ -21,7 +21,7 @@ class CreateOrderItemsTable extends Migration {
 			$table->foreign('user_id')->references('id')->on('users');
 			$table->integer('print_id')->unsigned();
 			$table->foreign('print_id')->references('id')->on('prints');
-			$table->integer('price')->unsigned();
+			$table->decimal('price');;
 			$table->timestamps();
 		});
 	}

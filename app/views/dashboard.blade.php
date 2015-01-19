@@ -70,11 +70,17 @@
 						<td>{{$order['order_id']}}</td>
 						<td>{{$order['created_at']}}</td>
 						<td>{{$order['firstname']}} {{$order['lastname']}}</td>
-						<td>${{$order['total']}}</td>
+						{{ $tmp_total_price = 0 }}
+						@foreach ($order_items as $o_item)
+							@if($o_item['order_id'] == $order['order_id'])
+								{{ $tmp_total_price += $o_item['price'] }}
+							@endif
+						@endforeach
+						<td>${{ $tmp_total_price }}</td>
 						<td class="text-right">
 							<a href="#" data-toggle="modal" data-target="#orderModal" data-orderID="{{$order['order_id']}}">Order Details</a>
 							<div class="{{$order['order_id']}}" style="display:none;">
-								<div class="order_info" data-status="{{$order['status']}}" data-date="{{$order['created_at']}}" data-total="{{$order['total']}}" data-name="{{$order['firstname']}} {{$order['lastname']}}" data-email="{{$order['email']}}" data-address="{{$order['address']}}, {{$order['city']}}, {{$order['state']}} {{$order['zip']}}" data-card="{{$order['card']}}">
+								<div class="order_info" data-status="{{$order['status']}}" data-date="{{$order['created_at']}}" data-total="{{$tmp_total_price}}" data-name="{{$order['firstname']}} {{$order['lastname']}}" data-email="{{$order['email']}}" data-address="{{$order['address']}}, {{$order['city']}}, {{$order['state']}} {{$order['zip']}}" data-card="{{$order['card']}}">
 								</div>
 								<div class="order_items">
 								@foreach ($order_items as $order_item)
