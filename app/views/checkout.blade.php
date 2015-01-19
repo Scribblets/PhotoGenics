@@ -122,19 +122,19 @@
 								
 								<div class="form-group">
 									<label for="tf_checkout_ccNumber">Card Number:</label>
-									<input type="text" class="form-control" id="tf_checkout_ccNumber" name="tf_checkout_ccNumber" placeholder="Credit Card Number" maxlength="16" val="">
+									<input type="text" data-stripe="number" class="form-control" id="tf_checkout_ccNumber" placeholder="Credit Card Number" maxlength="16" val="">
 								</div>
 								
 								<div class="form-group">
 									<div class="form-group cc-exp-date">
 										<label for="tf_checkout_ccExpMonth" class="cc-exp-date-label">Expiration Date:</label>
-										<input type="text" class="form-control" id="tf_checkout_ccExpMonth" name="tf_checkout_ccExpMonth" placeholder="MM" maxlength="2" val=""> / 
-										<input type="text" class="form-control" id="tf_checkout_ccExpYear" name="tf_checkout_ccExpYear" placeholder="YYYY" maxlength="4" val="">
+										<input type="text" data-stripe="exp-month" class="form-control" id="tf_checkout_ccExpMonth" placeholder="MM" maxlength="2" val=""> / 
+										<input type="text" data-stripe="exp-year" class="form-control" id="tf_checkout_ccExpYear" placeholder="YYYY" maxlength="4" val="">
 									</div>
 									
 									<div class="form-group cc-code">
-										<label for="tf_checkout_ccCode">CSC:</label>
-										<input type="text" class="form-control" id="tf_checkout_ccCode" name="tt_checkout_ccCode" placeholder="123" maxlength="3" val="">
+										<label for="tf_checkout_ccCode">CVC:</label>
+										<input type="text" data-stripe="cvc" class="form-control" id="tf_checkout_ccCode" placeholder="123" maxlength="3" val="">
 									</div>
 									<div class="clear"></div>
 								</div>
@@ -145,7 +145,7 @@
 								
 								<div class="button-group">
 									<button type="button" class="btn btn-default prev-next">Edit Cart</button>
-									<button id="placeOrder" type="button" class="btn btn-success" disabled="true">Place Order</button>
+									<button type="submit" id="placeOrder" class="btn btn-success" disabled="true">Place Order</button>
 								</div>
 							</div>
 						</form>						
@@ -186,7 +186,7 @@
 			</div>
 		</div> <!-- End, Panel Group -->
 	</div> <!-- End, Wrapper -->
-	
+
 	@include('layouts.login')
 	@include('layouts.register')
 
@@ -194,20 +194,13 @@
 	@parent
 		<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 		<script>
-			Stripe.setPublishableKey('@stripeKey');
-
-			$('#placeOrder').on('click', function(e){
-				e.preventDefault();
-
-				var $form = $(this);
-				$form.find('#payment-errors').hide();
-				$form.find('#placeOrder').prop('disabled', true);
-				Stripe.createToken($form, stripeResponseHandler);
-				return false;
-			});
+			Stripe.setPublishableKey('pk_test_byl39OOJq9GcVZZSanaY9aUv');
 
 			function stripeResponseHandler(status, response){
-				var $form = $('checkout-form');
+
+				var $form = $('#checkout-form');
+
+				console.log("Second step happened.");
 
 				if(response.error){
 					$form.find('#payment-errors').text(response.error.message).show();
@@ -216,8 +209,22 @@
 					var token = response.id;
 					$form.append($('<input type="hidden" name="stripeToken" />').val(token));
 					$form.get(0).submit();
+
+					console.log(token);
 				}
 			}
+
+			$('#placeOrder').on('click', function(e){
+				e.preventDefault();
+				var $form = $('#checkout-form');
+				$form.find('#payment-errors').hide();
+				$form.find('#placeOrder').prop('disabled', true);
+				Stripe.createToken($form, stripeResponseHandler);
+				return false;
+				console.log("First step happened.");
+
+			});
+
 
 		</script>
 	@stop
