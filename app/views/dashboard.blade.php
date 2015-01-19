@@ -70,13 +70,14 @@
 						<td>{{$order['order_id']}}</td>
 						<td>{{$order['created_at']}}</td>
 						<td>{{$order['firstname']}} {{$order['lastname']}}</td>
-						{{ $tmp_total_price = 0 }}
+						<td>
+						<p style="display:none">{{ $tmp_total_price = 0 }}</p>
 						@foreach ($order_items as $o_item)
 							@if($o_item['order_id'] == $order['order_id'])
-								{{ $tmp_total_price += $o_item['price'] }}
+								<p style="display:none">{{ $tmp_total_price += $o_item['price'] }}</p>
 							@endif
 						@endforeach
-						<td>${{ $tmp_total_price }}</td>
+						${{ $tmp_total_price }}</td>
 						<td class="text-right">
 							<a href="#" data-toggle="modal" data-target="#orderModal" data-orderID="{{$order['order_id']}}">Order Details</a>
 							<div class="{{$order['order_id']}}" style="display:none;">
